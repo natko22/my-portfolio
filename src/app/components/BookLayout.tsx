@@ -107,7 +107,7 @@ const BookLayout: React.FC<BookLayoutProps> = ({ children }) => {
             <h1 className="font-serif text-2xl mb-6 tracking-wide">
               Anastasia (Natassa) Tsapanidou Kornilaki
             </h1>
-            <h2 className="font-body text-2xl mb-8 text-book-accent-light italic">
+            <h2 className="font-body text-2xl mb-8 text-book-accent-light italic text-center">
               Full-Stack Developer
             </h2>
             {/* Page Corner Flip Effect */}
