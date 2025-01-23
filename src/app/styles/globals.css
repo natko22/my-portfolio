@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap");
+
+:root {
+  --color-primary-dark: #2c3639; /* Rich dark color for main text */
+  --color-primary-light: #f5f5f5; /* Soft white for pages */
+  --color-background: #e5e5e5; /* Light gray background */
+  --color-accent: #a27b5c; /* Warm brown accent */
+  --color-accent-light: #dcd7c9; /* Light warm tone */
+}
+
+@layer base {
+  body {
+    font-family: "Lora", serif;
+    @apply text-book-dark leading-relaxed;
+  }
+
+  /* Heading styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Playfair Display", serif;
+    @apply font-semibold leading-tight;
+  }
+
+  h1 {
+    @apply text-3xl md:text-5xl mb-6;
+  }
+
+  h2 {
+    @apply text-2xl md:text-4xl mb-4;
+  }
+
+  p {
+    @apply mb-4 text-justify;
+  }
+}
+
+.book-title {
+  font-family: "Playfair Display", serif;
+  @apply text-4xl font-bold text-center mb-4;
+}
+
+.book-chapter {
+  @apply border-b border-book-accent-light pb-4 mb-8;
+}
+
+@layer components {
+  /* Book page styling */
+  .book-page {
+    @apply bg-book-light rounded-lg shadow-lg relative overflow-hidden;
+    background: var(--color-primary-light);
+    background-image: url("/textured-canvas-surface.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    box-shadow: -6px 6px 10px rgba(0, 0, 0, 0.1);
+    height: 30rem;
+    min-height: 100%;
+  }
+
+  .book-page.toc {
+    position: relative;
+    background: var(--color-primary-light);
+    background-image: url("/textured-canvas-surface.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    box-shadow: -6px 6px 10px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    height: 50rem;
+  }
+
+  .book-page.toc::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.02),
+      rgba(0, 0, 0, 0.1)
+    );
+  }
+  .book-page.content {
+    position: relative;
+    background: var(--color-primary-light);
+    background-image: url("/textured-canvas-surface.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  .book-page.content::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.02),
+      rgba(0, 0, 0, 0.1)
+    );
+  }
+
+  /* Hover and transition effects */
+  button:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .book-page:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .toc-button {
+    @apply bg-book-accent text-book-light px-4 py-2 rounded-lg;
+    @apply hover:bg-book-accent-light hover:text-book-dark transition-all;
+  }
+
+  .active-toc-button {
+    border-left: 4px solid var(--color-accent);
+    @apply bg-book-accent-light text-book-dark font-bold;
+  }
+
+  .page-transition {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+
+  .page-transition-enter {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .page-transition-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    .book-page {
+      padding: 16px;
+      box-shadow: none;
+    }
+
+    h1 {
+      @apply text-3xl;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    .book-container {
+      flex-direction: column;
+    }
+  }
+
+  /* Accessibility and high-contrast mode */
+  button:focus {
+    outline: 2px solid var(--color-accent-light);
+    outline-offset: 4px;
+  }
+
+  @media (prefers-contrast: high) {
+    body {
+      color: #000;
+      background: #fff;
+    }
+
+    .book-page {
+      border: 2px solid #000;
+    }
+  }
+}

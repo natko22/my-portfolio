@@ -1,6 +1,7 @@
-import type { Config } from "tailwindcss";
-
-export default {
+/* eslint-disable @typescript-eslint/no-require-imports */
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,10 +10,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        book: {
+          dark: "var(--color-primary-dark)",
+          light: "var(--color-primary-light)",
+          bg: "var(--color-background)",
+          accent: "var(--color-accent)",
+          "accent-light": "var(--color-accent-light)",
+        },
+      },
+      fontFamily: {
+        serif: ["var(--font-playfair)"],
+        body: ["var(--font-lora)"],
       },
     },
   },
-  plugins: [],
-} satisfies Config;
+  plugins: [require("@tailwindcss/typography")],
+};
