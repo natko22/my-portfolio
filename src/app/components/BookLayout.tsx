@@ -90,9 +90,9 @@ const BookLayout: React.FC<BookLayoutProps> = ({ children }) => {
             isOpen ? "pointer-events-auto" : "pointer-events-none"
           } z-10`}
         >
-          <div className="flex gap-1 h-full">
+          <div className="flex gap-1 h-full ">
             {/* Left Page (Table of Contents) */}
-            <div className="w-[50%] book-page toc p-12 rounded-l-lg h-full relative">
+            <div className="w-[50%] book-page toc p-12 rounded-l-lg h-full relative ">
               {/* Content container with fade effects */}
               <div className="absolute inset-0 overflow-hidden">
                 {/* Top fade effect */}
@@ -102,7 +102,7 @@ const BookLayout: React.FC<BookLayoutProps> = ({ children }) => {
                 <div className="absolute inset-0 overflow-y-auto no-scrollbar">
                   <div className="px-8 pt-24 pb-24 min-h-full">
                     {/* Table of Contents Content */}
-                    <div className="flex flex-col h-full">
+                    <div className="flex flex-col h-full ">
                       <h2 className="font-serif text-2xl mb-8 text-book-dark text-left">
                         Table of Contents
                       </h2>
@@ -125,15 +125,23 @@ const BookLayout: React.FC<BookLayoutProps> = ({ children }) => {
                           </button>
                         ))}
                       </div>
-
-                      {/* Close Book Button */}
-                      <div className="mt-auto pt-6 border-t border-book-accent-light">
-                        <button
+                      {/* Bookmark Close Button */}
+                      <div className="relative">
+                        <div
                           onClick={handleClose}
-                          className="w-full text-center p-4 rounded bg-book-accent text-book-light hover:bg-book-accent-light hover:text-book-dark transition-colors"
+                          className="absolute -right-6 -top-[40rem] cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 pb-2 -mt-6"
                         >
-                          Close Book
-                        </button>
+                          <div className="relative">
+                            {/* Bookmark ribbon */}
+                            <div className="w-24 h-80 bg-book-accent rounded-t-lg shadow-lg relative overflow-hidden flex items-center justify-center">
+                              <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-book-light font-serif text-base whitespace-nowrap rotate-90">
+                                Close Book
+                              </p>
+                            </div>
+                            {/* Bookmark shadow/base */}
+                            <div className="w-24 h-6 bg-book-accent-light rounded-b-lg shadow-inner"></div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

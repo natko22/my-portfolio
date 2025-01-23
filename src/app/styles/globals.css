@@ -197,4 +197,27 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge */
   }
+
+  /* Vertical writing mode for bookmark */
+  .writing-mode-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  /* Bookmark hover effect */
+  @keyframes bookmark-float {
+    0% {
+      transform: translateY(0px) rotate(180deg);
+    }
+    50% {
+      transform: translateY(-5px) rotate(180deg);
+    }
+    100% {
+      transform: translateY(0px) rotate(180deg);
+    }
+  }
+
+  .bookmark-hover:hover {
+    animation: bookmark-float 2s ease-in-out infinite;
+  }
 }
