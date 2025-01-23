@@ -54,13 +54,14 @@
 @layer components {
   /* Book page styling */
   .book-page {
-    @apply bg-book-light rounded-lg shadow-lg relative overflow-hidden;
+    @apply bg-book-light rounded-lg relative overflow-hidden;
     background: var(--color-primary-light);
     background-image: url("/textured-canvas-surface.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
-    box-shadow: -6px 6px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: -15px 15px 25px rgba(0, 0, 0, 0.2),
+      0 5px 10px rgba(0, 0, 0, 0.15), 0 -2px 5px rgba(0, 0, 0, 0.1);
     height: 30rem;
     min-height: 100%;
   }

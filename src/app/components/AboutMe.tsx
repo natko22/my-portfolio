@@ -1,6 +1,6 @@
 export default function AboutMe() {
   return (
-    <section className=" max-w-[80%] mx-auto text-lg leading-relaxed">
+    <section className=" max-w-[80%] mx-auto text-lg leading-relaxed -mt-8">
       <h1 className="font-serif text-4xl mb-8 text-book-dark">
         The Author Behind the Code{" "}
       </h1>
