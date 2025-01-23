@@ -60,23 +60,89 @@ const BookLayout: React.FC<BookLayoutProps> = ({ children }) => {
         <motion.div
           initial={false}
           animate={{
-            rotateY: isOpen ? -180 : 0,
+            rotateY: isOpen ? -100 : 0,
             opacity: isOpen ? 0 : 1,
           }}
           transition={{ duration: 0.8 }}
-          className="w-full bg-book-dark text-book-light p-12 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-full z-20"
+          className="w-full bg-book-dark text-book-light p-12 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-full z-20 group"
           onClick={() => setIsOpen(true)}
         >
           <div className="border border-book-accent p-16 rounded">
+            {/* Top left corner decoration */}
+            <div className="absolute top-1 left-1">
+              <div className="absolute -top-px -left-px w-16 h-16 overflow-hidden">
+                {/* Primary border (book-accent color) */}
+                <div className="absolute top-0 left-0 w-[1px] h-16 bg-book-accent opacity-80"></div>
+                <div className="absolute top-0 left-0 h-[1px] w-16 bg-book-accent opacity-80"></div>
+                <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-book-accent opacity-60 transform -translate-x-[1px] -translate-y-[1px]"></div>
+
+                {/* Secondary inner decoration (accent-light color) */}
+                <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-book-accent-light opacity-40"></div>
+                <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-book-accent-light opacity-30"></div>
+              </div>
+            </div>
+
+            <div className="absolute top-1 right-1">
+              <div className="absolute -top-px -right-px w-16 h-16 overflow-hidden">
+                <div className="absolute top-0 right-0 w-[1px] h-16 bg-book-accent opacity-80"></div>
+                <div className="absolute top-0 right-0 h-[1px] w-16 bg-book-accent opacity-80"></div>
+                <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-book-accent opacity-60 transform translate-x-[1px] -translate-y-[1px]"></div>
+
+                <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-book-accent-light opacity-40"></div>
+                <div className="absolute top-2 right-2 w-4 h-4 border-t border-r border-book-accent-light opacity-30"></div>
+              </div>
+            </div>
+
+            {/* Bottom left corner decoration - with matching dual colors */}
+            <div className="absolute bottom-1 left-1">
+              <div className="absolute -bottom-px -left-px w-16 h-16 overflow-hidden">
+                <div className="absolute bottom-0 left-0 w-[1px] h-16 bg-book-accent opacity-80"></div>
+                <div className="absolute bottom-0 left-0 h-[1px] w-16 bg-book-accent opacity-80"></div>
+                <div className="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-book-accent opacity-60 transform -translate-x-[1px] translate-y-[1px]"></div>
+
+                <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-book-accent-light opacity-40"></div>
+                <div className="absolute bottom-2 left-2 w-4 h-4 border-b border-l border-book-accent-light opacity-30"></div>
+              </div>
+            </div>
             <h1 className="font-serif text-2xl mb-6 tracking-wide">
-              Anastasia Tsapanidou Kornilaki
+              Anastasia (Natassa) Tsapanidou Kornilaki
             </h1>
             <h2 className="font-body text-2xl mb-8 text-book-accent-light italic">
               Full-Stack Developer
             </h2>
-            <button className="bg-book-accent text-book-light px-8 py-3 rounded-lg transition-colors duration-300 hover:bg-book-accent-light hover:text-book-dark">
+            {/* Page Corner Flip Effect */}
+            <div className="absolute bottom-0 right-0">
+              {/* Folded corner */}
+              <div className="absolute bottom-0 right-0 w-24 h-24">
+                <div className="absolute inset-0 bg-book-accent-light transform rotate-6 origin-bottom-right transition-transform duration-300 group-hover:rotate-12">
+                  {/* Inner shadow for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent to-black opacity-10"></div>
+                </div>
+              </div>
+
+              {/* Corner shadow effect */}
+              <div className="absolute bottom-0 right-0 w-24 h-24 bg-black opacity-5 transform origin-bottom-right transition-all duration-300 group-hover:opacity-10"></div>
+              {/* Additional shadow layer for more realism */}
+              <div
+                className="absolute bottom-0 right-0 w-full h-full
+                      bg-black opacity-0
+                      transform origin-bottom-right
+                      transition-all duration-500 ease-in-out
+                      group-hover/book:opacity-10"
+              ></div>
+            </div>
+
+            {/* Dynamic shadow that appears on hover */}
+            <div
+              className="absolute bottom-0 right-0 w-32 h-32
+                    bg-gradient-to-br from-black to-transparent
+                    opacity-0 transform scale-95
+                    transition-all duration-500 ease-in-out
+                    group-hover/book:opacity-5 group-hover/book:scale-100"
+            ></div>
+            {/* <button className="bg-book-accent text-book-light px-8 py-3 rounded-lg transition-colors duration-300 hover:bg-book-accent-light hover:text-book-dark">
               Open Portfolio
-            </button>
+            </button> */}
           </div>
         </motion.div>
         {/* Open Book State */}
