@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { chapters } from "../components/ChapterContent";
+import { Chapter } from "../types";
 
 export const useBookState = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [currentChapter, setCurrentChapter] =
-    useState<keyof typeof chapters>("Introduction");
+  const [currentChapter, setCurrentChapter] = useState<Chapter>("Prologue");
 
   const handleClose = () => setIsClosing(true);
   const handleClosingComplete = () => {

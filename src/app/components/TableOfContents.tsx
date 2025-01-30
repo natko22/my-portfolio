@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { memo } from "react";
 import { Chapter } from "@/app/types/index";
 import { chapters } from "./ChapterContent";
@@ -9,6 +8,7 @@ interface TOCProps {
   onClose: () => void;
 }
 
+// eslint-disable-next-line react/display-name
 export const TableOfContents = memo(
   ({ currentChapter, onChapterSelect, onClose }: TOCProps) => (
     <div className="absolute inset-0 overflow-hidden">
@@ -20,21 +20,21 @@ export const TableOfContents = memo(
               Table of Contents
             </h2>
             <div className="space-y-6">
-              {Object.keys(chapters).map((chapter) => (
-                <button
-                  key={chapter}
-                  className={`w-full text-left p-4 rounded transition-colors ${
-                    currentChapter === chapter
-                      ? "bg-book-accent-light text-book-dark font-bold"
-                      : "hover:bg-book-accent-light"
-                  }`}
-                  onClick={() =>
-                    onChapterSelect(chapter as keyof typeof chapters)
-                  }
-                >
-                  {chapter}
-                </button>
-              ))}
+              {(Object.keys(chapters) as Array<keyof typeof chapters>).map(
+                (chapter) => (
+                  <button
+                    key={chapter}
+                    className={`w-full text-left p-4 rounded transition-colors ${
+                      currentChapter === chapter
+                        ? "bg-book-accent-light text-book-dark font-bold"
+                        : "hover:bg-book-accent-light"
+                    }`}
+                    onClick={() => onChapterSelect(chapter as Chapter)}
+                  >
+                    {chapter}
+                  </button>
+                )
+              )}
             </div>
             <div className="relative">
               <div

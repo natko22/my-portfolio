@@ -8,6 +8,8 @@ import { BookCover } from "./BookCover";
 import { TableOfContents } from "./TableOfContents";
 import { ChapterContent } from "./ChapterContent";
 import { ClosingPage } from "./ClosingPage";
+import { chapters } from "./ChapterContent"; // Ensure we import the correct keys
+import { Chapter } from "@/app/types/index"; // Ensure type consistency
 
 interface BookLayoutProps {
   children?: React.ReactNode;
@@ -46,7 +48,9 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
               >
                 <TableOfContents
                   currentChapter={currentChapter}
-                  onChapterSelect={setCurrentChapter}
+                  onChapterSelect={(chapter) =>
+                    setCurrentChapter(chapter as Chapter)
+                  }
                   onClose={handleClose}
                 />
               </ClosingPage>
@@ -54,7 +58,9 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
               <div className="w-[50%] book-page toc p-12 rounded-l-lg h-full relative">
                 <TableOfContents
                   currentChapter={currentChapter}
-                  onChapterSelect={setCurrentChapter}
+                  onChapterSelect={(chapter) =>
+                    setCurrentChapter(chapter as Chapter)
+                  }
                   onClose={handleClose}
                 />
               </div>
@@ -65,7 +71,13 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                 <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-book-bg to-transparent z-10" />
                 <div className="absolute inset-0 overflow-y-auto no-scrollbar">
                   <div className="px-8 pt-24 pb-24 min-h-full">
-                    <ChapterContent chapter={currentChapter} />
+                    {currentChapter in chapters ? (
+                      <ChapterContent chapter={currentChapter} />
+                    ) : (
+                      <p className="text-center text-red-500">
+                        Chapter not found.
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-book-bg to-transparent z-10" />
