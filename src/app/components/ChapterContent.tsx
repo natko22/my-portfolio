@@ -2,9 +2,20 @@
 import { memo } from "react";
 import AboutMe from "./AboutMe";
 
+interface ChapterContentProps {
+  chapter: keyof typeof chapters; // Ensures only valid chapter keys can be passed
+}
+
+// Memoized component to optimize rendering performance
+export const ChapterContent = memo(({ chapter }: ChapterContentProps) => (
+  <div className="prose max-w-none">{chapters[chapter]}</div> // Dynamically renders the selected chapter content
+));
+
+// Defines the content structure of the book, mapping chapter titles to JSX content
 export const chapters = {
   Prologue: (
     <>
+      {/* Chapter title and introduction */}
       <h1 className="font-serif text-4xl mb-2 text-book-dark">Prologue</h1>
       <h2 className="font-serif italic text-xl mb-6 text-book-muted">
         In which I invite you into my world of code and creativity
@@ -18,6 +29,7 @@ export const chapters = {
   ),
   "Chapter I: Tales of Creation": (
     <>
+      {/* Chapter I - Showcasing projects and creative works */}
       <h1 className="font-serif text-4xl mb-2 text-book-dark">
         Chapter I: Tales of Creation
       </h1>
@@ -33,6 +45,7 @@ export const chapters = {
   ),
   "Chapter II: The Correspondence Chamber": (
     <>
+      {/* Chapter II - Contact and networking information */}
       <h1 className="font-serif text-4xl mb-2 text-book-dark">
         Chapter II: Connect & Collaborate
       </h1>
@@ -45,13 +58,5 @@ export const chapters = {
       </p>
     </>
   ),
-  "Chapter III: Author's Note": <AboutMe />,
+  "Chapter III: Author's Note": <AboutMe />, // Renders the AboutMe component as the final chapter
 };
-
-interface ChapterContentProps {
-  chapter: keyof typeof chapters;
-}
-
-export const ChapterContent = memo(({ chapter }: ChapterContentProps) => (
-  <div className="prose max-w-none">{chapters[chapter]}</div>
-));
