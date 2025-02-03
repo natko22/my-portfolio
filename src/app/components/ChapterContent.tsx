@@ -13,10 +13,16 @@ export const chapters: { [K in Chapter]: React.ReactNode } = {
     <>
       <h1>Prologue</h1>
       <h2>Every journey has a beginning, and this is mine.</h2>
-      <p>
+      {/* <p>
         Welcome to my portfolio! Within these digital pages, you’ll find the
         essence of my journey—projects, passions, and the story of how I fell in
         love with web development.
+      </p> */}
+      <p>
+        The first page of any book sets the tone for the adventure ahead.
+        Welcome to my portfolio—a collection of chapters filled with code,
+        creativity, and a passion for building the web. Turn the pages and
+        explore the story behind my work.
       </p>
     </>
   ),
