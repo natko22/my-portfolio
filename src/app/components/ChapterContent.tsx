@@ -1,4 +1,5 @@
 /* eslint-disable react/display-name */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { memo, useState } from "react";
 import AboutMe from "./AboutMe";
 import { projects } from "../data/projects";
@@ -47,7 +48,7 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isFlipping, setIsFlipping] = useState(false);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // Handles project selection with a flip effect
   const openProject = (project: any) => {
     setIsFlipping(true);
     setTimeout(() => {
@@ -83,27 +84,39 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
         >
           {!selectedProject ? (
             <>
+              {/* Title */}
               <h1 className="font-serif text-4xl mb-2 text-book-dark">
                 First Steps
               </h1>
               <h2 className="font-serif italic text-xl mb-6 text-book-muted">
                 The journey begins with small yet meaningful projects.
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 place-items-center">
+
+              {/* Project List with Book-Themed Styling */}
+              <div className="flex flex-col space-y-8">
                 {projects["Chapter I: First Steps"]?.map((proj) => (
                   <div
                     key={proj.title}
-                    className="flex flex-col items-center text-center cursor-pointer transition-transform transform hover:scale-105"
+                    className="flex items-center space-x-6 cursor-pointer transition-transform transform hover:scale-105"
                     onClick={() => openProject(proj)}
                   >
-                    <Image
-                      src={proj.image}
-                      alt={proj.title}
-                      width={200}
-                      height={200}
-                      className="rounded-lg shadow-lg"
-                    />
-                    <p className="mt-3 text-lg font-semibold">{proj.title}</p>
+                    {/* Project Image with a Book-Like Frame */}
+                    <div className="relative w-40 h-40 bg-book-paper border flex items-center justify-center p-2">
+                      <Image
+                        src={proj.image}
+                        alt={proj.title}
+                        fill
+                        className="object-contain scale-75"
+                      />
+                    </div>
+
+                    {/* Project Details */}
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-semibold text-book-dark">
+                        {proj.title}
+                      </h3>
+                      <p className="text-gray-600 italic">{proj.description}</p>
+                    </div>
                   </div>
                 ))}
               </div>
