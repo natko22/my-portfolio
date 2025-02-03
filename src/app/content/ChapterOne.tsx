@@ -34,9 +34,9 @@ const ChapterOne: React.FC<ChapterOneProps> = ({
         <h1 className="text-4xl font-serif font-bold">
           {selectedProject.title}
         </h1>
-        <p className="italic text-book-muted mt-3 text-lg text-center">
+        <h6 className="italic  mt-3 text-lg text-center text-grey-400">
           {selectedProject.description}
-        </p>
+        </h6>
       </div>
 
       {/* Centered Image Matching Project List */}

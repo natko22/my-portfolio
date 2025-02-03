@@ -2,26 +2,50 @@ export const projects = {
   "Chapter I: First Steps": [
     {
       title: "Bouncing Ball",
-      description: "A simple physics game built with JavaScript and p5.js.",
+      shortDescription:
+        "A one-button arcade game where you time your jumps to dodge obstacles.",
+      description: `My first project at Ironhack, inspired by "Kula World." 
+      Tap the spacebar to make the ball jump and avoid incoming obstacles while collecting items to score points.`,
       image: "/bouncing-ball.png",
-      techStack: ["JavaScript", "p5.js"],
+      techStack: ["JavaScript", "p5.js", "Web Audio API", "Canvas API"],
       demo: "https://natko22.github.io/natko22.github.io-bouncing-ball/",
       repo: "https://github.com/natko22/natko22.github.io-bouncing-ball",
     },
     {
       title: "Galaxia",
-      description:
-        "A space exploration app using NASA's API and Handlebars.js.",
+      shortDescription:
+        "A space exploration app that lets users browse NASA images and contribute their own.",
+      description: `Galaxia is a web app that allows users to explore stunning space images using NASA's API. 
+      Browse galleries of the Sun, Moon, Venus, and Mars Curiosity, save favorites, and contribute your own space-related photos.`,
       image: "/galaxia-logo.png",
-      techStack: ["Handlebars.js", "NASA API", "CSS"],
+      techStack: [
+        "MongoDB",
+        "Express",
+        "JavaScript",
+        "Handlebars.js",
+        "NASA API",
+        "CSS",
+      ],
       demo: "https://galaxia-kqgy.onrender.com/",
       repo: "https://github.com/natko22/galaxia",
     },
     {
       title: "Petopia",
-      description: "A MERN app where users can find or become pet sitters.",
+      shortDescription:
+        "A MERN-based platform connecting pet owners with trusted pet sitters.",
+      description: `A full-stack web app where users can find pet sitters, manage bookings, leave reviews, and save favorites. Features include Google authentication, availability management, and a seamless booking system.`,
       image: "/dog-logo.jpg",
-      techStack: ["MongoDB", "Express", "React", "Node.js"],
+      techStack: [
+        "MongoDB",
+        "Express",
+        "React",
+        "Node.js",
+        "JWT",
+        "Google Auth",
+        "Cloudinary",
+        "React Calendar",
+        "CSS",
+      ],
       demo: "https://petopia-petopia.netlify.app/",
       repo: "https://github.com/natko22/pet-project-frontend",
     },

@@ -104,7 +104,7 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
                     {/* Project Details */}
                     <div className="flex-1">
                       <h3 className="text-2xl font-semibold">{proj.title}</h3>
-                      <p className=" italic">{proj.description}</p>
+                      <p className=" italic">{proj.shortDescription}</p>
                     </div>
                   </h2>
                 ))}
