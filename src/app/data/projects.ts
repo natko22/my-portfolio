@@ -31,7 +31,7 @@ export const projects = {
       title: "Makeup Artist Portfolio",
       description:
         "A personal portfolio for a makeup artist with a custom-built CMS.",
-      image: "/makeup-portfolio.jpg", // ✅ FIXED PATH
+      image: "/makeup-portfolio.jpg",
       techStack: ["Next.js", "TailwindCSS", "CMS"],
       demo: "https://your-makeup-portfolio.com",
       repo: "https://github.com/your-makeup-portfolio-repo",
@@ -41,7 +41,7 @@ export const projects = {
     {
       title: "VREP School Project",
       description: "A school project built with TypeScript, SASS, and React.",
-      image: "/vrep-school.png", // ✅ FIXED PATH
+      image: "/vrep-school.png",
       techStack: ["TypeScript", "React", "SASS"],
       demo: "https://your-vrep-demo.com",
       repo: "https://github.com/your-vrep-repo",
@@ -49,7 +49,7 @@ export const projects = {
     {
       title: "Chat App with OpenAI",
       description: "A real-time chat app built using OpenAI API.",
-      image: "/chat-app.png", // ✅ FIXED PATH
+      image: "/chat-app.png",
       techStack: ["React", "TypeScript", "OpenAI API"],
       demo: "https://your-chat-app-demo.com",
       repo: "https://github.com/your-chat-app-repo",

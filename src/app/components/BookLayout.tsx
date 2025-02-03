@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable react/display-name */
 "use client";
 
@@ -6,9 +7,8 @@ import { motion } from "framer-motion";
 import { useBookState } from "../hooks/useBookState";
 import { BookCover } from "./BookCover";
 import { TableOfContents } from "./TableOfContents";
-import { ChapterContent } from "./ChapterContent";
 import { ClosingPage } from "./ClosingPage";
-import { chapters } from "./ChapterContent";
+import { ChapterContent, chapters } from "./ChapterContent";
 import { Chapter } from "@/app/types/index";
 
 interface BookLayoutProps {
@@ -85,7 +85,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                   <div className="px-8 pt-24 pb-24 min-h-full">
                     {/* Conditionally renders chapter content */}
                     {currentChapter in chapters ? (
-                      <ChapterContent chapter={currentChapter} />
+                      <ChapterContent chapter={currentChapter as Chapter} />
                     ) : (
                       <p className="text-center text-red-500">
                         Chapter not found.
