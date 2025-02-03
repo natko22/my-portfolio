@@ -4,6 +4,7 @@
 
 import { memo } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useBookState } from "../hooks/useBookState";
 import { BookCover } from "./BookCover";
 import { TableOfContents } from "./TableOfContents";
@@ -30,8 +31,17 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
   } = useBookState();
 
   return (
-    <div className="min-h-screen bg-book-bg flex items-center justify-center">
+    <div className="  flex items-center justify-center mt-20">
       {/* Container for the entire book layout */}
+      <Image
+        src="/bg.jpg"
+        alt="Background"
+        layout="fill"
+        objectFit="cover"
+        quality={100}
+        className="-z-10 "
+      />
+
       <div className="relative w-[80rem] h-[50rem] -mt-16 filter drop-shadow-2xl">
         {/* Book cover component - opens the book when clicked */}
         <BookCover isOpen={isOpen} onOpen={() => setIsOpen(true)} />

@@ -19,9 +19,9 @@ export const TableOfContents = memo(
       <div className="absolute inset-0 overflow-y-auto no-scrollbar">
         <div className="px-8 pt-24 pb-24 min-h-full">
           <div className="flex flex-col h-full">
-            <h2 className="font-serif text-2xl mb-8 text-book-dark text-left">
+            <h1 className=" text-2xl mb-8 text-book-dark text-left">
               Table of Contents
-            </h2>
+            </h1>
 
             {/* Chapter selection list */}
             <div className="space-y-6">
@@ -52,12 +52,12 @@ export const TableOfContents = memo(
                 <div className="relative">
                   {/* Book spine (visual close button) */}
                   <div className="w-24 h-80 bg-book-accent rounded-t-lg shadow-lg relative overflow-hidden flex items-center justify-center">
-                    <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-book-light font-serif text-base whitespace-nowrap rotate-90">
+                    <h2 className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-book-light font-serif text-base whitespace-nowrap rotate-70">
                       Close Book
-                    </p>
+                    </h2>
                   </div>
                   {/* Bottom part of the book spine for styling */}
-                  <div className="w-24 h-6 bg-book-accent-light rounded-b-lg shadow-inner"></div>
+                  <div className="w-24 h-6 bg-book-accent rounded-b-lg shadow-inner"></div>
                 </div>
               </div>
             </div>

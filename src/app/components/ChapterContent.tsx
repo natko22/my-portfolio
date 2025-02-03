@@ -11,11 +11,9 @@ import { Chapter } from "../types";
 export const chapters: { [K in Chapter]: React.ReactNode } = {
   Prologue: (
     <>
-      <h1 className="font-serif text-4xl mb-2 text-book-dark">Prologue</h1>
-      <h2 className="font-serif italic text-xl mb-6 text-book-muted">
-        Every journey has a beginning, and this is mine.
-      </h2>
-      <p className="text-book-dark leading-relaxed text-lg">
+      <h1>Prologue</h1>
+      <h2>Every journey has a beginning, and this is mine.</h2>
+      <p>
         Welcome to my portfolio! Within these digital pages, you’ll find the
         essence of my journey—projects, passions, and the story of how I fell in
         love with web development.
@@ -25,13 +23,9 @@ export const chapters: { [K in Chapter]: React.ReactNode } = {
   "Chapter I: Tales of Creation": null,
   "Chapter II: The Correspondence Chamber": (
     <>
-      <h1 className="font-serif text-4xl mb-2 text-book-dark">
-        Connect & Collaborate
-      </h1>
-      <h2 className="font-serif italic text-xl mb-6 text-book-muted">
-        A brief pause to say hello or spark a new collaboration.
-      </h2>
-      <p className="text-book-dark leading-relaxed text-lg">
+      <h1>Connect & Collaborate</h1>
+      <h2>A brief pause to say hello or spark a new collaboration.</h2>
+      <p>
         I’d love to hear from you—whether it’s about potential projects, career
         opportunities, or simply saying hello. Email or LinkedIn works best!
       </p>
@@ -85,17 +79,13 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
           {!selectedProject ? (
             <>
               {/* Title */}
-              <h1 className="font-serif text-4xl mb-2 text-book-dark">
-                First Steps
-              </h1>
-              <h2 className="font-serif italic text-xl mb-6 text-book-muted">
-                The journey begins with small yet meaningful projects.
-              </h2>
+              <h1>First Steps</h1>
+              <h2>The journey begins with small yet meaningful projects.</h2>
 
               {/* Project List with Book-Themed Styling */}
               <div className="flex flex-col space-y-8">
                 {projects["Chapter I: First Steps"]?.map((proj) => (
-                  <div
+                  <h2
                     key={proj.title}
                     className="flex items-center space-x-6 cursor-pointer transition-transform transform hover:scale-105"
                     onClick={() => openProject(proj)}
@@ -105,19 +95,18 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
                       <Image
                         src={proj.image}
                         alt={proj.title}
-                        fill
-                        className="object-contain scale-75"
+                        width={100}
+                        height={100}
+                        className="object-contain"
                       />
                     </div>
 
                     {/* Project Details */}
                     <div className="flex-1">
-                      <h3 className="text-2xl font-semibold text-book-dark">
-                        {proj.title}
-                      </h3>
-                      <p className="text-gray-600 italic">{proj.description}</p>
+                      <h3 className="text-2xl font-semibold">{proj.title}</h3>
+                      <p className=" italic">{proj.description}</p>
                     </div>
-                  </div>
+                  </h2>
                 ))}
               </div>
             </>

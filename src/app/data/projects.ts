@@ -12,7 +12,7 @@ export const projects = {
       title: "Galaxia",
       description:
         "A space exploration app using NASA's API and Handlebars.js.",
-      image: "/logo.png",
+      image: "/galaxia-logo.png",
       techStack: ["Handlebars.js", "NASA API", "CSS"],
       demo: "https://galaxia-kqgy.onrender.com/",
       repo: "https://github.com/natko22/galaxia",

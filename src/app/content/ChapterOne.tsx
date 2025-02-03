@@ -34,7 +34,7 @@ const ChapterOne: React.FC<ChapterOneProps> = ({
         <h1 className="text-4xl font-serif font-bold">
           {selectedProject.title}
         </h1>
-        <p className="italic text-book-muted mt-3 text-lg">
+        <p className="italic text-book-muted mt-3 text-lg text-center">
           {selectedProject.description}
         </p>
       </div>
