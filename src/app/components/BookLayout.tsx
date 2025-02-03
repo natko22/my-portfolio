@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-"use client"; // Enables Next.js client-side rendering
+"use client";
 
 import { memo } from "react";
 import { motion } from "framer-motion";

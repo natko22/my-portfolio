@@ -3,7 +3,7 @@ import { Chapter } from "@/app/types/index";
 import { chapters } from "./ChapterContent";
 
 interface TOCProps {
-  currentChapter: Chapter; // Currently selected chapter
+  currentChapter: Chapter;
   onChapterSelect: (chapter: Chapter) => void; // Function to handle chapter selection
   onClose: () => void; // Function to close the book
 }
@@ -16,11 +16,9 @@ export const TableOfContents = memo(
       {/* Top gradient overlay for aesthetic fade effect */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-book-bg to-transparent z-10"></div>
 
-      {/* Scrollable TOC content */}
       <div className="absolute inset-0 overflow-y-auto no-scrollbar">
         <div className="px-8 pt-24 pb-24 min-h-full">
           <div className="flex flex-col h-full">
-            {/* Table of Contents title */}
             <h2 className="font-serif text-2xl mb-8 text-book-dark text-left">
               Table of Contents
             </h2>
@@ -34,8 +32,8 @@ export const TableOfContents = memo(
                     key={chapter}
                     className={`w-full text-left p-4 rounded transition-colors ${
                       currentChapter === chapter
-                        ? "bg-book-accent-light text-book-dark font-bold" // Highlight active chapter
-                        : "hover:bg-book-accent-light" // Hover effect for better UX
+                        ? "bg-book-accent-light text-book-dark font-bold"
+                        : "hover:bg-book-accent-light"
                     }`}
                     onClick={() => onChapterSelect(chapter as Chapter)}
                   >
