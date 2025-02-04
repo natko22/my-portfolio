@@ -8,27 +8,10 @@ import Image from "next/image";
 import ChapterOne from "./ChapterOne";
 import { Chapter } from "../types";
 import Contact from "./Contact";
+import Prologue from "./Prologue";
 
 export const chapters: { [K in Chapter]: React.ReactNode } = {
-  Prologue: (
-    <>
-      <h1 className="text-center">Prologue</h1>
-      <h2 className="text-center">
-        Every journey has a beginning, and this is mine.
-      </h2>
-      {/* <p>
-        Welcome to my portfolio! Within these digital pages, you’ll find the
-        essence of my journey—projects, passions, and the story of how I fell in
-        love with web development.
-      </p> */}
-      <p>
-        The first page of any book sets the tone for the adventure ahead.
-        Welcome to my portfolio—a collection of chapters filled with code,
-        creativity, and a passion for building the web. Turn the pages and
-        explore the story behind my work.
-      </p>
-    </>
-  ),
+  Prologue: <Prologue />,
   "Chapter I: Tales of Creation": null,
   "Chapter II: The Correspondence Chamber": <Contact />,
   "Chapter III: Author's Note": <AboutMe />,

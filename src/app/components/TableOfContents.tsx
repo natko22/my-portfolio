@@ -24,7 +24,7 @@ export const TableOfContents = memo(
             </h1>
 
             {/* Chapter selection list */}
-            <div className="space-y-6">
+            <div className="space-y-6 ">
               {/* Dynamically maps through available chapters */}
               {(Object.keys(chapters) as Array<keyof typeof chapters>).map(
                 (chapter) => (
