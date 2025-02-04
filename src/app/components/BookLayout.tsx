@@ -9,7 +9,7 @@ import { useBookState } from "../hooks/useBookState";
 import { BookCover } from "./BookCover";
 import { TableOfContents } from "./TableOfContents";
 import { ClosingPage } from "./ClosingPage";
-import { ChapterContent, chapters } from "./ChapterContent";
+import { ChapterContent, chapters } from "../content/ChapterContent";
 import { Chapter } from "@/app/types/index";
 
 interface BookLayoutProps {

@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Chapter } from "@/app/types/index";
-import { chapters } from "./ChapterContent";
+import { chapters } from "../content/ChapterContent";
 
 interface TOCProps {
   currentChapter: Chapter;

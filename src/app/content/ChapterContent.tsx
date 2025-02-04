@@ -5,14 +5,17 @@ import AboutMe from "./AboutMe";
 import { projects } from "../data/projects";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import ChapterOne from "../content/ChapterOne";
+import ChapterOne from "./ChapterOne";
 import { Chapter } from "../types";
+import Contact from "./Contact";
 
 export const chapters: { [K in Chapter]: React.ReactNode } = {
   Prologue: (
     <>
-      <h1>Prologue</h1>
-      <h2>Every journey has a beginning, and this is mine.</h2>
+      <h1 className="text-center">Prologue</h1>
+      <h2 className="text-center">
+        Every journey has a beginning, and this is mine.
+      </h2>
       {/* <p>
         Welcome to my portfolio! Within these digital pages, you’ll find the
         essence of my journey—projects, passions, and the story of how I fell in
@@ -27,16 +30,7 @@ export const chapters: { [K in Chapter]: React.ReactNode } = {
     </>
   ),
   "Chapter I: Tales of Creation": null,
-  "Chapter II: The Correspondence Chamber": (
-    <>
-      <h1>Connect & Collaborate</h1>
-      <h2>A brief pause to say hello or spark a new collaboration.</h2>
-      <p>
-        I’d love to hear from you—whether it’s about potential projects, career
-        opportunities, or simply saying hello. Email or LinkedIn works best!
-      </p>
-    </>
-  ),
+  "Chapter II: The Correspondence Chamber": <Contact />,
   "Chapter III: Author's Note": <AboutMe />,
 };
 
@@ -85,8 +79,10 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
           {!selectedProject ? (
             <>
               {/* Title */}
-              <h1>First Steps</h1>
-              <h2>The journey begins with small yet meaningful projects.</h2>
+              <h1 className="text-center">First Steps</h1>
+              <h2 className="text-center">
+                The journey begins with small yet meaningful projects.
+              </h2>
 
               {/* Project List with Book-Themed Styling */}
               <div className="flex flex-col space-y-8">
@@ -109,8 +105,10 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
 
                     {/* Project Details */}
                     <div className="flex-1">
-                      <h3 className="text-2xl font-semibold">{proj.title}</h3>
-                      <p className=" italic">{proj.shortDescription}</p>
+                      <h3 className="text-1xl font-semibold">{proj.title}</h3>
+                      <p className=" italic text-gray-600">
+                        {proj.shortDescription}
+                      </p>
                     </div>
                   </h2>
                 ))}

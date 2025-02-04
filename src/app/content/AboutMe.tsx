@@ -1,7 +1,7 @@
 export default function AboutMe() {
   return (
     <section className="max-w-3xl mx-auto -mt-8">
-      <h1 className="mt-8">The Author Behind the Code</h1>
+      <h1 className="mt-8 text-center">The Author Behind the Code</h1>
       <p>
         Welcome to my digital library, where every line of code tells a story.
         My name is Natassa, and I’m a developer with a passion for crafting
