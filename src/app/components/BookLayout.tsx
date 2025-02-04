@@ -34,7 +34,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
     <div className="  flex items-center justify-center mt-20">
       {/* Container for the entire book layout */}
       <Image
-        src="/bg.jpg"
+        src="/linear-bg.jpg"
         alt="Background"
         layout="fill"
         objectFit="cover"
