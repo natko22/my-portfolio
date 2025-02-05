@@ -26,25 +26,41 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => (
     className="absolute left-1/4 bg-book-dark text-book-light p-12 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-full z-20 group"
     onClick={onOpen}
   >
-    {/* Book Cover Title */}
-    {/* <div className="relative px-12 py-8 text-center max-w-md">
+    {/* <div className="relative px-12 py-8 text-center max-w-md shadow-inner border border-book-accent rounded-lg">
       <div className="absolute inset-0 border-2 border-book-accent rounded-lg"></div>
-      <h1 className="relative z-10 font-serif text-3xl md:text-4xl tracking-wide leading-tight">
+      <h1 className="relative z-10 text-3xl md:text-5xl font-serif tracking-wide leading-tight text-book-accent-light">
         Anastasia Tsapanidou Kornilaki
       </h1>
-      <h2 className="relative z-10 font-body text-xl md:text-2xl text-book-accent-light italic">
+      <h2 className="relative z-10 text-lg md:text-xl font-body text-book-accent-light italic mt-2">
         Full-Stack Developer
       </h2>
     </div> */}
 
-    <div className="px-12 py-8 text-center max-w-md shadow-inner border border-book-accent rounded-lg">
-      <h1 className="z-10 text-2xl md:text-4xl tracking-wide leading-tight drop-shadow-lg flex items-center justify-center gap-3 text-book-accent-light">
+    <div className="relative px-12 py-8 text-center max-w-md shadow-inner border border-book-accent rounded-lg">
+      {/* Decorative Frame */}
+      <div className="absolute inset-0 border-4 border-book-accent rounded-lg shadow-lg opacity-70"></div>
+      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 bg-book-dark text-book-accent font-serif text-xl italic ">
+        From Theology To Technology {/* From Scriptures to Software */}
+      </div>
+
+      {/* Author Name */}
+      <h1 className="relative z-10 text-3xl md:text-4xl tracking-wide text-book-accent-light mt-6 ">
         Anastasia Tsapanidou Kornilaki
       </h1>
-      <h1 className="z-10 font-body text-xl md:text-2xl text-book-accent-light italic">
+
+      {/* Subtitle */}
+      <h2 className="relative z-10 text-lg md:text-xl font-body text-book-accent-light italic mt-2 whitespace-nowrap">
         Full-Stack Developer
-      </h1>
+      </h2>
     </div>
+    {/* Top Left Corner */}
+    <div className="absolute top-1 left-5 text-book-accent text-3xl">✾</div>
+    {/* Top Right Corner */}
+    <div className="absolute top-1 right-4 text-book-accent text-3xl">✾</div>
+    {/* Bottom Left Corner */}
+    <div className="absolute bottom-1 left-5 text-book-accent text-3xl">✾</div>
+    {/* Bottom Right Corner */}
+    <div className="absolute bottom-1 right-4 text-book-accent text-3xl">✾</div>
 
     {/* 📖 Left Side - Book Spine */}
     <div className="absolute top-0 left-0 h-full w-6 bg-gradient-to-l from-transparent via-[var(--color-accent)] to-[var(--color-primary-dark)] opacity-70 rounded-l-lg"></div>

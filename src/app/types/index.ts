@@ -1,8 +1,10 @@
 export type Chapter =
   | "Prologue"
   | "Chapter I: Tales of Creation"
-  | "Chapter II: The Correspondence Chamber"
-  | "Chapter III: Author's Note";
+  | "Chapter II: Architecting My Own Path"
+  | "Chapter III: The Workshop of Reality"
+  | "The Correspondence Chamber"
+  | "Author's Note";
 
 export interface ChapterData {
   chapters: {

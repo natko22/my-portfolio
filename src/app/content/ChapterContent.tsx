@@ -13,8 +13,10 @@ import Prologue from "./Prologue";
 export const chapters: { [K in Chapter]: React.ReactNode } = {
   Prologue: <Prologue />,
   "Chapter I: Tales of Creation": null,
-  "Chapter II: The Correspondence Chamber": <Contact />,
-  "Chapter III: Author's Note": <AboutMe />,
+  "Chapter II: Architecting My Own Path": null,
+  "Chapter III: The Workshop of Reality": null,
+  "The Correspondence Chamber": <Contact />,
+  "Author's Note": <AboutMe />,
 };
 
 interface ChapterContentProps {

@@ -28,6 +28,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
     setCurrentChapter,
     handleClose,
     handleClosingComplete,
+    mountKey,
   } = useBookState();
 
   return (
@@ -48,6 +49,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
 
         {/* Animated book content wrapper */}
         <motion.div
+          key={mountKey}
           initial={{ opacity: 0 }} // Initially hidden
           animate={{ opacity: isOpen ? 1 : 0 }} // Fade in/out based on `isOpen`
           transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
@@ -60,6 +62,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
             {/* Handles book closing animation */}
             {isClosing ? (
               <ClosingPage
+                key={`closing-${mountKey}`}
                 isClosing={isClosing}
                 onAnimationComplete={handleClosingComplete}
               >
@@ -95,7 +98,10 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                   <div className="px-8 pt-24 pb-24 min-h-full">
                     {/* Conditionally renders chapter content */}
                     {currentChapter in chapters ? (
-                      <ChapterContent chapter={currentChapter as Chapter} />
+                      <ChapterContent
+                        key={`chapter-content-${mountKey}`}
+                        chapter={currentChapter as Chapter}
+                      />
                     ) : (
                       <p className="text-center text-red-500">
                         Chapter not found.

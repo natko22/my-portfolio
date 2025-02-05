@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 
+// Define our text constants
 const text = `Every journey begins with a single step—or in this case, a single line of code. This book tells the story of my adventures in the world of web development, where each chapter represents a milestone in my growth as a developer.`;
 const authorText = "— The Author";
 
+// Animation variants for the text
 const writingVariants = {
   hidden: { opacity: 0 },
   visible: (i: number) => ({
@@ -17,95 +18,162 @@ const writingVariants = {
 
 const PEN_SIZE = 50;
 
+// Define types for our timers and intervals
+type TimerRef = number | null;
+type IntervalRef = number | null;
+
 const Prologue = () => {
+  // State declarations
   const [startAnimation, setStartAnimation] = useState(false);
   const [startAuthorAnimation, setStartAuthorAnimation] = useState(false);
   const [penPosition, setPenPosition] = useState({ x: 0, y: 0 });
-
   const [currentLetterIndex, setCurrentLetterIndex] = useState(0);
   const [authorLetterIndex, setAuthorLetterIndex] = useState(0);
-
   const [isMainTextComplete, setIsMainTextComplete] = useState(false);
   const [isAuthorComplete, setIsAuthorComplete] = useState(false);
 
+  // Refs with proper typing and initialization
   const containerRef = useRef<HTMLDivElement>(null);
   const authorRef = useRef<HTMLSpanElement>(null);
 
-  //  Start text animation after delay
-  useEffect(() => {
-    const timer = setTimeout(() => setStartAnimation(true), 500);
-    return () => clearTimeout(timer);
+  // Initialize timer refs with null
+  const animationTimer = useRef<TimerRef>(null);
+  const mainTextInterval = useRef<IntervalRef>(null);
+  const authorTextInterval = useRef<IntervalRef>(null);
+
+  // Reset function to clear all timers and states
+  const resetAnimation = useCallback(() => {
+    // Clear timers and intervals safely
+    if (animationTimer.current) window.clearTimeout(animationTimer.current);
+    if (mainTextInterval.current)
+      window.clearInterval(mainTextInterval.current);
+    if (authorTextInterval.current)
+      window.clearInterval(authorTextInterval.current);
+
+    // Reset all ref values to null
+    animationTimer.current = null;
+    mainTextInterval.current = null;
+    authorTextInterval.current = null;
+
+    // Reset all states
+    setStartAnimation(false);
+    setStartAuthorAnimation(false);
+    setPenPosition({ x: 0, y: 0 });
+    setCurrentLetterIndex(0);
+    setAuthorLetterIndex(0);
+    setIsMainTextComplete(false);
+    setIsAuthorComplete(false);
   }, []);
 
-  //function for text animations
-  const animateText = (
-    textLength: number,
-    setIndex: React.Dispatch<React.SetStateAction<number>>,
-    onComplete: () => void
-  ) => {
-    const interval = setInterval(() => {
-      setIndex((prev) => {
-        if (prev < textLength - 1) return prev + 1;
-        clearInterval(interval);
-        onComplete();
-        return prev;
-      });
-    }, 180);
-    return interval;
-  };
+  // Text animation function with proper typing
+  const animateText = useCallback(
+    (
+      textLength: number,
+      setIndex: React.Dispatch<React.SetStateAction<number>>,
+      onComplete: () => void,
+      intervalRef: React.MutableRefObject<IntervalRef>
+    ) => {
+      // Clear any existing interval
+      if (intervalRef.current) window.clearInterval(intervalRef.current);
 
+      // Create new interval
+      const interval = window.setInterval(() => {
+        setIndex((prev) => {
+          if (prev < textLength - 1) return prev + 1;
+          if (interval) window.clearInterval(interval);
+          onComplete();
+          return prev;
+        });
+      }, 180);
+
+      // Store the interval ID
+      intervalRef.current = interval;
+    },
+    []
+  );
+
+  // Initialize animation
+  useEffect(() => {
+    resetAnimation();
+    animationTimer.current = window.setTimeout(
+      () => setStartAnimation(true),
+      500
+    );
+
+    return () => {
+      resetAnimation();
+    };
+  }, [resetAnimation]);
+
+  // Main text animation
   useEffect(() => {
     if (!startAnimation) return;
-    const interval = animateText(text.length, setCurrentLetterIndex, () => {
-      setIsMainTextComplete(true);
-      setStartAuthorAnimation(true);
-    });
-    return () => clearInterval(interval);
-  }, [startAnimation]);
 
+    animateText(
+      text.length,
+      setCurrentLetterIndex,
+      () => {
+        setIsMainTextComplete(true);
+        setStartAuthorAnimation(true);
+      },
+      mainTextInterval
+    );
+
+    return () => {
+      if (mainTextInterval.current)
+        window.clearInterval(mainTextInterval.current);
+    };
+  }, [startAnimation, animateText]);
+
+  // Author text animation
   useEffect(() => {
     if (!startAuthorAnimation) return;
-    const interval = animateText(
+
+    animateText(
       authorText.length,
       setAuthorLetterIndex,
-      () => {
-        setIsAuthorComplete(true);
-      }
+      () => setIsAuthorComplete(true),
+      authorTextInterval
     );
-    return () => clearInterval(interval);
-  }, [startAuthorAnimation]);
 
-  //  function to update pen position
-  const updatePenPosition = (
-    letters: HTMLCollectionOf<HTMLSpanElement>,
-    index: number
-  ) => {
-    if (!letters || !letters[index] || !containerRef.current) return;
+    return () => {
+      if (authorTextInterval.current)
+        window.clearInterval(authorTextInterval.current);
+    };
+  }, [startAuthorAnimation, animateText]);
 
-    const rect = letters[index].getBoundingClientRect();
-    const containerRect = containerRef.current.getBoundingClientRect();
+  // Update pen position function
+  const updatePenPosition = useCallback(
+    (letters: HTMLCollectionOf<HTMLSpanElement>, index: number) => {
+      if (!letters || !letters[index] || !containerRef.current) return;
 
-    setPenPosition({
-      x: rect.left - containerRect.left + rect.width,
-      y: rect.top - containerRect.top - 60,
-    });
-  };
+      const rect = letters[index].getBoundingClientRect();
+      const containerRect = containerRef.current.getBoundingClientRect();
 
+      setPenPosition({
+        x: rect.left - containerRect.left + rect.width,
+        y: rect.top - containerRect.top - 60,
+      });
+    },
+    []
+  );
+
+  // Update pen position for main text
   useEffect(() => {
     if (!containerRef.current || isMainTextComplete) return;
-    updatePenPosition(
-      containerRef.current.getElementsByTagName("span"),
-      currentLetterIndex
-    );
-  }, [currentLetterIndex, isMainTextComplete]);
+    const letters = containerRef.current.getElementsByTagName("span");
+    updatePenPosition(letters, currentLetterIndex);
+  }, [currentLetterIndex, isMainTextComplete, updatePenPosition]);
 
+  // Update pen position for author text
   useEffect(() => {
-    if (!authorRef.current) return;
-    updatePenPosition(
-      authorRef.current.parentElement?.getElementsByTagName("span")!,
-      authorLetterIndex
-    );
-  }, [authorLetterIndex]);
+    if (!authorRef.current || !startAuthorAnimation) return;
+    const letters =
+      authorRef.current.parentElement?.getElementsByTagName("span");
+    if (letters) {
+      updatePenPosition(letters, authorLetterIndex);
+    }
+  }, [authorLetterIndex, startAuthorAnimation, updatePenPosition]);
 
   return (
     <div className="max-w-2xl mx-auto p-8">
@@ -168,6 +236,7 @@ const Prologue = () => {
                 width={PEN_SIZE}
                 height={PEN_SIZE}
                 className="w-full h-full"
+                priority
               />
             </motion.div>
           )}
