@@ -56,19 +56,17 @@ export const projects = {
       shortDescription:
         "A portfolio website showcasing a makeup artist's work using React.js and LightGallery.",
       description: `This project is a professional portfolio for a talented makeup artist, built with **React.js** and featuring a **LightGallery-powered interactive gallery** to display stunning makeup artistry. The site is fully responsive, ensuring accessibility across all devices, and deployed on **Netlify** for seamless hosting and deployment.`,
-      image: "/makeup-portfolio.jpg",
+      image: "/m-port.jpeg",
       techStack: ["React.js", "LightGallery", "CSS", "Netlify"],
       demo: "https://mantokamari.com/",
       repo: "https://github.com/natko22/m-portofolio",
     },
-  ],
-  "Chapter III: The Workshop Of Reality": [
     {
       title: "VREP School Project",
       shortDescription:
         "A web application page built for the VREP project during my internship at MPC.",
       description: `During my internship at **MPC**, I contributed to the **VREP project**, specifically working on the **Pupils Page**. This page was developed using **TypeScript, React, and Ant Design**, ensuring a clean and efficient UI. The project provided hands-on experience in developing real-world applications in a professional setting.`,
-      image: "/vrep-school.png",
+      image: "/vrep.png",
       techStack: ["TypeScript", "React", "Ant Design"],
       demo: "https://www.youtube.com/watch?v=1grhmBoC52A",
       repo: "https://github.com/your-vrep-repo",
@@ -80,8 +78,9 @@ export const projects = {
       description: `At **Radical AI**, I independently developed **Cosmo Chat**, a real-time messaging application integrating **WebSocket** for live communication and **OpenAI API** for AI-powered responses. This project significantly enhanced my skills in **front-end development, real-time systems, and AI integration**, marking an important milestone in my professional growth.`,
       image: "/cosmo-chat.png",
       techStack: ["React", "Material UI", "WebSocket", "OpenAI API"],
-      demo: "https://your-cosmo-chat-demo.com",
-      repo: "https://github.com/your-cosmo-chat-repo",
+      demo: "https://www.youtube.com/watch?v=bIrMB4OiIMU",
+      repo: "https://github.com/natko22/cosmo-chat-ui",
     },
   ],
+  "Chapter III: The Workshop Of Reality": [],
 };
