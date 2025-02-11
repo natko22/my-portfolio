@@ -88,10 +88,7 @@ export const projects = Object.freeze({
       shortDescription:
         "Revamped the company's primary web presence using Astro and Tailwind CSS, enhanced with smooth GSAP animations.",
       description: `As part of my first professional development role, I contributed to revamping the company's website, built with Astro.  
-        My contributions included:  
-        - Enhancing the landing page with animations for a more engaging experience.  
-        - Developing missing pages, including an "About Us" section.  
-        - Improving overall performance, responsiveness, and design consistency.  `,
+        My contributions included:Enhancing the landing page with animations for a more engaging experience,developing missing pages, including an "About Us" section,improving overall performance, responsiveness, and design consistency.  `,
       image: "/kk-website-2.png",
       techStack: [
         "React",
@@ -109,10 +106,7 @@ export const projects = Object.freeze({
       shortDescription:
         "Worked on the company's core tool, a Nuxt-powered app integrating Supabase for authentication and data management.",
       description: `I was part of the team working on the company's main web application, built with Nuxt.js and Supabase.  
-        My contributions included:  
-        - Developing new features and refining existing ones.  
-        - Implementing user authentication and session management with Supabase.  
-        - Ensuring a seamless UI/UX experience using Vue 3 and Tailwind CSS. `,
+        My contributions included:Developing new features and refining existing ones,implementing user authentication and session management with Supabase,ensuring a seamless UI/UX experience using Vue 3 and Tailwind CSS. `,
       image: "/kk-app.png",
       techStack: ["Nuxt.js", "Vue 3", "Supabase", "Tailwind CSS"],
       demo: "https://app.korrekturkumpel.de/login/",
