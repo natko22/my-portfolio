@@ -53,7 +53,7 @@ export const TableOfContents = memo(
               <div className="relative">
                 <div
                   onClick={onClose}
-                  className="absolute -right-6 -top-[40rem] cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 pb-2"
+                  className="absolute -right-6 -top-[42rem] cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 pb-2"
                 >
                   <div className="relative">
                     <div className="w-24 h-40 bg-book-accent rounded-t-lg shadow-lg relative overflow-hidden flex items-center justify-center -mt-4">

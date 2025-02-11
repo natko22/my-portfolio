@@ -16,6 +16,12 @@ module.exports = {
           bg: "var(--color-background)",
           accent: "var(--color-accent)",
           "accent-light": "var(--color-accent-light)",
+          "book-paper": "#f5f3e9",
+          "book-dark": "var(--color-primary-dark)",
+          "book-light": "var(--color-primary-light)",
+          "book-accent": "var(--color-accent)",
+          "book-accent-light": "var(--color-accent-light)",
+          "book-muted": "#6b7280",
         },
       },
       fontFamily: {
