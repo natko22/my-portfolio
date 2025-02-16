@@ -1,3 +1,5 @@
+"use client";
+
 import BookLayout from "./components/BookLayout";
 import Intro from "./components/Intro";
 
