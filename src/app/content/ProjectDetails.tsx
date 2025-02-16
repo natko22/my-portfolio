@@ -113,7 +113,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 
           {selectedProject.image && (
             <div className="flex justify-center mt-6">
-              <div className="w-40 h-40 border border-gray-300 rounded-md flex items-center justify-center p-2">
+              <div className="w-40 h-40 border flex items-center justify-center p-2">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.title}

@@ -32,7 +32,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
   } = useBookState();
 
   return (
-    <div className="  flex items-center justify-center mt-20">
+    <div className="  flex items-center justify-center mt-12 ">
       {/* Container for the entire book layout */}
       <Image
         src="/linear-bg.jpg"
@@ -43,17 +43,21 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
         className="-z-10 "
       />
 
-      <div className="relative w-[80rem] h-[50rem] -mt-16 filter drop-shadow-2xl">
+      <div className="relative w-full max-w-[80rem] h-[90vh] md:h-[50rem] -mt-16 filter drop-shadow-2xl px-4 sm:px-8">
         {/* Book cover component - opens the book when clicked */}
         <BookCover isOpen={isOpen} onOpen={() => setIsOpen(true)} />
 
         {/* Animated book content wrapper */}
         <motion.div
           key={mountKey}
-          initial={{ opacity: 0 }} // Initially hidden
-          animate={{ opacity: isOpen ? 1 : 0 }} // Fade in/out based on `isOpen`
-          transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
-          className={`absolute top-0 left-0 w-full h-full ${
+          initial={{ opacity: 0, scale: 0.95, rotateY: 10 }} // Initially hidden
+          animate={{
+            opacity: isOpen ? 1 : 0,
+            scale: isOpen ? 1 : 0.95,
+            rotateY: isOpen ? 0 : window.innerWidth > 768 ? 10 : 5,
+          }} // Fade in/out based on `isOpen`
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+          className={`absolute top-6 left-0 w-full h-full ${
             isOpen ? "pointer-events-auto" : "pointer-events-none"
           } z-10`}
         >
@@ -76,7 +80,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
               </ClosingPage>
             ) : (
               // Table of Contents section (Left Page)
-              <div className="w-[50%] book-page toc p-12 rounded-l-lg h-full relative">
+              <div className="w-[50%] book-page content p-12 rounded-r-lg h-full relative">
                 <TableOfContents
                   currentChapter={currentChapter}
                   onChapterSelect={(chapter) =>

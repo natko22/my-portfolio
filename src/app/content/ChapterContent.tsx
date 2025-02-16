@@ -9,6 +9,7 @@ import { Chapter } from "../types";
 import Contact from "./Contact";
 import Prologue from "./Prologue";
 import ProjectDetails from "./ProjectDetails";
+import TechStack from "./TechStack";
 
 const chapterInfo = {
   "Chapter I: Tales of Creation": {
@@ -34,6 +35,7 @@ export const chapters: { [K in Chapter]: React.ReactNode } = {
   "Chapter II: Architecting My Own Path": null,
   "Chapter III: The Workshop of Reality": null,
   "The Correspondence Chamber": <Contact />,
+  "Glossary of Tools": <TechStack />,
   "Author's Note": <AboutMe />,
 };
 

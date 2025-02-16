@@ -23,7 +23,7 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => (
       width: { duration: 0.6, ease: [0.33, 1, 0.68, 1] },
       rotateY: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
     }}
-    className="absolute left-1/4 bg-book-dark text-book-light p-12 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-full z-20 group"
+    className="absolute left-1/4 bg-book-dark text-book-light p-6 md:p-12 md:mt-10 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-full  sm:h-[600px] md:h-[700px] lg:h-[800px] z-20 group w-[90%] sm:w-[75%] md:w-[50%] max-w-[600px] "
     onClick={onOpen}
   >
     {/* <div className="relative px-12 py-8 text-center max-w-md shadow-inner border border-book-accent rounded-lg">
@@ -37,19 +37,16 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => (
     </div> */}
 
     <div className="relative px-12 py-8 text-center max-w-md shadow-inner border border-book-accent rounded-lg">
-      {/* Decorative Frame */}
+      {" "}
       <div className="absolute inset-0 border-4 border-book-accent rounded-lg shadow-lg opacity-70"></div>
-      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 bg-book-dark text-book-accent font-serif text-xl italic ">
-        From Theology To Technology {/* From Scriptures to Software */}
+      <div className="absolute -top-2 sm:-top-2 left-1/2 transform -translate-x-1/2 px-2 sm:px-4 bg-book-dark text-book-accent font-serif text-sm sm:text-base md:text-lg lg:text-xl italic">
+        From Theology To Technology
       </div>
-
       {/* Author Name */}
-      <h1 className="relative z-10 text-3xl md:text-4xl tracking-wide text-book-accent-light mt-6 ">
+      <h1 className="relative z-10 text-2xl sm:text-3xl md:text-4xl tracking-wide text-book-accent-light mt-6 text-center">
         Anastasia Tsapanidou Kornilaki
       </h1>
-
-      {/* Subtitle */}
-      <h2 className="relative z-10 text-lg md:text-xl font-body text-book-accent-light italic mt-2 whitespace-nowrap">
+      <h2 className="relative z-10 text-md sm:text-lg md:text-xl font-body text-book-accent-light italic mt-2 whitespace-nowrap">
         Full-Stack Developer
       </h2>
     </div>

@@ -4,6 +4,7 @@ export type Chapter =
   | "Chapter II: Architecting My Own Path"
   | "Chapter III: The Workshop of Reality"
   | "The Correspondence Chamber"
+  | "Glossary of Tools"
   | "Author's Note";
 
 export interface ChapterData {
