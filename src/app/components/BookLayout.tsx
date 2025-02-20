@@ -50,7 +50,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
   return (
     <div className="flex items-center justify-center mt-12 ">
       <Image
-        src="/linear-bg.jpg"
+        src="/linear-bg.webp"
         alt="Background"
         layout="fill"
         objectFit="cover"
