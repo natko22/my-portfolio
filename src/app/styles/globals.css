@@ -102,7 +102,7 @@
   .book-page.toc {
     position: relative;
     background: var(--color-primary-light);
-    background-image: url("/textured-canvas-surface.jpg");
+    background-image: url("/textured-canvas-surface.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
@@ -129,7 +129,7 @@
   .book-page.content {
     position: relative;
     background: var(--color-primary-light);
-    background-image: url("/textured-canvas-surface.jpg");
+    background-image: url("/textured-canvas-surface.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
