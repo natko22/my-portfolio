@@ -231,7 +231,7 @@ const Prologue = () => {
               }}
             >
               <Image
-                src="/quill-pen.png"
+                src="/quill-pen.webp"
                 alt="Writing Pen"
                 width={PEN_SIZE}
                 height={PEN_SIZE}
