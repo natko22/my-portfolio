@@ -4,15 +4,14 @@
 import { memo, useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { useBookState } from "../hooks/useBookState";
 import { TableOfContents } from "./TableOfContents";
 import { ClosingPage } from "./ClosingPage";
 import { ChapterContent, chapters } from "../content/ChapterContent";
 import { Chapter } from "@/app/types/index";
+import BookCover from "./BookCover";
 
 //  Import `BookCover` dynamically
-const BookCover = dynamic(() => import("./BookCover"), { ssr: false });
 
 interface BookLayoutProps {
   children?: React.ReactNode;
@@ -35,7 +34,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
-    setWindowWidth(window.innerWidth); // Set initial value
+    setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
