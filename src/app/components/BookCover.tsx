@@ -52,5 +52,4 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => (
   </motion.div>
 ));
 
-// ✅ Ensure this component is only loaded on the client (prevents Next.js SSR issues)
 export default dynamic(() => Promise.resolve(BookCover), { ssr: false });
