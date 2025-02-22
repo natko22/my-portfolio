@@ -11,8 +11,6 @@ import { ChapterContent, chapters } from "../content/ChapterContent";
 import { Chapter } from "@/app/types/index";
 import BookCover from "./BookCover";
 
-//  Import `BookCover` dynamically
-
 interface BookLayoutProps {
   children?: React.ReactNode;
   className?: string;
@@ -104,7 +102,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
               <div className="absolute inset-0 overflow-hidden">
                 {/*Page Fade Effects */}
                 <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-book-bg to-transparent z-10" />
-                <div className="absolute inset-0 overflow-y-auto no-scrollbar">
+                <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
                   <div className="px-8 pt-24 pb-24 min-h-full">
                     {currentChapter in chapters ? (
                       <ChapterContent
