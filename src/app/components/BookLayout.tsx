@@ -116,7 +116,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                     )}
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-book-bg to-transparent z-10" />
+                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-book-bg to-transparent z-10 pointer-events-none" />
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@ export const projects = Object.freeze({
       description: `My first project at Ironhack, inspired by "Kula World." Tap the spacebar to make the ball jump and avoid incoming obstacles while collecting items to score points.`,
       image: "/bouncing-ball.webp",
       techStack: ["JavaScript", "p5.js", "Web Audio API", "Canvas API"],
-      demo: "https://natko22.github.io/natko22.github.io-bouncing-ball/",
+      demo: "https://bouncing-ball-22.netlify.app/",
       repo: "https://github.com/natko22/natko22.github.io-bouncing-ball",
     },
     {

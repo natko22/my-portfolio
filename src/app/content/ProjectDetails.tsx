@@ -80,6 +80,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                     width={100}
                     height={100}
                     className="object-contain"
+                    loading="lazy"
                   />
                 </div>
 
@@ -97,13 +98,13 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
         <div className="p-12 max-w-2xl mx-auto text-book-dark relative">
           <button
             onClick={onBackToProjects}
-            className="absolute top-4 right-4 text-book-muted italic text-lg flex items-center gap-2 hover:no-underline focus-within:outline-none"
+            className="absolute top-4 right-4 text-book-muted italic text-lg flex items-center gap-2 hover:no-underline focus-within:outline-none "
           >
             ⬅ Back to Projects
           </button>
 
-          <div className="text-center mt-12">
-            <h1 className="text-4xl font-serif font-bold">
+          <div className="text-center mt-4">
+            <h1 className="text-3xl font-serif font-bold ">
               {selectedProject.title}
             </h1>
             <h6 className="italic mt-3 text-lg text-center text-grey-400">
@@ -120,7 +121,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   width={160}
                   height={160}
                   className="object-contain"
-                  priority
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -132,7 +133,9 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               {selectedProject.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 rounded-lg text-lg italic font-serif shadow-sm"
+                  className="px-4 py-2 text-lg italic font-serif cursor-pointer 
+                        hover:scale-110 hover:text-book-accent transition-transform duration-300 ease-in-out
+                        active:scale-95"
                 >
                   {tech}
                 </span>
@@ -145,17 +148,28 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               href={selectedProject.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-book-dark no-underline hover:text-book-accent transition"
+              title="Watch the video or interact with the project"
+              aria-label={`View live demo of ${selectedProject.title}`}
+              className="relative px-5 py-2 text-lg italic font-serif cursor-pointer 
+              transition-all duration-500 ease-in-out 
+              hover:text-book-accent hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
-              🔗 Live Demo
+              {" "}
+              {selectedProject.demo.includes("youtube.com")
+                ? "🎥 Watch the Tome"
+                : "📜 Read the Scroll"}
             </a>
             <a
               href={selectedProject.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-book-dark no-underline hover:text-book-accent transition"
+              title="Explore the source code and documentation"
+              aria-label={`View GitHub repository for ${selectedProject.title}`}
+              className="relative px-5 py-2 text-lg italic font-serif cursor-pointer 
+              transition-all duration-500 ease-in-out 
+              hover:text-book-accent hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
-              📦 GitHub Repo
+              📖 Open the Codex
             </a>
           </div>
         </div>
