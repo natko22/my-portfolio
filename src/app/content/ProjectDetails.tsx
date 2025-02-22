@@ -86,7 +86,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold">{proj.title}</h3>
-                  <p className="italic text-gray-600">
+                  <p className="italic text-gray-600 leading-tight">
                     {proj.shortDescription}
                   </p>
                 </div>
@@ -98,7 +98,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
         <div className="p-12 max-w-2xl mx-auto text-book-dark relative">
           <button
             onClick={onBackToProjects}
-            className="absolute top-4 right-4 text-book-muted italic text-lg flex items-center gap-2 hover:no-underline focus-within:outline-none "
+            className="absolute -top-2 right-4 text-book-muted italic text-lg flex items-center gap-2 hover:no-underline focus-within:outline-none "
           >
             ⬅ Back to Projects
           </button>
@@ -107,7 +107,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             <h1 className="text-3xl font-serif font-bold ">
               {selectedProject.title}
             </h1>
-            <h6 className="italic mt-3 text-lg text-center text-grey-400">
+            <h6 className="italic mt-3 text-lg text-center text-grey-400 ">
               {selectedProject.description}
             </h6>
           </div>
