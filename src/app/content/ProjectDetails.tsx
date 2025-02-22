@@ -163,7 +163,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               href={selectedProject.repo}
               target="_blank"
               rel="noopener noreferrer"
-              title="Explore the source code and documentation"
+              title={`Explore the source code for ${selectedProject.title} on GitHub`}
               aria-label={`View GitHub repository for ${selectedProject.title}`}
               className="relative px-5 py-2 text-lg italic font-serif cursor-pointer 
               transition-all duration-500 ease-in-out 
