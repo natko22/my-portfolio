@@ -73,7 +73,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                 className="flex items-center space-x-6 cursor-pointer transition-transform transform hover:scale-105"
                 onClick={() => setSelectedProject(proj)}
               >
-                <div className="relative w-40 h-40 bg-book-paper border flex items-center justify-center p-2">
+                <div className="relative w-40 h-40 bg-book-paper  flex items-center justify-center p-2">
                   <Image
                     src={proj.image}
                     alt={proj.title}
@@ -97,7 +97,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
         <div className="p-12 max-w-2xl mx-auto text-book-dark relative">
           <button
             onClick={onBackToProjects}
-            className="absolute top-4 right-4 text-book-muted italic text-lg flex items-center gap-2 hover:no-underline"
+            className="absolute top-4 right-4 text-book-muted italic text-lg flex items-center gap-2 hover:no-underline focus-within:outline-none"
           >
             ⬅ Back to Projects
           </button>

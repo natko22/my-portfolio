@@ -4,28 +4,27 @@
 
 @font-face {
   font-family: "GentiumBookPlus";
-  src: url("/fonts/GentiumBookPlus-Regular.ttf") format("woff2");
+  src: url("/fonts/GentiumBookPlus-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("/fonts/CormorantGaramond-Bold.ttf") format("woff2");
+  src: url("/fonts/CormorantGaramond-Bold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "LibreBaskerville";
-  src: url("/fonts/LibreBaskerville-Bold.ttf") format("woff2");
+  src: url("/fonts/LibreBaskerville-Bold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "HomemadeApple";
-  src: url("/fonts/HomemadeApple-Regular.ttf") format("woff2");
-  font-weight: 600;
+  src: url("/fonts/HomemadeApple-Regular.ttf") format("truetype");
   font-style: normal;
 }
 
@@ -45,7 +44,7 @@
 /* ====== Base Styles (Applied Globally) ====== */
 @layer base {
   body {
-    font-family: "Lora", serif;
+    font-family: Lora, Serif;
     @apply text-book-dark leading-relaxed text-lg bg-[var(--color-background)];
   }
 
