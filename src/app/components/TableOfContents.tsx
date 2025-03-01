@@ -57,7 +57,7 @@ export const TableOfContents = memo(
                 >
                   <div className="relative">
                     <div className="w-24 h-40 bg-book-accent rounded-t-lg shadow-lg relative overflow-hidden flex items-center justify-center -mt-4">
-                      <h2 className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-book-light font-serif text-base whitespace-nowrap rotate-70">
+                      <h2 className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-book-light font-serif text-base font-bold whitespace-nowrap rotate-70">
                         Close Book
                       </h2>
                     </div>

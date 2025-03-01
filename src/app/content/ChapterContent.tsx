@@ -48,6 +48,14 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
   const [isFlipping, setIsFlipping] = useState(false);
 
   useEffect(() => {
+    const scrollContainer = document.querySelector(".chapter-scroll-container");
+
+    if (scrollContainer) {
+      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [chapter]);
+
+  useEffect(() => {
     if (selectedProject) {
       setIsFlipping(true);
       setTimeout(() => {
