@@ -87,7 +87,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                 />
               </ClosingPage>
             ) : (
-              <div className="w-[50%] book-page content p-12 rounded-r-lg h-full relative">
+              <div className="w-[50%] book-page toc p-12 rounded-r-lg h-full relative">
                 <TableOfContents
                   currentChapter={currentChapter}
                   onChapterSelect={(chapter) =>
