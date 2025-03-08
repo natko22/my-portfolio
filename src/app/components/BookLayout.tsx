@@ -44,8 +44,8 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
   }, [windowWidth, isOpen]);
 
   return (
-    <div className="flex items-center justify-center mt-12">
-      <div className="absolute inset-0 -z-10">
+    <div className="flex items-center justify-center  w-full h-full overflow-hidden">
+      <div className="fixed inset-0 -z-10">
         <Image
           src="/linear-bg.webp"
           alt="Background"
@@ -55,7 +55,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
         />
       </div>
 
-      <div className="relative w-full max-w-[80rem] h-[90vh] md:h-[50rem] -mt-16 filter drop-shadow-2xl px-4 sm:px-8">
+      <div className="relative w-full max-w-[80rem] h-[90vh] md:h-[50rem] filter drop-shadow-2xl px-4 sm:px-8">
         <BookCover isOpen={isOpen} onOpen={() => setIsOpen(true)} />
 
         <motion.div

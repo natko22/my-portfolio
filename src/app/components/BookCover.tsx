@@ -27,7 +27,7 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
         ease: [0.16, 1, 0.3, 1],
       }}
       style={{ willChange: "transform, opacity, width" }}
-      className="absolute left-1/4 bg-book-dark text-book-light p-6 md:p-12 md:mt-10 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-full sm:h-[600px] md:h-[700px] lg:h-[800px] z-20 group w-[90%] sm:w-[75%] md:w-[50%] max-w-[600px]"
+      className="absolute left-1/4 top-44 md:top-0 bg-book-dark text-book-light p-6 md:p-12 md:mt-10 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-[300px] md:h-[700px] lg:h-[800px] z-20 group w-[90%] sm:w-[75%] md:w-[50%] max-w-[600px]"
       onClick={onOpen}
     >
       <div className="relative px-12 py-8 text-center max-w-md shadow-inner border border-book-accent rounded-lg">
