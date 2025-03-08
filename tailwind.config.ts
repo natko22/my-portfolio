@@ -8,7 +8,19 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xxxs: "320px", // Ultra small screens
+      xxs: "375px",
+      sm: "640px", // Small screens (large mobile/small tablet)
+      md: "768px", // Medium screens (tablets)
+      lg: "1024px", // Large screens (laptops)
+      xl: "1280px", // Extra large screens (desktops)
+      "2xl": "1536px", // 2X large screens (large desktops)
+    },
     extend: {
+      screens: {
+        mobile: { max: "740px" }, // Screens 740px and below
+      },
       colors: {
         book: {
           dark: "var(--color-primary-dark)",
