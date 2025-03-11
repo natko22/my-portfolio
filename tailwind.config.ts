@@ -19,8 +19,27 @@ module.exports = {
     },
     extend: {
       screens: {
-        mobile: { max: "740px" }, // Screens 740px and below
+        mobile: { max: "740px" },
       },
+      height: {
+        "book-xxxs": "30vh",
+        "book-xxs": "35vh",
+        "book-sm": "40vh",
+        "book-md": "45vh",
+        "book-lg": "50vh",
+        "book-xl": "55vh",
+        "book-2xl": "60vh",
+      },
+      maxHeight: {
+        "book-xxxs": "30vh",
+        "book-xxs": "35vh",
+        "book-sm": "40vh",
+        "book-md": "45vh",
+        "book-lg": "50vh",
+        "book-xl": "55vh",
+        "book-2xl": "60vh",
+      },
+
       colors: {
         book: {
           dark: "var(--color-primary-dark)",
