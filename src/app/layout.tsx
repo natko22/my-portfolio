@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${lora.variable} scroll-smooth`}
+      className={`${playfair.variable} ${lora.variable} overflow-hidden`}
     >
       <head>
         <link rel="icon" href="/favicon.ico" />

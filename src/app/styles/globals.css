@@ -94,7 +94,7 @@
     background-blend-mode: multiply;
     box-shadow: -15px 15px 25px rgba(0, 0, 0, 0.2),
       0 5px 10px rgba(0, 0, 0, 0.15), 0 -2px 5px rgba(0, 0, 0, 0.1);
-    height: 30rem;
+    height: auto;
     min-height: 100%;
   }
 
@@ -108,7 +108,8 @@
     box-shadow: -6px 6px 10px rgba(0, 0, 0, 0.1);
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
-    height: 50rem;
+    height: auto;
+    min-height: 100%;
   }
 
   .book-page.toc::after {
@@ -119,10 +120,12 @@
     width: 20px;
     height: 100%;
     background: linear-gradient(
-      to left,
-      rgba(0, 0, 0, 0.02),
-      rgba(0, 0, 0, 0.1)
+      to right,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.07) 50%,
+      rgba(0, 0, 0, 0) 100%
     );
+    pointer-events: none;
   }
 
   .book-page.content {
@@ -145,10 +148,12 @@
     width: 20px;
     height: 100%;
     background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.02),
-      rgba(0, 0, 0, 0.1)
+      to left,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.07) 50%,
+      rgba(0, 0, 0, 0) 100%
     );
+    pointer-events: none;
   }
 
   /* ====== Hover & Transition Effects ====== */
