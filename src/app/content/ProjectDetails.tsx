@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
 
 interface Project {
   title: string;
@@ -70,23 +71,25 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             {projects?.map((proj) => (
               <div
                 key={proj.title}
-                className="flex items-center space-x-6 cursor-pointer transition-transform transform hover:scale-105"
+                className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform hover:scale-105 p-2"
                 onClick={() => setSelectedProject(proj)}
               >
-                <div className="relative w-40 h-40 bg-book-paper  flex items-center justify-center p-2">
+                <div className="relative mt-12 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-book-paper flex items-center justify-center p-2 flex-shrink-0 self-center">
                   <Image
                     src={proj.image}
                     alt={proj.title}
-                    width={100}
-                    height={100}
-                    className="object-contain"
+                    width={80}
+                    height={80}
+                    className="object-contain w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28"
                     loading="lazy"
                   />
                 </div>
 
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold">{proj.title}</h3>
-                  <p className="italic text-gray-600 leading-tight">
+                <div className="flex-1 text-center">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold">
+                    {proj.title}
+                  </h3>
+                  <p className="italic text-gray-600 leading-tight text-xs sm:text-sm  lg:text-lg">
                     {proj.shortDescription}
                   </p>
                 </div>
@@ -95,45 +98,49 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
           </div>
         </>
       ) : (
-        <div className="p-12 max-w-2xl mx-auto text-book-dark relative">
+        <div className="p-4 sm:p-12 max-w-2xl mx-auto text-book-dark relative">
           <button
             onClick={onBackToProjects}
-            className="absolute -top-2 right-4 text-book-muted italic text-lg flex items-center gap-2 hover:no-underline focus-within:outline-none "
+            className="w-full mt-8 md:w-auto text-center md:text-left italic text-xs md:text-base text-book-muted mb-4 md:absolute md:-top-2 md:right-4 hover:no-underline focus:outline-none relative z-30"
           >
-            ⬅ Back to Projects
+            <span className="flex items-center justify-center md:justify-start gap-1 md:gap-2">
+              <ArrowLeft size={16} className="md:w-5 md:h-5" /> Back to Projects
+            </span>
           </button>
 
-          <div className="text-center mt-4">
-            <h1 className="text-3xl font-serif font-bold ">
+          <div className="text-center mt-2 sm:mt-4">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold">
               {selectedProject.title}
             </h1>
-            <h6 className="italic mt-3 text-lg text-center text-grey-400 ">
+            <h6 className="italic mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-center text-grey-400">
               {selectedProject.description}
             </h6>
           </div>
 
           {selectedProject.image && (
-            <div className="flex justify-center mt-6">
-              <div className="w-40 h-40 border flex items-center justify-center p-2">
+            <div className="flex justify-center mt-4 sm:mt-6">
+              <div className="w-24 h-24 md:w-28 md:h-28 lg:w-40 lg:h-40 border flex items-center justify-center p-2">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  width={160}
-                  height={160}
-                  className="object-contain"
+                  width={120}
+                  height={120}
+                  className="object-contain w-16 h-16 md:w-20 md:h-20 lg:w-32 lg:h-32"
                   loading="lazy"
                 />
               </div>
             </div>
           )}
 
-          <div className="mt-6 text-center">
-            <h3 className="text-lg font-bold mb-2">Tech Stack:</h3>
-            <div className="flex justify-center gap-2 flex-wrap">
+          <div className="mt-3 sm:mt-6 text-center">
+            <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2">
+              Tech Stack:
+            </h3>
+            <div className="flex justify-center gap-1 sm:gap-2 flex-wrap leading-none">
               {selectedProject.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-4 py-2 text-lg italic font-serif cursor-pointer 
+                  className="px-2 sm:px-3 md:px-4 py-1 text-xs sm:text-sm lg:text-base italic font-serif cursor-pointer 
                         hover:scale-110 hover:text-book-accent transition-transform duration-300 ease-in-out
                         active:scale-95"
                 >
@@ -143,18 +150,17 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             </div>
           </div>
 
-          <div className="mt-6 flex justify-center gap-6">
+          <div className="mt-4 sm:mt-6 flex justify-center gap-3 sm:gap-6">
             <a
               href={selectedProject.demo}
               target="_blank"
               rel="noopener noreferrer"
               title="Watch the video or interact with the project"
               aria-label={`View live demo of ${selectedProject.title}`}
-              className="relative px-5 py-2 text-lg italic font-serif cursor-pointer 
-              transition-all duration-500 ease-in-out 
+              className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif cursor-pointer 
+              transition-all duration-500 ease-in-out whitespace-nowrap
               hover:text-book-accent hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
-              {" "}
               {selectedProject.demo.includes("youtube.com")
                 ? "🎥 Watch the Tome"
                 : "📜 Read the Scroll"}
@@ -165,8 +171,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               rel="noopener noreferrer"
               title={`Explore the source code for ${selectedProject.title} on GitHub`}
               aria-label={`View GitHub repository for ${selectedProject.title}`}
-              className="relative px-5 py-2 text-lg italic font-serif cursor-pointer 
-              transition-all duration-500 ease-in-out 
+              className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif cursor-pointer 
+              transition-all duration-500 ease-in-out whitespace-nowrap
               hover:text-book-accent hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
               📖 Open the Codex

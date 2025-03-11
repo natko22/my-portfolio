@@ -170,16 +170,16 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                   <div className="absolute inset-0 overflow-hidden">
                     {/* Hide top gradient on mobile */}
                     <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
-                      <div className="flex justify-between items-center px-4 pt-4 pb-2 sticky top-0 z-20 bg-book-page">
+                      <div className="flex justify-between items-center px-3 sm:px-4 pt-3 sm:pt-4 pb-1 sm:pb-2 sticky top-0 z-20 bg-book-page">
                         <button
                           onClick={toggleView}
-                          className="text-book-dark px-4 py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
+                          className="text-book-dark text-xs sm:text-sm md:text-base px-3 sm:px-4 py-1 sm:py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
                         >
                           Table of Contents
                         </button>
                         <button
                           onClick={handleMobileClose}
-                          className="text-book-dark px-4 py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
+                          className="text-book-dark text-xs sm:text-sm md:text-base px-3 sm:px-4 py-1 sm:py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
                         >
                           Close Book
                         </button>

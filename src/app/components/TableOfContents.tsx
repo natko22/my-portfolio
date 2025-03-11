@@ -61,21 +61,35 @@ export const TableOfContents = memo(
                   )}
                 </div>
               </div>
-
-              {/* Only show the bookmark-style close button on desktop */}
               {!isMobile && (
                 <div className="relative">
                   <div
                     onClick={onClose}
-                    className="absolute -right-6 -top-[36rem] xxxs:-top-[38rem] xxs:-top-[40rem] sm:-top-[42rem] md:-top-[54rem] lg:-top-[46rem] xl:-top-[48rem] cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 pb-2"
+                    className="absolute -right-6 -top-[36rem] xxxs:-top-[38rem] xxs:-top-[40rem] sm:-top-[42rem] md:-top-[55rem] tablet:-top-[50rem] lg:-top-[46rem] xl:-top-[48rem] cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 z-50"
                   >
                     <div className="relative">
-                      <div className="w-24 h-40  bg-book-accent rounded-t-lg shadow-lg relative overflow-hidden flex items-center justify-center  ">
-                        <h2 className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-book-light font-serif text-base font-bold whitespace-nowrap rotate-70">
+                      {/* Main bookmark body with box-shadow for depth */}
+                      <div
+                        className="w-24 h-40 bg-book-accent rounded-t-lg relative overflow-hidden flex items-center justify-center shadow-lg"
+                        style={{
+                          boxShadow:
+                            "2px 4px 8px rgba(0,0,0,0.3), -1px 2px 4px rgba(0,0,0,0.2)",
+                          transform: "perspective(500px) rotateY(2deg)",
+                        }}
+                      >
+                        <h2 className="absolute bottom-8  left-1/2 transform -translate-x-1/2 text-book-light font-serif text-base font-bold whitespace-nowrap rotate-120">
                           Close Book
                         </h2>
                       </div>
-                      <div className="w-24 h-6 bg-book-accent rounded-b-lg shadow-inner"></div>
+
+                      {/* Bottom part with  shadow */}
+                      <div
+                        className="w-24 h-6 bg-book-accent rounded-b-lg shadow-inner"
+                        style={{
+                          boxShadow:
+                            "inset 0px -2px 5px rgba(0,0,0,0.2), 2px 4px 6px rgba(0,0,0,0.2)",
+                        }}
+                      ></div>
                     </div>
                   </div>
                 </div>
