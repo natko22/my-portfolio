@@ -27,7 +27,7 @@ export const TableOfContents = memo(
 
     return (
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-book-bg to-transparent z-10"></div>
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-book-bg to-transparent z-10 hidden md:block"></div>
 
         <div className="absolute inset-0 overflow-y-auto no-scrollbar">
           <div

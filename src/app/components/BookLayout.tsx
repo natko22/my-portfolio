@@ -23,6 +23,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
     isOpen,
     setIsOpen,
     isClosing,
+    setIsClosing,
     currentChapter,
     setCurrentChapter,
     handleClose,
@@ -39,6 +40,21 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
 
   // Determine if we're on mobile
   const isMobile = windowWidth !== null && windowWidth < 768;
+
+  // New useEffect to fix mobile animation issues
+  useEffect(() => {
+    // Reset any problematic states when toggling between views
+    if (isMobile && isClosing) {
+      const timer = setTimeout(() => {
+        // Ensure we properly reset all states
+        setIsClosing(false);
+        setIsOpen(false);
+        setShowToc(true);
+      }, 600);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile, isClosing, setIsClosing, setIsOpen]);
 
   // Prevents hydration errors & ensures `isOpen` is initialized before calling `getRotateY()`
   const getRotateY = useCallback(() => {
@@ -64,8 +80,20 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
     [isMobile, setCurrentChapter]
   );
 
+  // New function to handle mobile close button
+  // Improved mobile close handler that works in both views
+  const handleMobileClose = useCallback(() => {
+    // First set closing state to trigger fade animation
+    setIsClosing(true);
+
+    // Ensure animation completes and book actually closes
+    setTimeout(() => {
+      handleClosingComplete();
+    }, 500); // Match animation duration
+  }, [setIsClosing, handleClosingComplete]);
+
   return (
-    <div className="flex items-center justify-center w-full overflow-hidden p-4 sm:p-6 md:p-8 lg:p-2 ">
+    <div className="flex flex-col items-center justify-start w-full overflow-x-hidden overflow-y-auto p-4 pt-6 sm:pt-8 min-h-screen">
       <div className="fixed inset-0 -z-10">
         <Image
           src="/linear-bg.webp"
@@ -76,7 +104,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
         />
       </div>
 
-      <div className="relative w-full max-w-[80rem] h-[80vh] xxxs:h-[82vh] xxs:h-[85vh] sm:h-[88vh] md:h-[42rem] lg:h-[45rem] xl:h-[48rem] 2xl:h-[50rem] filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8">
+      <div className="relative w-full max-w-[80rem] h-[calc(100vh-120px)] max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] lg:max-h-[85vh] xl:max-h-[90vh] 2xl:max-h-[95vh] filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8 mt-2 mb-4">
         <BookCover isOpen={isOpen} onOpen={() => setIsOpen(true)} />
 
         <motion.div
@@ -98,46 +126,51 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
               <motion.div
                 className="w-full book-page rounded-lg h-full relative overflow-hidden bg-book-light flex-1"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{
+                  opacity: isClosing ? 0 : 1,
+                  backgroundColor: isClosing
+                    ? "rgba(255, 255, 255, 0)"
+                    : "var(--color-primary-light)",
+                }}
+                onAnimationComplete={() => {
+                  if (isClosing) {
+                    handleClosingComplete();
+                  }
+                }}
                 transition={{ duration: 0.3 }}
                 style={{
-                  background: "var(--color-primary-light)",
                   backgroundImage: 'url("/textured-canvas-surface.webp")',
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                  backgroundBlendMode: "multiply",
-                  boxShadow: "0px 6px 10px rgba(0, 0, 0, 0.1)",
                 }}
               >
                 {showToc ? (
-                  <div className="p-6 h-full relative" style={{ zIndex: 10 }}>
-                    <div className="flex justify-between items-center mb-6 ">
+                  <div
+                    className="p-2 h-full relative overflow-y-auto no-scrollbar"
+                    style={{ zIndex: 10 }}
+                  >
+                    <div className="flex justify-end items-center mb-8 sticky top-0 z-20 pt-2 pb-2 bg-book-page">
                       <button
-                        onClick={toggleView}
-                        className="text-book-dark px-4 py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
-                      >
-                        View Chapter
-                      </button>
-                      <button
-                        onClick={handleClose}
+                        onClick={handleMobileClose}
                         className="text-book-dark px-4 py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
                       >
                         Close Book
                       </button>
                     </div>
-                    <TableOfContents
-                      currentChapter={currentChapter}
-                      onChapterSelect={handleChapterSelect}
-                      onClose={handleClose}
-                      isMobile={true}
-                    />
+                    <div className="pb-16">
+                      <TableOfContents
+                        currentChapter={currentChapter}
+                        onChapterSelect={handleChapterSelect}
+                        onClose={handleMobileClose}
+                        isMobile={true}
+                      />
+                    </div>
+                    {/* Bottom gradient stays in place */}
+                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-book-bg to-transparent z-10 pointer-events-none" />
                   </div>
                 ) : (
                   <div className="absolute inset-0 overflow-hidden">
-                    {/* Page Fade Effects */}
-                    <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-book-bg to-transparent z-10" />
+                    {/* Hide top gradient on mobile */}
                     <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
-                      <div className="flex justify-between items-center px-4 pt-4 pb-2 sticky top-0 z-20 bg-book-bg bg-opacity-90">
+                      <div className="flex justify-between items-center px-4 pt-4 pb-2 sticky top-0 z-20 bg-book-page">
                         <button
                           onClick={toggleView}
                           className="text-book-dark px-4 py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
@@ -145,7 +178,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                           Table of Contents
                         </button>
                         <button
-                          onClick={handleClose}
+                          onClick={handleMobileClose}
                           className="text-book-dark px-4 py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
                         >
                           Close Book
