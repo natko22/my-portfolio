@@ -298,7 +298,7 @@ const Prologue = () => {
 
       <div
         ref={containerRef}
-        className="relative mt-12 text-2xl font-handwritten leading-relaxed"
+        className="relative mt-12 text-xl xxxs:text-md xxs:text-lg sm:text-xl md:text-1xl lg:text-2xl font-handwritten leading-relaxed"
       >
         {text.split("").map((char, index) => (
           <motion.span
