@@ -76,7 +76,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             {projects?.map((proj) => (
               <div
                 key={proj.title}
-                className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform hover:scale-105 p-2"
+                className=" flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform hover:scale-105 p-2"
                 onClick={() => setSelectedProject(proj)}
               >
                 <div className="relative mt-12 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-book-paper flex items-center justify-center p-2 flex-shrink-0 self-center">
@@ -90,11 +90,11 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   />
                 </div>
 
-                <div className="flex-1 text-center">
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold">
+                <div className="flex-1 text-center w-full mx-auto justify-center ">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8">
                     {proj.title}
                   </h3>
-                  <p className="italic text-gray-600 leading-tight text-xs sm:text-sm  lg:text-lg">
+                  <p className="italic text-gray-600 leading-tight text-xs sm:text-sm lg:text-lg">
                     {proj.shortDescription}
                   </p>
                 </div>
