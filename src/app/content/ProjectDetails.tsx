@@ -64,14 +64,19 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     >
       {!selectedProject ? (
         <>
-          <h1 className="text-center">{chapterTitle}</h1>
-          <h2 className="text-center">{chapterDescription}</h2>
-
+          <div className="w-full mb-6">
+            <h1 className="text-center text-xl xxxs:text-lg xxs:text-xl sm:text-1xl md:text-2xl lg:text-3xl font-serif font-bold mb-2 text-book-dark">
+              {chapterTitle}
+            </h1>
+            <h2 className="text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body text-book-muted">
+              {chapterDescription}
+            </h2>
+          </div>
           <div className="flex flex-col space-y-8">
             {projects?.map((proj) => (
               <div
                 key={proj.title}
-                className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform hover:scale-105 p-2"
+                className=" flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform hover:scale-105 p-2"
                 onClick={() => setSelectedProject(proj)}
               >
                 <div className="relative mt-12 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-book-paper flex items-center justify-center p-2 flex-shrink-0 self-center">
@@ -85,11 +90,11 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   />
                 </div>
 
-                <div className="flex-1 text-center">
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold">
+                <div className="flex-1 text-center w-full mx-auto justify-center ">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8">
                     {proj.title}
                   </h3>
-                  <p className="italic text-gray-600 leading-tight text-xs sm:text-sm  lg:text-lg">
+                  <p className="italic text-gray-600 leading-tight text-xs sm:text-sm lg:text-lg">
                     {proj.shortDescription}
                   </p>
                 </div>

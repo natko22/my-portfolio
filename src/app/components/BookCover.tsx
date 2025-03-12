@@ -27,13 +27,13 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
         ease: [0.16, 1, 0.3, 1],
       }}
       style={{ willChange: "transform, opacity, width" }}
-      className="relative mx-auto mt-36 xxs:mt-32 xs:mt-32 sm:mt-36 md:mt-16 lg:mt-24 bg-book-dark text-book-light p-3 xxs:p-3 xs:p-4 sm:p-6 md:p-8 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-[200px] xxxs:h-[200px] xxs:h-[320px] xs:h-[250px] sm:h-[400px] md:h-[70vh] lg:h-[65vh] z-20 group w-[95%] xxs:w-[90%] xs:w-[96%] sm:w-[40%] md:w-[45%] lg:w-[50%] max-w-[450px] mobile:max-w-[320px] overflow-hidden"
+      className="relative mx-auto mt-36 xxs:mt-32 xs:mt-32 sm:mt-36 md:mt-16 lg:mt-24 bg-book-dark text-book-light p-3 xxs:p-3 xs:p-4 sm:p-6 md:p-8 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-[200px] xxxs:h-[200px] xxs:h-[280px] xs:h-[300px] sm:h-[400px] md:h-[70vh] lg:h-[65vh] z-20 group w-[95%] xxs:w-[90%] xs:w-[96%] sm:w-[40%] md:w-[45%] lg:w-[50%] max-w-[450px] mobile:max-w-[320px] overflow-hidden"
       onClick={onOpen}
     >
       {" "}
       <div className="relative px-0 xxs:px-0 xs:px-4 sm:px-8 md:px-12 py-2 xxxs:py-2.5 xxs:py-3 xs:py-4 sm:py-6 md:py-8 text-center max-w-md shadow-inner border-4 border-book-accent rounded-lg">
         {" "}
-        <div className="absolute -top-1.5 xxs:-top-1.5 xs:-top-2 sm:-top-2 md:-top-2.5 left-1/2 transform -translate-x-1/2 px-1 xxs:px-1.5 xs:px-2 sm:px-2 md:px-3 text-[6px] xxs:text-[7px] xs:text-[9px] sm:text-xs md:text-sm lg:text-base bg-book-dark text-book-accent font-serif italic">
+        <div className="absolute -top-1.5 xxs:-top-1.5 xs:-top-2 sm:-top-2 md:-top-2.5 left-1/2 transform -translate-x-1/2 px-1 xxs:px-1.5 xs:px-2 sm:px-2 md:px-3 text-[6px]  xxxxs:text-[5px] xxs:text-[7px] xs:text-[9px] sm:text-xs md:text-sm lg:text-base bg-book-dark text-book-accent font-serif italic">
           From Theology To Technology
         </div>
         {/* Main title - preventing excessive line breaks on mobile */}
@@ -41,9 +41,9 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
           <span className="block">Anastasia Tsapanidou Kornilaki</span>
         </h1>
         {/* Subtitle - smaller on mobile */}
-        <h2 className="relative z-10 text-[7px] xxs:text-[8px] xs:text-xs transform scale-75 origin-center xxs:scale-75 xs:scale-80 sm:text-xs sm:scale-100 md:text-sm lg:text-base font-body text-book-accent-light italic mt-0 xxs:mt-0.5 xs:mt-1 sm:mt-1.5 md:mt-2 whitespace-nowrap">
+        <h6 className="relative z-10 text-[7px] xxs:text-[8px] xs:text-xs transform scale-75 origin-center xxs:scale-75 xs:scale-80 sm:text-xs sm:scale-100 md:text-sm lg:text-base font-body text-book-accent-light italic mt-0 xxs:mt-0.5 xs:mt-1 sm:mt-1.5 md:mt-2 whitespace-nowrap">
           Full-Stack Developer
-        </h2>
+        </h6>
       </div>
       {/* Decorative Elements - adjusted positioning */}
       <div className="absolute top-2 left-3 sm:left-4 md:left-5 text-book-accent text-xl sm:text-2xl md:text-3xl">

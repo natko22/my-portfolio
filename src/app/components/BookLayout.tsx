@@ -104,7 +104,11 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
         />
       </div>
 
-      <div className="relative w-full max-w-[80rem] h-[75vh] xxxs:h-[78vh] xxs:h-[80vh] sm:h-[82vh] md:h-[40rem] lg:h-[42rem] xl:h-[45rem] 2xl:h-[48rem] filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8 mb-6">
+      <div
+        className="relative w-full max-w-[80rem] h-[70vh] mt-2 xxxs:h-[72vh] xxxs:mt-4 xxs:h-[77vh] sm:h-[78vh] 
+     md:h-[35rem] md:mt--4  lg:h-[38rem] xl:h-[40rem] 2xl:h-[42rem] 
+     filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8 mb-6"
+      >
         <BookCover isOpen={isOpen} onOpen={() => setIsOpen(true)} />
 
         <motion.div
@@ -124,7 +128,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
             // Mobile layout - single page with toggle
             <div className="flex flex-col h-full">
               <motion.div
-                className="w-full book-page rounded-lg h-full relative overflow-hidden bg-book-light flex-1"
+                className="w-full book-page rounded-lg h-full max-h-[90vh] md:max-h-none relative overflow-hidden bg-book-light flex-1"
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: isClosing ? 0 : 1,
@@ -150,7 +154,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                     <div className="flex justify-end items-center mb-8 sticky top-0 z-20 pt-2 pb-2 bg-book-page">
                       <button
                         onClick={handleMobileClose}
-                        className="text-book-dark px-4 py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
+                        className="text-book-dark text-xs sm:text-sm md:text-base px-3 sm:px-4 py-1 sm:py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
                       >
                         Close Book
                       </button>
