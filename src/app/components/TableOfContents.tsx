@@ -48,7 +48,11 @@ export const TableOfContents = memo(
                     (chapter) => (
                       <button
                         key={chapter}
-                        className={`w-full text-left p-4 rounded transition-colors ${
+                        className={`w-full text-left p-4 rounded transition-colors 
+                        text-lg 
+                        mobile:text-sm 
+                        sm:text-lg
+                        ${
                           currentChapter === chapter
                             ? "bg-book-accent-light text-book-dark font-bold"
                             : "hover:bg-book-accent-light"

@@ -154,7 +154,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                     <div className="flex justify-end items-center mb-8 sticky top-0 z-20 pt-2 pb-2 bg-book-page">
                       <button
                         onClick={handleMobileClose}
-                        className="text-book-dark px-4 py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
+                        className="text-book-dark text-xs sm:text-sm md:text-base px-3 sm:px-4 py-1 sm:py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
                       >
                         Close Book
                       </button>
