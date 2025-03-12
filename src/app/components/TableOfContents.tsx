@@ -69,7 +69,7 @@ export const TableOfContents = memo(
                 <div className="relative">
                   <div
                     onClick={onClose}
-                    className="absolute -right-6 -top-[36rem] xxxs:-top-[38rem] xxs:-top-[40rem] sm:-top-[42rem] md:-top-[55rem] tablet:-top-[50rem] lg:-top-[46rem] xl:-top-[48rem] cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 z-50"
+                    className="absolute -right-6 -top-[36rem] xxxs:-top-[38rem] xxs:-top-[40rem] sm:-top-[42rem] md:-top-[53rem] tablet:-top-[50rem] lg:-top-[46rem] xl:-top-[48rem] cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 z-50"
                   >
                     <div className="relative">
                       {/* Main bookmark body with box-shadow for depth */}

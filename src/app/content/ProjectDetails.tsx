@@ -64,9 +64,14 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     >
       {!selectedProject ? (
         <>
-          <h1 className="text-center">{chapterTitle}</h1>
-          <h2 className="text-center">{chapterDescription}</h2>
-
+          <div className="w-full mb-6">
+            <h1 className="text-center text-xl xxxs:text-lg xxs:text-xl sm:text-1xl md:text-2xl lg:text-3xl font-serif font-bold mb-2 text-book-dark">
+              {chapterTitle}
+            </h1>
+            <h2 className="text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body text-book-muted">
+              {chapterDescription}
+            </h2>
+          </div>
           <div className="flex flex-col space-y-8">
             {projects?.map((proj) => (
               <div
