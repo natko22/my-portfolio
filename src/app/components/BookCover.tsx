@@ -27,7 +27,7 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
         ease: [0.16, 1, 0.3, 1],
       }}
       style={{ willChange: "transform, opacity, width" }}
-      className="relative mx-auto mt-36 xxs:mt-32 xs:mt-32 sm:mt-36 md:mt-16 lg:mt-24 bg-book-dark text-book-light p-3 xxs:p-3 xs:p-4 sm:p-6 md:p-8 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-[200px] xxxs:h-[200px] xxs:h-[250px] xs:h-[300px] sm:h-[400px] md:h-[70vh] lg:h-[65vh] z-20 group w-[95%] xxs:w-[90%] xs:w-[96%] sm:w-[40%] md:w-[45%] lg:w-[50%] max-w-[450px] mobile:max-w-[320px] overflow-hidden"
+      className="relative mx-auto mt-36 xxs:mt-32 xs:mt-32 sm:mt-36 md:mt-16 lg:mt-24 bg-book-dark text-book-light p-3 xxs:p-3 xs:p-4 sm:p-6 md:p-8 rounded-lg shadow-2xl flex flex-col items-center justify-center cursor-pointer h-[200px] xxxs:h-[200px] xxs:h-[280px] xs:h-[300px] sm:h-[400px] md:h-[70vh] lg:h-[65vh] z-20 group w-[95%] xxs:w-[90%] xs:w-[96%] sm:w-[40%] md:w-[45%] lg:w-[50%] max-w-[450px] mobile:max-w-[320px] overflow-hidden"
       onClick={onOpen}
     >
       {" "}
