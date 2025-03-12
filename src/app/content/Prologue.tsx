@@ -289,7 +289,9 @@ const Prologue = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-2">
-      <h1 className="text-center font-bold mb-4">Prologue</h1>
+      <h1 className="text-center text-xl xxxs:text-lg xxs:text-xl sm:text-1xl md:text-2xl lg:text-3xl font-serif font-bold mb-2 text-book-dark">
+        Prologue
+      </h1>
       <h2 className="text-center text-lg italic mb-12">
         Every journey has a beginning, and this is mine.
       </h2>
