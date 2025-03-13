@@ -105,9 +105,10 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
       </div>
 
       <div
-        className="relative w-full max-w-[80rem] h-[70vh] mt-2 xxxs:h-[72vh] xxxs:mt-4 xxs:h-[77vh] sm:h-[78vh] 
-     md:h-[35rem] md:mt--4  lg:h-[38rem] xl:h-[40rem] 2xl:h-[42rem] 
-     filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8 mb-6"
+        className="relative w-full max-w-[80rem] 
+  h-[calc(85vh-5rem)] xxs:h-[calc(80vh-5rem)] sm:h-[calc(90vh-5rem)] 
+  min-h-[400px] mt-2 xxxs:mt-4 xxs:mt-4 sm:mt-2 md:mt-0
+  filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8 mb-6"
       >
         <BookCover isOpen={isOpen} onOpen={() => setIsOpen(true)} />
 
