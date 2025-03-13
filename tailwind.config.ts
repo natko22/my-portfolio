@@ -12,6 +12,7 @@ module.exports = {
       xxxs: "320px", // Ultra small screens
       xxs: "375px",
       sm: "640px", // Small screens (large mobile/small tablet)
+      "small-md": { min: "741px", max: "767px" },
       md: "768px", // Medium screens (tablets)
       lg: "1024px", // Large screens (laptops)
       xl: "1280px", // Extra large screens (desktops)
