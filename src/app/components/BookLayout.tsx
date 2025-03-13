@@ -155,7 +155,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                     <div className="flex justify-end items-center mb-8 sticky top-0 z-20 pt-2 pb-2 bg-book-page">
                       <button
                         onClick={handleMobileClose}
-                        className="text-book-dark text-xs sm:text-sm md:text-base px-3 sm:px-4 py-1 sm:py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
+                        className="text-book-dark text-xs sm:text-sm md:text-base px-3 sm:px-4 py-1 sm:py-2 rounded bg-book-accent-light "
                       >
                         Close Book
                       </button>
@@ -175,16 +175,17 @@ const BookLayout: React.FC<BookLayoutProps> = memo(() => {
                   <div className="absolute inset-0 overflow-hidden">
                     {/* Hide top gradient on mobile */}
                     <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
-                      <div className="flex justify-between items-center px-3 sm:px-4 pt-3 sm:pt-4 pb-1 sm:pb-2 sticky top-0 z-20 bg-book-page">
+                      <div className="flex justify-between items-center mt-2 px-5 sm:px-6 pt-4 sm:pt-5 pb-2 sm:pb-3 sticky top-0 z-20 bg-book-page">
+                        {" "}
                         <button
                           onClick={toggleView}
-                          className="text-book-dark text-xs sm:text-sm md:text-base px-3 sm:px-4 py-1 sm:py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
+                          className="text-book-dark text-xs sm:text-sm md:text-base px-3 sm:px-4 py-1 sm:py-2 rounded bg-book-accent-light "
                         >
                           Table of Contents
                         </button>
                         <button
                           onClick={handleMobileClose}
-                          className="text-book-dark text-xs sm:text-sm md:text-base px-3 sm:px-4 py-1 sm:py-2 rounded bg-book-accent-light hover:bg-book-accent transition-colors"
+                          className="text-book-dark text-xs sm:text-sm md:text-base px-3 sm:px-4 py-1 sm:py-2 rounded bg-book-accent-light "
                         >
                           Close Book
                         </button>
