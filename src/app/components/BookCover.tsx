@@ -15,7 +15,7 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-start pt-4 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-14 h-[calc(90vh-5rem)] min-h-[400px]">
+    <div className="flex flex-col items-center justify-start pt-4 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-24 h-[calc(90vh-5rem)] min-h-[400px]">
       <motion.div
         initial={false}
         animate={{
