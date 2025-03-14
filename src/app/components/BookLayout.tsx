@@ -170,6 +170,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                     backgroundImage: 'url("/textured-canvas-surface.webp")',
                   }}
                 >
+                  <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-book-bg to-transparent z-10 pointer-events-none" />
                   {showToc ? (
                     <div
                       className="p-2 h-full relative overflow-y-auto no-scrollbar"
@@ -194,12 +195,10 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                           isMobile={true}
                         />
                       </div>
-                      {/* Bottom gradient stays in place */}
                       <div className="absolute bottom-0 left-0 right-0 h-16 transparent z-10 pointer-events-none" />
                     </div>
                   ) : (
                     <div className="absolute inset-0 overflow-hidden">
-                      {/* Hide top gradient on mobile */}
                       <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
                         <div className="flex justify-between items-center mt-2 px-5 sm:px-6 pt-4 sm:pt-5 pb-2 sm:pb-3 sticky top-0 z-20 bg-book-page">
                           {" "}
@@ -238,9 +237,9 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                           )}
                         </div>
                       </div>
-                      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-book-bg to-transparent z-10 pointer-events-none" />
                     </div>
                   )}
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-book-bg to-transparent z-50 pointer-events-none" />
                 </motion.div>
               </div>
             ) : (
@@ -263,6 +262,9 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                   </ClosingPage>
                 ) : (
                   <div className="w-[50%] book-page toc p-8 md:p-12 rounded-l-lg h-full relative">
+                    {/* Top Fade Effect on Left Page */}
+                    <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-book-bg to-transparent z-10 pointer-events-none" />
+
                     <TableOfContents
                       currentChapter={currentChapter}
                       onChapterSelect={(chapter) =>
@@ -270,13 +272,15 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                       }
                       onClose={handleClose}
                     />
+                    {/* Bottom Fade Effect on Left Page */}
+                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-book-bg to-transparent z-10 pointer-events-none" />
                   </div>
                 )}
 
                 <div className="w-[50%] book-page content p-8 md:p-12 rounded-r-lg h-full relative">
                   <div className="absolute inset-0 overflow-hidden">
                     {/* Page Fade Effects */}
-                    <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-book-bg to-transparent z-10" />
+                    <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-book-bg to-transparent z-10 pointer-events-none" />
                     <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
                       <div className="px-4 pt-16 pb-16 min-h-full">
                         {currentChapter in chapters ? (
