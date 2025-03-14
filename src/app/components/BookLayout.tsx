@@ -185,12 +185,12 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                       className="p-2 h-full relative overflow-y-auto no-scrollbar"
                       style={{ zIndex: 10 }}
                     >
-                      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+                      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[100]">
                         <button
                           onClick={handleMobileClose}
                           className="w-12 h-12 flex items-center justify-center 
-                        bg-book-accent-light rounded-full shadow-md 
-                        active:scale-95 hover:bg-book-accent-dark transition"
+        bg-book-accent-light rounded-full shadow-md 
+        active:scale-95 hover:bg-book-accent-dark transition"
                           aria-label="Close Book"
                         >
                           <X size={22} />
@@ -211,12 +211,12 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                       <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
                         <div className="flex justify-between items-center mt-2 px-5 sm:px-6 pt-4 sm:pt-5 pb-2 sm:pb-3 sticky top-0 z-20 bg-book-page">
                           {" "}
-                          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-50">
+                          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-[100]">
                             <button
                               onClick={toggleView}
                               className="w-12 h-12 flex items-center justify-center 
-                          bg-book-accent-light rounded-full shadow-md 
-                        active:scale-95 hover:bg-book-accent-dark transition"
+            bg-book-accent-light rounded-full shadow-md 
+            active:scale-95 hover:bg-book-accent-dark transition"
                               aria-label="Table of Contents"
                             >
                               <BookOpen size={22} />
@@ -225,14 +225,15 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                             <button
                               onClick={handleMobileClose}
                               className="w-12 h-12 flex items-center justify-center 
-                            bg-book-accent-light rounded-full shadow-md 
-                            active:scale-95 hover:bg-book-accent-dark transition"
+            bg-book-accent-light rounded-full shadow-md 
+            active:scale-95 hover:bg-book-accent-dark transition z-[100]"
                               aria-label="Close Book"
                             >
                               <X size={22} />
                             </button>
                           </div>
                         </div>
+                        {/* Rest of your component... */}
                         <div className="px-4 pt-2 pb-24 min-h-full">
                           {currentChapter in chapters ? (
                             <ChapterContent
