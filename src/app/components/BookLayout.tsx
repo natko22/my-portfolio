@@ -57,13 +57,13 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
     const bookHeightClass =
       isOpen && windowWidth !== null
         ? windowWidth < 375 // xxxs to xxs
-          ? "h-[80vh]" // Ultra small screens
+          ? "h-[60vh]" // Ultra small screens
           : windowWidth < 640 // xxs to sm
-          ? "h-[85vh]" // Small screens
+          ? "h-[75vh]" // Small screens
           : windowWidth < 768 // sm to md
-          ? "h-[90vh]" // Medium-small screens
+          ? "h-[80vh]" // Medium-small screens
           : windowWidth < 900 // md to tablet
-          ? "h-[80vh]" // Medium screens
+          ? "h-[75vh]" // Medium screens
           : windowWidth < 1024 // tablet to lg
           ? "h-[80vh]" // Medium-large screens
           : "h-[82vh]" // Large screens
