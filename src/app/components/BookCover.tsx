@@ -35,7 +35,7 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
         w-[80%] xxs:w-[70%] sm:w-[60%] md:w-[40%] tablet:w-[45%] lg:w-[30%] xl:w-[25%] 
         min-w-[280px] max-w-[420px] overflow-hidden
         aspect-[3/4.2] sm:aspect-[3/4.5]
-        mx-auto -mt-2 xxs:-mt-4 sm:-mt-6 md:-mt-8 lg:-mt-10"
+        mx-auto -mt-16 xxs:-mt-20 sm:-mt-16 md:-mt-12 lg:-mt-0 xl:mt-4"
         onClick={onOpen}
       >
         <div className="relative px-0 xxs:px-0 xs:px-4 sm:px-8 md:px-12 py-2 xxxs:py-2.5 xxs:py-3 xs:py-4 sm:py-6 md:py-8 text-center max-w-md shadow-inner border-4 border-book-accent rounded-lg">
