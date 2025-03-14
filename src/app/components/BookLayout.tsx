@@ -49,21 +49,30 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
       return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Determine if we're on mobile
-    const isMobile = windowWidth !== null && windowWidth < 768;
+    // Determine if we should use mobile layout
+    // Changed threshold from 768px to 900px as requested
+    const useSinglePageView = windowWidth !== null && windowWidth < 900;
 
-    // Define adaptive height class - only increase height for mobile screens
-    // Use regular height for anything >= 768px
-    // Added bottom margin when on mobile to create space at the bottom
+    // Increased height values for all screen sizes
     const bookHeightClass =
-      isOpen && windowWidth !== null && windowWidth < 768
-        ? "h-[calc(90vh-5rem)]" // Slightly reduced from 95vh to 90vh to leave more bottom space
-        : "h-[calc(85vh-5rem)] xxs:h-[calc(80vh-5rem)] sm:h-[calc(90vh-5rem)]";
+      isOpen && windowWidth !== null
+        ? windowWidth < 375 // xxxs to xxs
+          ? "h-[80vh]" // Ultra small screens
+          : windowWidth < 640 // xxs to sm
+          ? "h-[85vh]" // Small screens
+          : windowWidth < 768 // sm to md
+          ? "h-[90vh]" // Medium-small screens
+          : windowWidth < 900 // md to tablet
+          ? "h-[80vh]" // Medium screens
+          : windowWidth < 1024 // tablet to lg
+          ? "h-[80vh]" // Medium-large screens
+          : "h-[82vh]" // Large screens
+        : "h-[75vh] xxs:h-[70vh] sm:h-[80vh] lg:h-[85vh]";
 
     // New useEffect to fix mobile animation issues
     useEffect(() => {
       // Reset any problematic states when toggling between views
-      if (isMobile && isClosing) {
+      if (useSinglePageView && isClosing) {
         const timer = setTimeout(() => {
           // Ensure we properly reset all states
           setIsClosing(false);
@@ -73,30 +82,30 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
 
         return () => clearTimeout(timer);
       }
-    }, [isMobile, isClosing, setIsClosing, setIsOpen]);
+    }, [useSinglePageView, isClosing, setIsClosing, setIsOpen]);
 
     // Prevents hydration errors & ensures `isOpen` is initialized before calling `getRotateY()`
     const getRotateY = useCallback(() => {
       if (windowWidth === null) return 10;
-      return isOpen ? 0 : windowWidth > 768 ? 10 : 5;
+      return isOpen ? 0 : windowWidth > 900 ? 10 : 5;
     }, [windowWidth, isOpen]);
 
     // Function to toggle between TOC and content on mobile
     const toggleView = useCallback(() => {
-      if (isMobile) {
+      if (useSinglePageView) {
         setShowToc((prev) => !prev);
       }
-    }, [isMobile]);
+    }, [useSinglePageView]);
 
     // When a chapter is selected on mobile, automatically show the content
     const handleChapterSelect = useCallback(
       (chapter: string) => {
         setCurrentChapter(chapter as Chapter);
-        if (isMobile) {
+        if (useSinglePageView) {
           setShowToc(false);
         }
       },
-      [isMobile, setCurrentChapter]
+      [useSinglePageView, setCurrentChapter]
     );
 
     // New function to handle mobile close button
@@ -128,10 +137,10 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
         <div
           className={`relative w-full max-w-[80rem] 
   ${bookHeightClass}
-  min-h-[400px] mt-2 xxxs:mt-4 xxs:mt-4 sm:mt-2 md:mt-0
+  min-h-[500px] mt-2 xxxs:mt-3 xxs:mt-3 sm:mt-2 md:mt-0
   filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8 mb-6 ${
-    isMobile && isOpen ? "mb-16" : ""
-  }`}
+    useSinglePageView && isOpen ? "mb-16" : "mb-8"
+  } transition-all duration-300`}
         >
           <BookCover isOpen={isOpen} onOpen={() => setIsOpen(true)} />
 
@@ -146,13 +155,13 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
             transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
             className={`absolute top-0 left-0 w-full h-full ${
               isOpen ? "pointer-events-auto" : "pointer-events-none"
-            } z-10`}
+            } z-10 max-h-full overflow-hidden perspective-1000`}
           >
-            {isMobile ? (
+            {useSinglePageView ? (
               // Mobile layout - single page with toggle
               <div className="flex flex-col h-full">
                 <motion.div
-                  className="w-full book-page rounded-lg h-full max-h-[90vh] md:max-h-none relative overflow-hidden bg-book-light flex-1"
+                  className="w-full book-page rounded-lg h-full max-h-full md:max-h-none relative overflow-hidden bg-book-light flex-1 shadow-lg"
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: isClosing ? 0 : 1,
