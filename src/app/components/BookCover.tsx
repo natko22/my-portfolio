@@ -31,11 +31,11 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
         className="relative bg-book-dark text-book-light p-3 sm:p-6 md:p-8 
         rounded-lg shadow-2xl flex flex-col items-center justify-center 
         cursor-pointer
-        h-[350px] xxs:h-[400px] sm:h-[500px] md:h-[550px] lg:h-[600px] lg:mt-2 xl:h-[580px]
+        h-[350px] xxs:h-[400px] sm:h-[500px] md:h-[550px] lg:h-[600px]  xl:h-[580px]
         w-[80%] xxs:w-[70%] sm:w-[60%] md:w-[40%] tablet:w-[45%] lg:w-[30%] xl:w-[25%] 
         min-w-[280px] max-w-[420px] overflow-hidden
         aspect-[3/4.2] sm:aspect-[3/4.5]
-        mx-auto -mt-[5vh]"
+        mx-auto mt-6 xxs:mt-4 sm:mt-0 md:-mt-4 lg:-mt-6"
         onClick={onOpen}
       >
         <div className="relative px-0 xxs:px-0 xs:px-4 sm:px-8 md:px-12 py-2 xxxs:py-2.5 xxs:py-3 xs:py-4 sm:py-6 md:py-8 text-center max-w-md shadow-inner border-4 border-book-accent rounded-lg">
