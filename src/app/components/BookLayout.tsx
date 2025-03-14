@@ -54,9 +54,10 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
 
     // Define adaptive height class - only increase height for mobile screens
     // Use regular height for anything >= 768px
+    // Added bottom margin when on mobile to create space at the bottom
     const bookHeightClass =
       isOpen && windowWidth !== null && windowWidth < 768
-        ? "h-[calc(95vh-5rem)]"
+        ? "h-[calc(90vh-5rem)]" // Slightly reduced from 95vh to 90vh to leave more bottom space
         : "h-[calc(85vh-5rem)] xxs:h-[calc(80vh-5rem)] sm:h-[calc(90vh-5rem)]";
 
     // New useEffect to fix mobile animation issues
@@ -128,7 +129,9 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
           className={`relative w-full max-w-[80rem] 
   ${bookHeightClass}
   min-h-[400px] mt-2 xxxs:mt-4 xxs:mt-4 sm:mt-2 md:mt-0
-  filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8 mb-6`}
+  filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8 mb-6 ${
+    isMobile && isOpen ? "mb-16" : ""
+  }`}
         >
           <BookCover isOpen={isOpen} onOpen={() => setIsOpen(true)} />
 
@@ -149,7 +152,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
               // Mobile layout - single page with toggle
               <div className="flex flex-col h-full">
                 <motion.div
-                  className="w-full book-page rounded-lg h-full max-h-[95vh] md:max-h-none relative overflow-hidden bg-book-light flex-1"
+                  className="w-full book-page rounded-lg h-full max-h-[90vh] md:max-h-none relative overflow-hidden bg-book-light flex-1"
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: isClosing ? 0 : 1,
@@ -172,7 +175,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                       className="p-2 h-full relative overflow-y-auto no-scrollbar"
                       style={{ zIndex: 10 }}
                     >
-                      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+                      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
                         <button
                           onClick={handleMobileClose}
                           className="w-12 h-12 flex items-center justify-center 
@@ -183,7 +186,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                           <X size={22} />
                         </button>
                       </div>
-                      <div className="pb-16">
+                      <div className="pb-24">
                         <TableOfContents
                           currentChapter={currentChapter}
                           onChapterSelect={handleChapterSelect}
@@ -200,7 +203,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                       <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
                         <div className="flex justify-between items-center mt-2 px-5 sm:px-6 pt-4 sm:pt-5 pb-2 sm:pb-3 sticky top-0 z-20 bg-book-page">
                           {" "}
-                          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4 z-50">
+                          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-50">
                             <button
                               onClick={toggleView}
                               className="w-12 h-12 flex items-center justify-center 
@@ -222,7 +225,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                             </button>
                           </div>
                         </div>
-                        <div className="px-4 pt-2 pb-16 min-h-full">
+                        <div className="px-4 pt-2 pb-24 min-h-full">
                           {currentChapter in chapters ? (
                             <ChapterContent
                               key={`chapter-content-${mountKey}`}
