@@ -52,17 +52,17 @@ export const TableOfContents = memo(
                       <button
                         key={chapter}
                         className={`w-full text-left p-3 md:p-4 rounded 
-                      ${!isMobile ? "transition-colors" : ""} 
-                      text-base 
-                      mobile:text-sm 
-                      sm:text-lg
-                      ${
-                        currentChapter === chapter
-                          ? "bg-book-accent-light text-book-dark font-bold"
-                          : isMobile
-                          ? ""
-                          : "hover:bg-book-accent-light"
-                      }`}
+                          ${!isMobile ? "transition-colors" : ""} 
+                          text-base 
+                          mobile:text-sm 
+                          sm:text-lg
+                          ${
+                            currentChapter === chapter
+                              ? "bg-book-accent-light text-book-dark font-bold"
+                              : isMobile
+                              ? ""
+                              : "hover:bg-book-accent-light"
+                          }`}
                         onClick={() => handleChapterSelect(chapter as Chapter)}
                       >
                         {chapter}

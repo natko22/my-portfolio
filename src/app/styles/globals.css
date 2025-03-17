@@ -157,14 +157,14 @@
   }
 
   /* ====== Hover & Transition Effects ====== */
-  button:hover {
+  /* button:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
-  }
+  } */
 
-  .book-page:hover {
+  /* .book-page:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+  } */
 
   .toc-button {
     @apply bg-book-accent text-book-light px-4 py-2 rounded-lg hover:bg-book-accent-light hover:text-book-dark transition-all;
@@ -192,6 +192,18 @@
 
     .book-container {
       flex-direction: column;
+    }
+  }
+
+  /* ====== Hover & Transition Effects ====== */
+  @media (min-width: 1024px) {
+    button:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .book-page:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
     }
   }
 

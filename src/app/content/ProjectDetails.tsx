@@ -86,7 +86,7 @@ lg:text-4xl"
             {projects?.map((proj) => (
               <div
                 key={proj.title}
-                className=" flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform hover:scale-105 p-2"
+                className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2"
                 onClick={() => setSelectedProject(proj)}
               >
                 <div className="relative mt-4 sm:mt-6 md:mt-8  lg:mt-12 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-book-paper flex items-center justify-center p-2 flex-shrink-0 self-center">
