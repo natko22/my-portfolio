@@ -15,7 +15,7 @@ const Contact = () => {
         A brief pause to say hello or spark a new collaboration.
       </h2>
 
-      <p className="text-base sm:text-lg font-gentiumbookplus max-w-xs sm:max-w-md md:max-w-xl">
+      <p className="text-base sm:text-lg text-center font-gentiumbookplus max-w-xs sm:max-w-md md:max-w-xl">
         I'd love to hear from you—whether it's about potential projects, career
         opportunities, or simply saying hello.
       </p>

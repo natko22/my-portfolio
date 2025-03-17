@@ -2,13 +2,15 @@ import React from "react";
 
 const TechStack: React.FC = () => {
   return (
-    <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+    <div className="flex flex-col items-center text-center max-w-3xl mx-auto px-4 sm:px-6">
       {/* Title */}
-      <h1 className="text-4xl font-bold font-cormorant">My Digital Lexicon</h1>
-      <h2 className="text-lg italic font-librebaskerville mt-2">
+      <h1 className="text-3xl sm:text-4xl font-bold font-cormorant">
+        My Digital Lexicon
+      </h1>
+      <h2 className="text-base sm:text-lg italic font-librebaskerville mt-2">
         A collection of tools that bring my stories to life.
       </h2>
-      <p className="text-lg font-gentiumbookplus max-w-xl text-gray-700 mt-2 text-center">
+      <p className="text-base sm:text-lg font-gentiumbookplus max-w-xl text-gray-700 mt-2 text-center">
         A writer breathes life into stories with ink and parchment; a developer
         crafts digital experiences with code and creativity.
       </p>
@@ -115,27 +117,27 @@ const TechStack: React.FC = () => {
               {
                 name: "Git",
                 description:
-                  "The ancient book of history, recording every version of a project’s tale.",
+                  "The ancient book of history, recording every version of a project's tale.",
               },
             ],
           },
         ].map((section, index) => (
           <div key={index} className="relative z-10 w-full text-left mt-8">
             {/* Section Title*/}
-            <h3 className="text-xl font-bold text-center border-b-2 pb-2 border-[var(--color-accent-light)]">
+            <h3 className="text-lg sm:text-xl font-bold text-center border-b-2 pb-2 border-[var(--color-accent-light)]">
               {section.category}
             </h3>
 
             {/* Tech Stack Items */}
-            <div className="mt-4 space-y-2">
+            <div className="mt-4 space-y-3 sm:space-y-2">
               {section.stack.map((tech, subIndex) => (
                 <div
                   key={subIndex}
-                  className="group relative flex items-baseline space-x-3 cursor-pointer transition-all duration-500 ease-in-out hover:text-book-accent"
+                  className="group relative flex flex-col sm:flex-row sm:items-baseline space-y-1 sm:space-y-0 sm:space-x-3 cursor-pointer transition-all duration-500 ease-in-out hover:text-book-accent p-2 sm:p-0"
                 >
                   {/*  Hover Line */}
                   <span className="absolute inset-0 w-full bg-[var(--color-accent-light)] opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-md"></span>
-                  <span className="font-bold italic min-w-[140px]">
+                  <span className="font-bold italic sm:min-w-[140px]">
                     {tech.name}:
                   </span>
                   <span className="text-gray-700">{tech.description}</span>
