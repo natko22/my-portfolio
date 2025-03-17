@@ -45,7 +45,7 @@ lg:text-4xl"
       </a>
 
       {/* Social Links */}
-      <div className="mt-12 sm:mt-16 md:mt-20 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+      <div className="mt-12 sm:mt-16 md:mt-14 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
         <a
           href="https://www.linkedin.com/in/anastasia-natassa-tsapanidou-kornilaki-a2b052191/"
           target="_blank"
