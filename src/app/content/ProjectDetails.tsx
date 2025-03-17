@@ -128,7 +128,7 @@ lg:text-4xl"
             <h1 className="text-xl sm:text-2xl lg:text-3xl  font-bold">
               {selectedProject.title}
             </h1>
-            <h6 className="italic mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-center text-grey-400">
+            <h6 className="italic mt-2 sm:mt-3 text-xs xs:text-sm sm:text-base lg:text-lg text-center text-grey-400 max-w-full sm:max-w-[90%] md:max-w-[85%] mx-auto leading-relaxed">
               {selectedProject.description}
             </h6>
           </div>
@@ -156,9 +156,9 @@ lg:text-4xl"
               {selectedProject.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 sm:px-3 md:px-4 py-1 text-xs sm:text-sm lg:text-base italic font-serif cursor-pointer 
-                        hover:scale-110 hover:text-book-accent transition-transform duration-300 ease-in-out
-                        active:scale-95"
+                  className="px-2 sm:px-3 md:px-4 py-1 text-xs sm:text-sm lg:text-base italic font-serif
+        transition-all duration-300 ease-in-out
+        lg:hover:text-book-accent lg:hover:font-bold"
                 >
                   {tech}
                 </span>
@@ -174,8 +174,8 @@ lg:text-4xl"
               title="Watch the video or interact with the project"
               aria-label={`View live demo of ${selectedProject.title}`}
               className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif cursor-pointer 
-              transition-all duration-500 ease-in-out whitespace-nowrap
-              hover:text-book-accent hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
+        transition-all duration-500 ease-in-out whitespace-nowrap
+        lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
               {selectedProject.demo.includes("youtube.com")
                 ? "🎥 Watch the Tome"
@@ -189,7 +189,7 @@ lg:text-4xl"
               aria-label={`View GitHub repository for ${selectedProject.title}`}
               className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif cursor-pointer 
               transition-all duration-500 ease-in-out whitespace-nowrap
-              hover:text-book-accent hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
+              lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
               📖 Open the Codex
             </a>
