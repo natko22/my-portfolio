@@ -7,11 +7,21 @@ import "../styles/globals.css";
 const Contact = () => {
   return (
     <div className="flex flex-col items-center text-center px-4 sm:px-6 md:px-0">
-      <h1 className="text-3xl sm:text-4xl font-bold font-cormorant">
+      <h1
+        className="text-center font-bold mb-2 text-book-dark 
+ text-2xl
+xxxs:text-2xl 
+xxs:text-2xl
+sm:text-3xl 
+small-md:text-3xl 
+md:text-4xl 
+lg:text-4xl"
+      >
+        {" "}
         Connect & Collaborate
       </h1>
 
-      <h2 className="text-base sm:text-lg italic font-librebaskerville">
+      <h2 className=" text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body ">
         A brief pause to say hello or spark a new collaboration.
       </h2>
 

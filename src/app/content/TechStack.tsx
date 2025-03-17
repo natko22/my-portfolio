@@ -4,10 +4,21 @@ const TechStack: React.FC = () => {
   return (
     <div className="flex flex-col items-center text-center max-w-3xl mx-auto px-4 sm:px-6">
       {/* Title */}
-      <h1 className="text-3xl sm:text-4xl font-bold font-cormorant">
+      <h1
+        className="text-center font-bold mb-2 text-book-dark 
+text-2xl
+xxxs:text-2xl 
+xxs:text-2xl
+sm:text-3xl 
+small-md:text-3xl 
+md:text-4xl 
+lg:text-4xl"
+      >
+        {" "}
         My Digital Lexicon
       </h1>
-      <h2 className="text-base sm:text-lg italic font-librebaskerville mt-2">
+      <h2 className=" text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body ">
+        {" "}
         A collection of tools that bring my stories to life.
       </h2>
       <p className="text-base sm:text-lg font-gentiumbookplus max-w-xl text-gray-700 mt-2 text-center">
