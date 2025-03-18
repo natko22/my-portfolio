@@ -185,10 +185,10 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                       className="p-2 h-full relative overflow-y-auto no-scrollbar"
                       style={{ zIndex: 10 }}
                     >
-                      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[100]">
+                      <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 flex gap-4 z-[200]">
                         <button
                           onClick={handleMobileClose}
-                          className="w-12 h-12 flex items-center justify-center 
+                          className="w-12 h-12  flex items-center justify-center  
         bg-book-accent-light rounded-full shadow-md 
         active:scale-95 hover:bg-book-accent-dark transition"
                           aria-label="Close Book"
@@ -204,14 +204,14 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                           isMobile={true}
                         />
                       </div>
-                      <div className="absolute bottom-0 left-0 right-0 h-16 transparent z-10 pointer-events-none" />
+                      <div className="absolute bottom-0 left-0 right-0 h-16 transparent z-40 pointer-events-none" />
                     </div>
                   ) : (
                     <div className="absolute inset-0 overflow-hidden">
                       <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
                         <div className="flex justify-between items-center mt-2 px-5 sm:px-6 pt-4 sm:pt-5 pb-2 sm:pb-3 sticky top-0 z-20 bg-book-page">
                           {" "}
-                          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-[100]">
+                          <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 flex gap-4 z-[100]">
                             <button
                               onClick={toggleView}
                               className="w-12 h-12 flex items-center justify-center 

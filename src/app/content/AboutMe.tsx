@@ -2,8 +2,19 @@
 export default function AboutMe() {
   return (
     <section className="max-w-3xl mx-auto -mt-8">
-      <h1 className="mt-8 text-center">The Author Behind the Code</h1>
-      <p>
+      <h1
+        className="text-center mt-8 font-bold mb-2 text-book-dark 
+text-2xl
+xxxs:text-2xl 
+xxs:text-2xl
+sm:text-3xl 
+small-md:text-3xl 
+md:text-4xl 
+lg:text-4xl"
+      >
+        The Author Behind the Code
+      </h1>
+      <p className="first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:mr-1 first-letter:float-left first-letter:text-book-accent">
         Welcome to my story in code , where every project is a new chapter and
         every line of code weaves a narrative of creativity and problem-solving.
         My name is Natassa, and I’m a developer who finds inspiration in
@@ -23,11 +34,16 @@ export default function AboutMe() {
         or collaborating with others, my goal is to craft solutions that are as
         engaging as a well-written page.
       </p>
-      <p>
+      <p className="italic border-l-4 border-book-accent-light pl-4 py-1">
         Thank you for stepping into my world of code and creativity. I hope
-        you’ll find inspiration in these pages as I continue to write my story,
-        one keystroke at a time. Let’s create something unforgettable together!
+        you'll find inspiration in these pages as I continue to write my story,
+        one keystroke at a time. Let's create something unforgettable together!
       </p>
+
+      {/* Signature/call to action */}
+      <div className="mt-10 text-right mr-8 font-serif italic text-book-accent-dark">
+        ~ Natassa
+      </div>
     </section>
   );
 }

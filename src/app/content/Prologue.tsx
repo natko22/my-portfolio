@@ -289,10 +289,20 @@ const Prologue = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-2">
-      <h1 className="text-center text-xl xxxs:text-lg xxs:text-xl sm:text-1xl md:text-2xl lg:text-3xl font-serif font-bold mb-2 text-book-dark">
+      <h1
+        className="text-center font-bold mb-2 text-book-dark 
+text-2xl
+xxxs:text-2xl 
+xxs:text-2xl
+sm:text-3xl 
+small-md:text-3xl 
+md:text-4xl 
+lg:text-4xl"
+      >
+        {" "}
         Prologue
       </h1>
-      <h2 className="text-center text-lg italic mb-12">
+      <h2 className=" text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body ">
         Every journey has a beginning, and this is mine.
       </h2>
 

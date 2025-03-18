@@ -65,10 +65,20 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
       {!selectedProject ? (
         <>
           <div className="w-full mb-6">
-            <h1 className="text-center text-xl xxxs:text-lg xxs:text-xl sm:text-1xl md:text-2xl lg:text-3xl font-serif font-bold mb-2 text-book-dark">
+            <h1
+              className="text-center font-bold mb-2 text-book-dark 
+text-2xl
+xxxs:text-2xl 
+xxs:text-2xl
+sm:text-3xl 
+small-md:text-3xl 
+md:text-4xl 
+lg:text-4xl"
+            >
               {chapterTitle}
             </h1>
-            <h2 className="text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body text-book-muted">
+
+            <h2 className=" text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body ">
               {chapterDescription}
             </h2>
           </div>
@@ -76,16 +86,16 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             {projects?.map((proj) => (
               <div
                 key={proj.title}
-                className=" flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform hover:scale-105 p-2"
+                className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2"
                 onClick={() => setSelectedProject(proj)}
               >
-                <div className="relative mt-12 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-book-paper flex items-center justify-center p-2 flex-shrink-0 self-center">
+                <div className="relative mt-4 sm:mt-6 md:mt-8  lg:mt-12 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-book-paper flex items-center justify-center p-2 flex-shrink-0 self-center">
                   <Image
                     src={proj.image}
                     alt={proj.title}
                     width={80}
                     height={80}
-                    className="object-contain w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28"
+                    className="object-contain w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 mt-4 md:mt-10 sm:mt-14 xxs:mt-14 lg:mt-8"
                     loading="lazy"
                   />
                 </div>
@@ -94,7 +104,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   <h3 className="text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8">
                     {proj.title}
                   </h3>
-                  <p className="italic text-gray-600 leading-tight text-xs sm:text-sm lg:text-lg">
+                  <p className="italic text-gray-600 leading-tight text-sm md:text-base lg:text-lg text-center lg:text-left">
+                    {" "}
                     {proj.shortDescription}
                   </p>
                 </div>
@@ -114,10 +125,10 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
           </button>
 
           <div className="text-center mt-2 sm:mt-4">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl  font-bold">
               {selectedProject.title}
             </h1>
-            <h6 className="italic mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg text-center text-grey-400">
+            <h6 className="italic mt-2 sm:mt-3 text-xs xs:text-sm sm:text-base lg:text-lg text-center text-grey-400 max-w-full sm:max-w-[90%] md:max-w-[85%] mx-auto leading-relaxed">
               {selectedProject.description}
             </h6>
           </div>
@@ -145,9 +156,9 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               {selectedProject.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 sm:px-3 md:px-4 py-1 text-xs sm:text-sm lg:text-base italic font-serif cursor-pointer 
-                        hover:scale-110 hover:text-book-accent transition-transform duration-300 ease-in-out
-                        active:scale-95"
+                  className="px-2 sm:px-3 md:px-4 py-1 text-xs sm:text-sm lg:text-base italic font-serif
+        transition-all duration-300 ease-in-out
+        lg:hover:text-book-accent lg:hover:font-bold"
                 >
                   {tech}
                 </span>
@@ -163,8 +174,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               title="Watch the video or interact with the project"
               aria-label={`View live demo of ${selectedProject.title}`}
               className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif cursor-pointer 
-              transition-all duration-500 ease-in-out whitespace-nowrap
-              hover:text-book-accent hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
+        transition-all duration-500 ease-in-out whitespace-nowrap
+        lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
               {selectedProject.demo.includes("youtube.com")
                 ? "🎥 Watch the Tome"
@@ -178,7 +189,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               aria-label={`View GitHub repository for ${selectedProject.title}`}
               className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif cursor-pointer 
               transition-all duration-500 ease-in-out whitespace-nowrap
-              hover:text-book-accent hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
+              lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
               📖 Open the Codex
             </a>
