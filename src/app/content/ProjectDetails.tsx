@@ -107,15 +107,24 @@ lg:text-4xl"
                 className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2"
                 onClick={() => setSelectedProject(proj)}
               >
-                <div className="relative mt-4 sm:mt-6 md:mt-8  lg:mt-12 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-book-paper flex items-center justify-center p-2 flex-shrink-0 self-center">
-                  <Image
-                    src={proj.image}
-                    alt={proj.title}
-                    width={80}
-                    height={80}
-                    className="object-contain w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 mt-4 md:mt-10 sm:mt-14 xxs:mt-12 lg:mt-8"
-                    loading="lazy"
-                  />
+                <div className="relative mt-2 sm:mt-4 md:mt-6 lg:mt-8 flex-shrink-0 self-center shadow-md">
+                  {/* Hanging String */}
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-3 border-l-2 border-book-accent-light"></div>
+
+                  {/* Outer Square Frame*/}
+                  <div className="border-[3px] border-book-accent-light rounded-sm aspect-square w-20 h-20 sm:w-22 sm:h-22 md:w-26 md:h-26 lg:w-30 lg:h-30 flex items-center justify-center">
+                    {/* Inner Frame */}
+                    <div className="border-[2px] p-1 border-book-accent-light rounded-sm aspect-square w-16 h-16 sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-26 lg:h-26 flex items-center justify-center">
+                      <Image
+                        src={proj.image}
+                        alt={proj.title}
+                        width={80}
+                        height={80}
+                        className="object-contain w-full h-full"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <div className="flex-1 text-center w-full mx-auto justify-center ">
