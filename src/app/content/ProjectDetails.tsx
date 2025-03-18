@@ -113,17 +113,16 @@ lg:text-4xl"
                     alt={proj.title}
                     width={80}
                     height={80}
-                    className="object-contain w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 mt-4 md:mt-10 sm:mt-14 xxs:mt-14 lg:mt-8"
+                    className="object-contain w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 mt-4 md:mt-10 sm:mt-14 xxs:mt-12 lg:mt-8"
                     loading="lazy"
                   />
                 </div>
 
                 <div className="flex-1 text-center w-full mx-auto justify-center ">
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8">
+                  <h3 className="text-sm xs:text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8 ">
                     {proj.title}
                   </h3>
-                  <p className="italic text-gray-600 leading-tight text-sm md:text-base lg:text-lg text-center lg:text-left">
-                    {" "}
+                  <p className="italic text-gray-600 leading-tight text-sm md:text-base lg:text-lg text-left px-1">
                     {proj.shortDescription}
                   </p>
                 </div>
