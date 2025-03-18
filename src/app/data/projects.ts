@@ -68,7 +68,7 @@ export const projects = Object.freeze({
       image: "/vrep.webp",
       techStack: ["TypeScript", "React", "Ant Design"],
       demo: "https://www.youtube.com/watch?v=1grhmBoC52A",
-      repo: "https://github.com/your-vrep-repo",
+      repo: "",
     },
     {
       title: "Cosmo Chat",
