@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Lock } from "lucide-react";
 
 interface Project {
   title: string;
@@ -24,6 +24,24 @@ interface ProjectDetailsProps {
   onBackToProjects: () => void;
   isFlipping: boolean;
 }
+
+// Helper function to determine if repo link should be shown
+const getRepoDisplay = (project: Project) => {
+  if (project.repo) {
+    return {
+      isAvailable: true,
+      url: project.repo,
+      label: "📖 Open the Codex",
+      title: `Explore the source code for ${project.title} on GitHub`,
+    };
+  } else {
+    return {
+      isAvailable: false,
+      label: " Private Codex",
+      title: "This code is part of a private repository",
+    };
+  }
+};
 
 const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   chapterTitle,
@@ -95,17 +113,16 @@ lg:text-4xl"
                     alt={proj.title}
                     width={80}
                     height={80}
-                    className="object-contain w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 mt-4 md:mt-10 sm:mt-14 xxs:mt-14 lg:mt-8"
+                    className="object-contain w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 mt-4 md:mt-10 sm:mt-14 xxs:mt-12 lg:mt-8"
                     loading="lazy"
                   />
                 </div>
 
                 <div className="flex-1 text-center w-full mx-auto justify-center ">
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8">
+                  <h3 className="text-sm xs:text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8 ">
                     {proj.title}
                   </h3>
-                  <p className="italic text-gray-600 leading-tight text-sm md:text-base lg:text-lg text-center lg:text-left">
-                    {" "}
+                  <p className="italic text-gray-600 leading-tight text-sm md:text-base lg:text-lg text-left px-1">
                     {proj.shortDescription}
                   </p>
                 </div>
@@ -181,18 +198,29 @@ lg:text-4xl"
                 ? "🎥 Watch the Tome"
                 : "📜 Read the Scroll"}
             </a>
-            <a
-              href={selectedProject.repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={`Explore the source code for ${selectedProject.title} on GitHub`}
-              aria-label={`View GitHub repository for ${selectedProject.title}`}
-              className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif cursor-pointer 
-              transition-all duration-500 ease-in-out whitespace-nowrap
-              lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
-            >
-              📖 Open the Codex
-            </a>
+            {getRepoDisplay(selectedProject).isAvailable ? (
+              <a
+                href={getRepoDisplay(selectedProject).url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={getRepoDisplay(selectedProject).title}
+                aria-label={`View GitHub repository for ${selectedProject.title}`}
+                className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif cursor-pointer 
+                transition-all duration-500 ease-in-out whitespace-nowrap
+                lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
+              >
+                {getRepoDisplay(selectedProject).label}
+              </a>
+            ) : (
+              <span
+                title={getRepoDisplay(selectedProject).title}
+                className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif
+                whitespace-nowrap opacity-70 flex items-center justify-center gap-1"
+              >
+                <Lock size={14} className="inline-block" />{" "}
+                {getRepoDisplay(selectedProject).label}
+              </span>
+            )}
           </div>
         </div>
       )}
