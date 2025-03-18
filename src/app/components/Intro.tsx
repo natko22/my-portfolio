@@ -1,6 +1,6 @@
 export default function Intro() {
   return (
-    <section className="intro flex flex-col justify-center items-center text-center px-8  md:px-12 space-y-4 md:space-y-2 mt-10 md:mt-4 h-[10vh]">
+    <section className="intro flex flex-col justify-center items-center text-center px-8  md:px-12 space-y-4 md:space-y-2 mt-10 sm:mt-6 md:mt-4  h-[14vh] ">
       {/* Title */}
       <h1 className="text-book-accent-dark text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
         Turning Pages, Writing Code
