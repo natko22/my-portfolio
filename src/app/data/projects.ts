@@ -61,18 +61,19 @@ export const projects = Object.freeze({
       repo: "https://github.com/natko22/m-portofolio",
     },
     {
-      title: "VREP School Project",
+      title: "Vrep Education",
       shortDescription:
-        "A web application page built for the VREP project during my internship at MPC.",
-      description: `During my internship at MPC, I contributed to the VREP project, specifically working on the Pupils Page. This page was developed using TypeScript, React, and Ant Design, ensuring a clean and efficient UI.`,
+        "A school management platform designed to handle academic performance.",
+      description: `During my internship at MPC, I contributed to the development of VREP, an all-in-one school management platform. I worked on multiple pages, leveraging TypeScript, React, and Ant Design to build clean, efficient, and user-friendly interfaces. My work focused on enhancing the platform’s usability and performance, ensuring a seamless experience for students, teachers, and administrators.`,
       image: "/vrep.webp",
       techStack: ["TypeScript", "React", "Ant Design"],
-      demo: "https://www.youtube.com/watch?v=1grhmBoC52A",
+      demo: "https://www.vrepeducation.com/",
       repo: "",
     },
     {
       title: "Cosmo Chat",
-      shortDescription: "A real-time AI-powered chat application.",
+      shortDescription:
+        "A real-time AI-powered chat application using OpenAI API.",
       description: `At Radical AI, I developed Cosmo Chat, a real-time messaging app using WebSocket for live communication and OpenAI API for AI-powered responses.`,
       image: "/cosmo-chat.webp",
       techStack: ["React", "Material UI", "WebSocket", "OpenAI API"],
