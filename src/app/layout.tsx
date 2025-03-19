@@ -71,7 +71,8 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className="antialiased bg-white dark:bg-gray-900">
+      <body className="antialiased bg-white dark:bg-gray-900 overflow-x-hidden max-w-full">
+        {" "}
         {/* Accessibility skip link for keyboard navigation */}
         <a
           href="#main-content"
@@ -79,12 +80,10 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-
         {/* Main content wrapper with proper landmark */}
         <main id="main-content" className="min-h-screen">
           {children}
         </main>
-
         {/* Add a script to help make buttons visible */}
         <script
           dangerouslySetInnerHTML={{

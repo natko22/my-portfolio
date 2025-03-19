@@ -95,7 +95,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
       initial="normal"
       animate={isFlipping ? "flipping" : "normal"}
       variants={contentVariants}
-      className="relative"
+      className="relative mobile-safe-container"
       style={{
         transformOrigin: "left center",
         perspective: isMobile ? "none" : "1200px",
@@ -103,7 +103,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     >
       {!selectedProject ? (
         <>
-          <div className="w-full mb-6">
+          <div className="w-full mb-6 mobile-safe-container">
             <h1
               className="text-center font-bold mb-2 text-book-dark 
 text-2xl
@@ -121,11 +121,11 @@ lg:text-4xl"
               {chapterDescription}
             </h2>
           </div>
-          <div className="flex flex-col space-y-8">
+          <div className="flex flex-col space-y-8 mobile-safe-container">
             {projects?.map((proj) => (
               <div
                 key={proj.title}
-                className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2"
+                className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2 mobile-safe-container"
                 onClick={() => setSelectedProject(proj)}
               >
                 <div className="relative mt-2 sm:mt-4 md:mt-6 lg:mt-8 flex-shrink-0 self-center shadow-md">
@@ -162,7 +162,7 @@ lg:text-4xl"
         </>
       ) : (
         <motion.div
-          className="p-4 sm:p-12 max-w-2xl mx-auto text-book-dark relative"
+          className="p-4 sm:p-12 max-w-2xl mx-auto text-book-dark relative mobile-safe-container"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.1}

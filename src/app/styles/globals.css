@@ -43,6 +43,15 @@
 
 /* ====== Base Styles (Applied Globally) ====== */
 @layer base {
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     font-family: Lora, Serif;
     @apply text-book-dark leading-relaxed text-lg bg-[var(--color-background)];
@@ -231,5 +240,16 @@
 
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+}
+@layer utilities {
+  .mobile-safe-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
