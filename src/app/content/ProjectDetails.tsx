@@ -167,22 +167,16 @@ lg:text-4xl"
           </button>
 
           {/* Mobile floating action button */}
-          <div className="md:hidden fixed bottom-0 left-1/2 transform -translate-x-1/2 flex gap-4 z-[100]">
-            <button
-              onClick={onBackToProjects}
-              className="w-12 h-12 flex items-center justify-center 
-    bg-book-accent-light rounded-full shadow-md 
-    active:scale-95 hover:bg-book-accent-dark transition"
-              aria-label="Back to Projects"
-            >
-              <ChevronLeft size={22} />
-            </button>
-          </div>
-
-          {/* Gesture hint for mobile users */}
-          <div className="md:hidden text-xs text-center text-book-muted mt-2 mb-4">
-            Swipe left to go back
-          </div>
+          {/* Update the bottom positioning and remove the separate div if needed */}
+          <button
+            onClick={onBackToProjects}
+            className="md:hidden fixed top-0 left-4 z-[100] w-8 h-8 flex items-center justify-center 
+  bg-book-accent-light rounded-full shadow-md 
+  active:scale-95 hover:bg-book-accent-dark transition"
+            aria-label="Back to Projects"
+          >
+            <ChevronLeft size={20} />
+          </button>
 
           <div className="text-center mt-2 sm:mt-4">
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
