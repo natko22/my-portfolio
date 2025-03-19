@@ -115,12 +115,6 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
       }, 500);
     }, [setIsClosing, handleClosingComplete]);
 
-    const handleBackToTOC = useCallback(() => {
-      if (useSinglePageView) {
-        setShowToc(true);
-      }
-    }, [useSinglePageView, setShowToc]);
-
     return (
       <div
         className={`flex flex-col items-center justify-start w-full overflow-hidden p-4 pt-8 sm:p-6 md:p-8 lg:p-2 min-h-screen ${className}`}
@@ -297,7 +291,6 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                           <ChapterContent
                             key={`chapter-content-${mountKey}`}
                             chapter={currentChapter as Chapter}
-                            onBackToTOC={handleBackToTOC}
                           />
                         ) : (
                           <p className="text-center text-red-500">
