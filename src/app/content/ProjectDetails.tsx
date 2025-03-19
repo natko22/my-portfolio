@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowLeft, Lock, ChevronLeft } from "lucide-react";
@@ -52,24 +52,42 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   onBackToProjects,
   isFlipping,
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const contentVariants = {
-    flipping: {
-      rotateY: 180,
-      x: -100,
-      y: -20,
-      opacity: 0.5,
-      transition: { duration: 0.8, ease: "easeInOut" },
-    },
+    flipping: isMobile
+      ? {
+          x: -30,
+          opacity: 0.2,
+          transition: { duration: 0.4, ease: "easeInOut" },
+        }
+      : {
+          rotateY: 180,
+          x: -100,
+          y: -20,
+          opacity: 0.5,
+          transition: { duration: 0.8, ease: "easeInOut" },
+        },
     normal: {
       rotateY: 0,
       x: 0,
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: "easeInOut" },
+      transition: {
+        duration: isMobile ? 0.4 : 0.8,
+        ease: "easeInOut",
+      },
     },
   };
 
-  // Drag constraints for swipe gestures
   const swipeThreshold = 50;
 
   return (
@@ -80,7 +98,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
       className="relative"
       style={{
         transformOrigin: "left center",
-        perspective: "1200px",
+        perspective: isMobile ? "none" : "1200px",
       }}
     >
       {!selectedProject ? (
