@@ -11,7 +11,7 @@ import { ClosingPage } from "./ClosingPage";
 import { ChapterContent, chapters } from "../content/ChapterContent";
 import { Chapter } from "@/app/types/index";
 import BookCover from "./BookCover";
-import { X, BookOpen } from "lucide-react";
+import { X, BookOpen, ScrollText } from "lucide-react";
 
 interface BookLayoutProps {
   children?: React.ReactNode;
@@ -49,11 +49,8 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
       return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Determine if we should use mobile layout
-    // Changed threshold from 768px to 900px as requested
     const useSinglePageView = windowWidth !== null && windowWidth < 900;
 
-    // Increased height values for all screen sizes
     const bookHeightClass =
       isOpen && windowWidth !== null
         ? windowWidth < 375 // xxxs to xxs
@@ -74,7 +71,6 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
       // Reset any problematic states when toggling between views
       if (useSinglePageView && isClosing) {
         const timer = setTimeout(() => {
-          // Ensure we properly reset all states
           setIsClosing(false);
           setIsOpen(false);
           setShowToc(true);
@@ -108,8 +104,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
       [useSinglePageView, setCurrentChapter]
     );
 
-    // New function to handle mobile close button
-    // Improved mobile close handler that works in both views
+    //  function to handle mobile close button
     const handleMobileClose = useCallback(() => {
       // First set closing state to trigger fade animation
       setIsClosing(true);
@@ -117,7 +112,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
       // Ensure animation completes and book actually closes
       setTimeout(() => {
         handleClosingComplete();
-      }, 500); // Match animation duration
+      }, 500);
     }, [setIsClosing, handleClosingComplete]);
 
     return (
@@ -219,7 +214,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
             active:scale-95 hover:bg-book-accent-dark transition"
                               aria-label="Table of Contents"
                             >
-                              <BookOpen size={22} />
+                              <ScrollText size={22} />
                             </button>
 
                             <button
@@ -233,7 +228,6 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                             </button>
                           </div>
                         </div>
-                        {/* Rest of your component... */}
                         <div className="px-4 pt-2 pb-24 min-h-full">
                           {currentChapter in chapters ? (
                             <ChapterContent

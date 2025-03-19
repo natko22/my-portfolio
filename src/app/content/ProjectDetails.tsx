@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, Lock } from "lucide-react";
+import { ArrowLeft, Lock, ChevronLeft } from "lucide-react";
 
 interface Project {
   title: string;
@@ -68,6 +68,9 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
       transition: { duration: 0.8, ease: "easeInOut" },
     },
   };
+
+  // Drag constraints for swipe gestures
+  const swipeThreshold = 50; // Minimum distance to trigger a swipe
 
   return (
     <motion.div
@@ -140,18 +143,49 @@ lg:text-4xl"
           </div>
         </>
       ) : (
-        <div className="p-4 sm:p-12 max-w-2xl mx-auto text-book-dark relative">
+        // Use motion.div with drag for swipe gestures when a project is selected
+        <motion.div
+          className="p-4 sm:p-12 max-w-2xl mx-auto text-book-dark relative"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.1}
+          onDragEnd={(event, info) => {
+            // If drag distance exceeds threshold and direction is right, go back
+            if (info.offset.x > swipeThreshold) {
+              onBackToProjects();
+            }
+          }}
+        >
+          {/* Desktop back button */}
           <button
             onClick={onBackToProjects}
-            className="w-full mt-8 md:w-auto text-center md:text-left italic text-xs md:text-base text-book-muted mb-4 md:absolute md:-top-2 md:right-4 hover:no-underline focus:outline-none relative z-30"
+            className="hidden md:flex mt-8 md:w-auto text-center md:text-left italic text-xs md:text-base text-book-muted mb-4 md:absolute md:-top-2 md:right-4 hover:no-underline focus:outline-none relative z-30"
           >
             <span className="flex items-center justify-center md:justify-start gap-1 md:gap-2">
               <ArrowLeft size={16} className="md:w-5 md:h-5" /> Back to Projects
             </span>
           </button>
 
+          {/* Mobile floating action button */}
+          <div className="md:hidden fixed bottom-0 left-1/2 transform -translate-x-1/2 flex gap-4 z-[100]">
+            <button
+              onClick={onBackToProjects}
+              className="w-12 h-12 flex items-center justify-center 
+    bg-book-accent-light rounded-full shadow-md 
+    active:scale-95 hover:bg-book-accent-dark transition"
+              aria-label="Back to Projects"
+            >
+              <ChevronLeft size={22} />
+            </button>
+          </div>
+
+          {/* Gesture hint for mobile users */}
+          <div className="md:hidden text-xs text-center text-book-muted mt-2 mb-4">
+            Swipe left to go back
+          </div>
+
           <div className="text-center mt-2 sm:mt-4">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl  font-bold">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
               {selectedProject.title}
             </h1>
             <h6 className="italic mt-2 sm:mt-3 text-xs xs:text-sm sm:text-base lg:text-lg text-center text-grey-400 max-w-full sm:max-w-[90%] md:max-w-[85%] mx-auto leading-relaxed">
@@ -183,8 +217,8 @@ lg:text-4xl"
                 <span
                   key={tech}
                   className="px-2 sm:px-3 md:px-4 py-1 text-xs sm:text-sm lg:text-base italic font-serif
-        transition-all duration-300 ease-in-out
-        lg:hover:text-book-accent lg:hover:font-bold"
+                  transition-all duration-300 ease-in-out
+                  lg:hover:text-book-accent lg:hover:font-bold"
                 >
                   {tech}
                 </span>
@@ -200,8 +234,8 @@ lg:text-4xl"
               title="Watch the video or interact with the project"
               aria-label={`View live demo of ${selectedProject.title}`}
               className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif cursor-pointer 
-        transition-all duration-500 ease-in-out whitespace-nowrap
-        lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
+              transition-all duration-500 ease-in-out whitespace-nowrap
+              lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
               {selectedProject.demo.includes("youtube.com")
                 ? "🎥 Watch the Tome"
@@ -231,7 +265,10 @@ lg:text-4xl"
               </span>
             )}
           </div>
-        </div>
+
+          {/* Add a bit of padding at the bottom to ensure the floating button doesn't overlap content */}
+          <div className="pb-20 md:pb-0"></div>
+        </motion.div>
       )}
     </motion.div>
   );
