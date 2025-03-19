@@ -143,14 +143,12 @@ lg:text-4xl"
           </div>
         </>
       ) : (
-        // Use motion.div with drag for swipe gestures when a project is selected
         <motion.div
           className="p-4 sm:p-12 max-w-2xl mx-auto text-book-dark relative"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.1}
           onDragEnd={(event, info) => {
-            // If drag distance exceeds threshold and direction is right, go back
             if (info.offset.x > swipeThreshold) {
               onBackToProjects();
             }
@@ -169,7 +167,7 @@ lg:text-4xl"
           {/* Mobile floating action button */}
           <button
             onClick={onBackToProjects}
-            className="md:hidden fixed top-0 left-4 z-[100] w-8 h-8 flex items-center justify-center 
+            className="md:hidden fixed -top-4 left-4 z-[100] w-8 h-8 flex items-center justify-center 
   bg-book-accent-light rounded-full shadow-md 
   active:scale-95 hover:bg-book-accent-dark transition"
             aria-label="Back to Projects"
