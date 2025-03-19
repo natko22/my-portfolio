@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, Lock } from "lucide-react";
+import { ArrowLeft, Lock, ChevronLeft } from "lucide-react";
 
 interface Project {
   title: string;
@@ -52,22 +52,43 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   onBackToProjects,
   isFlipping,
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const contentVariants = {
-    flipping: {
-      rotateY: 180,
-      x: -100,
-      y: -20,
-      opacity: 0.5,
-      transition: { duration: 0.8, ease: "easeInOut" },
-    },
+    flipping: isMobile
+      ? {
+          x: -30,
+          opacity: 0.2,
+          transition: { duration: 0.4, ease: "easeInOut" },
+        }
+      : {
+          rotateY: 180,
+          x: -100,
+          y: -20,
+          opacity: 0.5,
+          transition: { duration: 0.8, ease: "easeInOut" },
+        },
     normal: {
       rotateY: 0,
       x: 0,
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: "easeInOut" },
+      transition: {
+        duration: isMobile ? 0.4 : 0.8,
+        ease: "easeInOut",
+      },
     },
   };
+
+  const swipeThreshold = 50;
 
   return (
     <motion.div
@@ -77,7 +98,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
       className="relative"
       style={{
         transformOrigin: "left center",
-        perspective: "1200px",
+        perspective: isMobile ? "none" : "1200px",
       }}
     >
       {!selectedProject ? (
@@ -140,18 +161,42 @@ lg:text-4xl"
           </div>
         </>
       ) : (
-        <div className="p-4 sm:p-12 max-w-2xl mx-auto text-book-dark relative">
+        <motion.div
+          className="p-4 sm:p-12 max-w-2xl mx-auto text-book-dark relative"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.1}
+          onDragEnd={(event, info) => {
+            if (info.offset.x > swipeThreshold) {
+              onBackToProjects();
+            }
+          }}
+        >
+          {/* Desktop back button */}
           <button
             onClick={onBackToProjects}
-            className="w-full mt-8 md:w-auto text-center md:text-left italic text-xs md:text-base text-book-muted mb-4 md:absolute md:-top-2 md:right-4 hover:no-underline focus:outline-none relative z-30"
+            className="hidden md:flex mt-8 md:w-auto text-center md:text-left italic text-xs md:text-base text-book-muted mb-4 md:absolute md:-top-2 md:right-4 hover:no-underline focus:outline-none relative z-30"
           >
             <span className="flex items-center justify-center md:justify-start gap-1 md:gap-2">
               <ArrowLeft size={16} className="md:w-5 md:h-5" /> Back to Projects
             </span>
           </button>
 
+          {/* Mobile floating action button */}
+          <div className="md:hidden absolute top-0 left-4 z-[100]">
+            <button
+              onClick={onBackToProjects}
+              className="w-6 h-6 flex items-center justify-center 
+    bg-book-accent-light rounded-full shadow-md 
+    active:scale-95 hover:bg-book-accent-dark transition"
+              aria-label="Back to Projects"
+            >
+              <ChevronLeft size={20} />
+            </button>
+          </div>
+
           <div className="text-center mt-2 sm:mt-4">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl  font-bold">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
               {selectedProject.title}
             </h1>
             <h6 className="italic mt-2 sm:mt-3 text-xs xs:text-sm sm:text-base lg:text-lg text-center text-grey-400 max-w-full sm:max-w-[90%] md:max-w-[85%] mx-auto leading-relaxed">
@@ -183,8 +228,8 @@ lg:text-4xl"
                 <span
                   key={tech}
                   className="px-2 sm:px-3 md:px-4 py-1 text-xs sm:text-sm lg:text-base italic font-serif
-        transition-all duration-300 ease-in-out
-        lg:hover:text-book-accent lg:hover:font-bold"
+                  transition-all duration-300 ease-in-out
+                  lg:hover:text-book-accent lg:hover:font-bold"
                 >
                   {tech}
                 </span>
@@ -200,8 +245,8 @@ lg:text-4xl"
               title="Watch the video or interact with the project"
               aria-label={`View live demo of ${selectedProject.title}`}
               className="px-2 xs:px-3 sm:px-5 py-1 xs:py-2 text-xs xs:text-sm sm:text-base lg:text-lg italic font-serif cursor-pointer 
-        transition-all duration-500 ease-in-out whitespace-nowrap
-        lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
+              transition-all duration-500 ease-in-out whitespace-nowrap
+              lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
               {selectedProject.demo.includes("youtube.com")
                 ? "🎥 Watch the Tome"
@@ -231,7 +276,9 @@ lg:text-4xl"
               </span>
             )}
           </div>
-        </div>
+
+          <div className="pb-20 md:pb-0"></div>
+        </motion.div>
       )}
     </motion.div>
   );

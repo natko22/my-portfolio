@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/display-name */
 "use client";
@@ -10,6 +11,7 @@ import Contact from "./Contact";
 import Prologue from "./Prologue";
 import ProjectDetails from "./ProjectDetails";
 import TechStack from "./TechStack";
+import { motion } from "framer-motion";
 
 const chapterInfo = {
   "Chapter I: Tales of Creation": {
@@ -67,18 +69,24 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
 
   const handleProjectSelect = (project: any) => {
     setIsFlipping(true);
+    const isMobile = window.innerWidth < 768;
+    const animationDuration = isMobile ? 400 : 800;
+
     setTimeout(() => {
       setSelectedProject(project);
       setIsFlipping(false);
-    }, 800);
+    }, animationDuration);
   };
 
   const handleBackToProjects = () => {
     setIsFlipping(true);
+    const isMobile = window.innerWidth < 768;
+    const animationDuration = isMobile ? 400 : 800;
+
     setTimeout(() => {
       setSelectedProject(null);
       setIsFlipping(false);
-    }, 800);
+    }, animationDuration);
   };
 
   const chapterData = chapterInfo[chapter as keyof typeof chapterInfo];
@@ -89,15 +97,43 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
 
   return (
     <div className="prose max-w-none">
-      <ProjectDetails
-        chapterTitle={chapterData.title}
-        chapterDescription={chapterData.description}
-        projects={chapterData.projects || []}
-        selectedProject={selectedProject}
-        setSelectedProject={handleProjectSelect}
-        onBackToProjects={handleBackToProjects}
-        isFlipping={isFlipping}
-      />
+      {!selectedProject ? (
+        <motion.div
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.2}
+          onDragEnd={(event: any, info: { offset: { x: number } }) => {
+            if (info.offset.x > 50) {
+            } else if (
+              info.offset.x < -50 &&
+              chapterData.projects &&
+              chapterData.projects.length > 0
+            ) {
+              handleProjectSelect(chapterData.projects[0]);
+            }
+          }}
+        >
+          <ProjectDetails
+            chapterTitle={chapterData.title}
+            chapterDescription={chapterData.description}
+            projects={chapterData.projects || []}
+            selectedProject={selectedProject}
+            setSelectedProject={handleProjectSelect}
+            onBackToProjects={handleBackToProjects}
+            isFlipping={isFlipping}
+          />
+        </motion.div>
+      ) : (
+        <ProjectDetails
+          chapterTitle={chapterData.title}
+          chapterDescription={chapterData.description}
+          projects={chapterData.projects || []}
+          selectedProject={selectedProject}
+          setSelectedProject={handleProjectSelect}
+          onBackToProjects={handleBackToProjects}
+          isFlipping={isFlipping}
+        />
+      )}
     </div>
   );
 });
