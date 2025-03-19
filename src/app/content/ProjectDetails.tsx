@@ -186,7 +186,7 @@ lg:text-4xl"
           <div className="md:hidden absolute top-0 left-4 z-[100]">
             <button
               onClick={onBackToProjects}
-              className="w-8 h-8 flex items-center justify-center 
+              className="w-6 h-6 flex items-center justify-center 
     bg-book-accent-light rounded-full shadow-md 
     active:scale-95 hover:bg-book-accent-dark transition"
               aria-label="Back to Projects"
