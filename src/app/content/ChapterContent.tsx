@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/display-name */
 "use client";
@@ -68,18 +69,24 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
 
   const handleProjectSelect = (project: any) => {
     setIsFlipping(true);
+    const isMobile = window.innerWidth < 768;
+    const animationDuration = isMobile ? 400 : 800;
+
     setTimeout(() => {
       setSelectedProject(project);
       setIsFlipping(false);
-    }, 800);
+    }, animationDuration);
   };
 
   const handleBackToProjects = () => {
     setIsFlipping(true);
+    const isMobile = window.innerWidth < 768;
+    const animationDuration = isMobile ? 400 : 800;
+
     setTimeout(() => {
       setSelectedProject(null);
       setIsFlipping(false);
-    }, 800);
+    }, animationDuration);
   };
 
   const chapterData = chapterInfo[chapter as keyof typeof chapterInfo];
