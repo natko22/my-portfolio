@@ -3,7 +3,7 @@
 "use client";
 
 import { memo, useEffect, useState, useCallback } from "react";
-import { motion, useAnimation, PanInfo } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useBookState } from "../hooks/useBookState";
 import { TableOfContents } from "./TableOfContents";
@@ -11,7 +11,7 @@ import { ClosingPage } from "./ClosingPage";
 import { ChapterContent, chapters } from "../content/ChapterContent";
 import { Chapter } from "@/app/types/index";
 import BookCover from "./BookCover";
-import { X, BookOpen, ScrollText } from "lucide-react";
+import { X, ScrollText } from "lucide-react";
 
 interface BookLayoutProps {
   children?: React.ReactNode;
@@ -23,7 +23,6 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
   ({ className = "", onBookStateChange }) => {
     const [windowWidth, setWindowWidth] = useState<number | null>(null);
     const [showToc, setShowToc] = useState(true);
-    const controls = useAnimation();
     const {
       isOpen,
       setIsOpen,
@@ -36,6 +35,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
       mountKey,
     } = useBookState();
 
+    // Notify parent component of book state changes
     useEffect(() => {
       if (onBookStateChange) {
         onBookStateChange(isOpen);
@@ -66,6 +66,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
           : "h-[82vh]" // Large screens
         : "h-[75vh] xxs:h-[70vh] sm:h-[80vh] lg:h-[85vh]";
 
+    // New useEffect to fix mobile animation issues
     useEffect(() => {
       // Reset any problematic states when toggling between views
       if (useSinglePageView && isClosing) {
@@ -113,61 +114,6 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
         handleClosingComplete();
       }, 500);
     }, [setIsClosing, handleClosingComplete]);
-
-    // Function to get the next chapter
-    const getNextChapter = useCallback(() => {
-      const chapterKeys = Object.keys(chapters);
-      const currentIndex = chapterKeys.indexOf(currentChapter);
-
-      if (currentIndex < chapterKeys.length - 1) {
-        return chapterKeys[currentIndex + 1] as Chapter;
-      }
-      return currentChapter;
-    }, [currentChapter]);
-
-    // Function to get the previous chapter
-    const getPreviousChapter = useCallback(() => {
-      const chapterKeys = Object.keys(chapters);
-      const currentIndex = chapterKeys.indexOf(currentChapter);
-
-      if (currentIndex > 0) {
-        return chapterKeys[currentIndex - 1] as Chapter;
-      }
-      return currentChapter;
-    }, [currentChapter]);
-
-    // Handle swipe gesture
-    const handleDragEnd = useCallback(
-      (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-        if (!isOpen || showToc) return;
-
-        const swipeThreshold = 50;
-
-        if (info.offset.x > swipeThreshold) {
-          // Swiped right - go to previous chapter
-          controls.start({
-            x: [100, 0],
-            opacity: [0.5, 1],
-          });
-          setCurrentChapter(getPreviousChapter());
-        } else if (info.offset.x < -swipeThreshold) {
-          // Swiped left - go to next chapter
-          controls.start({
-            x: [-100, 0],
-            opacity: [0.5, 1],
-          });
-          setCurrentChapter(getNextChapter());
-        }
-      },
-      [
-        isOpen,
-        showToc,
-        controls,
-        getPreviousChapter,
-        getNextChapter,
-        setCurrentChapter,
-      ]
-    );
 
     return (
       <div
@@ -256,14 +202,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                       <div className="absolute bottom-0 left-0 right-0 h-16 transparent z-40 pointer-events-none" />
                     </div>
                   ) : (
-                    <motion.div
-                      className="absolute inset-0 overflow-hidden"
-                      drag="x"
-                      dragConstraints={{ left: 0, right: 0 }}
-                      dragElastic={0.2}
-                      onDragEnd={handleDragEnd}
-                      animate={controls}
-                    >
+                    <div className="absolute inset-0 overflow-hidden">
                       <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
                         <div className="flex justify-between items-center mt-2 px-5 sm:px-6 pt-4 sm:pt-5 pb-2 sm:pb-3 sticky top-0 z-20 bg-book-page">
                           {" "}
@@ -292,7 +231,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                         <div className="px-4 pt-2 pb-24 min-h-full">
                           {currentChapter in chapters ? (
                             <ChapterContent
-                              key={`chapter-content-${mountKey}-${currentChapter}`}
+                              key={`chapter-content-${mountKey}`}
                               chapter={currentChapter as Chapter}
                             />
                           ) : (
@@ -302,7 +241,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                           )}
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
                   )}
                   <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-book-bg to-transparent z-50 pointer-events-none" />
                 </motion.div>
@@ -342,14 +281,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                   </div>
                 )}
 
-                <motion.div
-                  className="w-[50%] book-page content p-8 md:p-12 rounded-r-lg h-full relative"
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  dragElastic={0.2}
-                  onDragEnd={handleDragEnd}
-                  animate={controls}
-                >
+                <div className="w-[50%] book-page content p-8 md:p-12 rounded-r-lg h-full relative">
                   <div className="absolute inset-0 overflow-hidden">
                     {/* Page Fade Effects */}
                     <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-book-bg to-transparent z-10 pointer-events-none" />
@@ -357,7 +289,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                       <div className="px-4 pt-16 pb-16 min-h-full">
                         {currentChapter in chapters ? (
                           <ChapterContent
-                            key={`chapter-content-${mountKey}-${currentChapter}`}
+                            key={`chapter-content-${mountKey}`}
                             chapter={currentChapter as Chapter}
                           />
                         ) : (
@@ -369,7 +301,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-book-bg to-transparent z-10 pointer-events-none" />
                   </div>
-                </motion.div>
+                </div>
               </div>
             )}
           </motion.div>
