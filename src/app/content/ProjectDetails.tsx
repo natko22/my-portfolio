@@ -167,7 +167,6 @@ lg:text-4xl"
           </button>
 
           {/* Mobile floating action button */}
-          {/* Update the bottom positioning and remove the separate div if needed */}
           <button
             onClick={onBackToProjects}
             className="md:hidden fixed top-0 left-4 z-[100] w-8 h-8 flex items-center justify-center 
