@@ -183,15 +183,17 @@ lg:text-4xl"
           </button>
 
           {/* Mobile floating action button */}
-          <button
-            onClick={onBackToProjects}
-            className="md:hidden fixed top-4 left-4 z-[100] w-8 h-8 flex items-center justify-center 
-  bg-book-accent-light rounded-full shadow-md 
-  active:scale-95 hover:bg-book-accent-dark transition"
-            aria-label="Back to Projects"
-          >
-            <ChevronLeft size={20} />
-          </button>
+          <div className="md:hidden absolute top-0 left-4 z-[100]">
+            <button
+              onClick={onBackToProjects}
+              className="w-8 h-8 flex items-center justify-center 
+    bg-book-accent-light rounded-full shadow-md 
+    active:scale-95 hover:bg-book-accent-dark transition"
+              aria-label="Back to Projects"
+            >
+              <ChevronLeft size={20} />
+            </button>
+          </div>
 
           <div className="text-center mt-2 sm:mt-4">
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
