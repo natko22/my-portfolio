@@ -46,7 +46,7 @@ export const TableOfContents = memo(
                   isMobile ? "pt-4" : "pt-8 md:pt-22"
                 }`}
               >
-                <div className="space-y-4 md:space-y-6">
+                <div className="space-y-3 md:space-y-4">
                   {(Object.keys(chapters) as Array<keyof typeof chapters>).map(
                     (chapter) => (
                       <button
@@ -75,12 +75,12 @@ export const TableOfContents = memo(
                 <div className="relative">
                   <div
                     onClick={onClose}
-                    className="absolute -right-6 -top-[36rem] xxxs:-top-[38rem] xxs:-top-[40rem] sm:-top-[42rem] md:-top-[53rem] tablet:-top-[50rem] lg:-top-[46rem] xl:-top-[48rem] cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 z-50"
+                    className="absolute -right-6 -top-[36rem] xxxs:-top-[38rem] xxs:-top-[40rem] sm:-top-[42rem] md:-top-[53rem] tablet:-top-[52rem] lg:-top-[46rem] xl:-top-[48rem] cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 z-50"
                   >
                     <div className="relative">
                       {/* Main bookmark body with box-shadow for depth */}
                       <div
-                        className="w-24 h-40 bg-book-accent rounded-t-lg relative overflow-hidden flex items-center justify-center shadow-lg"
+                        className="w-24 h-60 bg-book-accent rounded-t-lg relative overflow-hidden flex items-center justify-center shadow-lg"
                         style={{
                           boxShadow:
                             "2px 4px 8px rgba(0,0,0,0.3), -1px 2px 4px rgba(0,0,0,0.2)",

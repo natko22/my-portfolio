@@ -322,7 +322,7 @@ lg:text-4xl"
           </motion.span>
         ))}
 
-        <div className="mt-6 text-right text-gray-600 text-xl">
+        <div className="mt-6 text-left sm:mt-2 md:mt-4 text-gray-600 text-xl">
           {authorText.split("").map((char, index) => (
             <motion.span
               key={`author-${index}`}
