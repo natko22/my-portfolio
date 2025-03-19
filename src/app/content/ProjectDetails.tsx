@@ -185,7 +185,7 @@ lg:text-4xl"
           {/* Mobile floating action button */}
           <button
             onClick={onBackToProjects}
-            className="md:hidden fixed -top-4 left-4 z-[100] w-8 h-8 flex items-center justify-center 
+            className="md:hidden fixed top-4 left-4 z-[100] w-8 h-8 flex items-center justify-center 
   bg-book-accent-light rounded-full shadow-md 
   active:scale-95 hover:bg-book-accent-dark transition"
             aria-label="Back to Projects"
@@ -275,7 +275,6 @@ lg:text-4xl"
             )}
           </div>
 
-          {/* Add a bit of padding at the bottom to ensure the floating button doesn't overlap content */}
           <div className="pb-20 md:pb-0"></div>
         </motion.div>
       )}

@@ -43,76 +43,95 @@ export const chapters: { [K in Chapter]: React.ReactNode } = {
 
 interface ChapterContentProps {
   chapter: keyof typeof chapters;
+  onBackToTOC?: () => void;
 }
 
-export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
-  const [isFlipping, setIsFlipping] = useState(false);
+export const ChapterContent = memo(
+  ({ chapter, onBackToTOC }: ChapterContentProps) => {
+    const [selectedProject, setSelectedProject] = useState<any>(null);
+    const [isFlipping, setIsFlipping] = useState(false);
 
-  useEffect(() => {
-    const scrollContainer = document.querySelector(".chapter-scroll-container");
+    useEffect(() => {
+      const scrollContainer = document.querySelector(
+        ".chapter-scroll-container"
+      );
 
-    if (scrollContainer) {
-      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [chapter]);
+      if (scrollContainer) {
+        scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, [chapter]);
 
-  useEffect(() => {
-    if (selectedProject) {
+    useEffect(() => {
+      if (selectedProject) {
+        setIsFlipping(true);
+        setTimeout(() => {
+          setSelectedProject(null);
+          setIsFlipping(false);
+        }, 800);
+      }
+    }, [chapter]);
+
+    const handleProjectSelect = (project: any) => {
       setIsFlipping(true);
+      const isMobile = window.innerWidth < 768;
+      const animationDuration = isMobile ? 400 : 800;
+
+      setTimeout(() => {
+        setSelectedProject(project);
+        setIsFlipping(false);
+      }, animationDuration);
+    };
+
+    const handleBackToProjects = () => {
+      setIsFlipping(true);
+      const isMobile = window.innerWidth < 768;
+      const animationDuration = isMobile ? 400 : 800;
+
       setTimeout(() => {
         setSelectedProject(null);
         setIsFlipping(false);
-      }, 800);
+      }, animationDuration);
+    };
+
+    const chapterData = chapterInfo[chapter as keyof typeof chapterInfo];
+
+    if (!chapterData) {
+      return <div className="prose max-w-none">{chapters[chapter]}</div>;
     }
-  }, [chapter]);
 
-  const handleProjectSelect = (project: any) => {
-    setIsFlipping(true);
-    const isMobile = window.innerWidth < 768;
-    const animationDuration = isMobile ? 400 : 800;
-
-    setTimeout(() => {
-      setSelectedProject(project);
-      setIsFlipping(false);
-    }, animationDuration);
-  };
-
-  const handleBackToProjects = () => {
-    setIsFlipping(true);
-    const isMobile = window.innerWidth < 768;
-    const animationDuration = isMobile ? 400 : 800;
-
-    setTimeout(() => {
-      setSelectedProject(null);
-      setIsFlipping(false);
-    }, animationDuration);
-  };
-
-  const chapterData = chapterInfo[chapter as keyof typeof chapterInfo];
-
-  if (!chapterData) {
-    return <div className="prose max-w-none">{chapters[chapter]}</div>;
-  }
-
-  return (
-    <div className="prose max-w-none">
-      {!selectedProject ? (
-        <motion.div
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.2}
-          onDragEnd={(event: any, info: { offset: { x: number } }) => {
-            if (info.offset.x > 50) {
-            } else if (
-              info.offset.x < -50 &&
-              chapterData.projects &&
-              chapterData.projects.length > 0
-            ) {
-              handleProjectSelect(chapterData.projects[0]);
-            }
-          }}
-        >
+    return (
+      <div className="prose max-w-none">
+        {!selectedProject ? (
+          <motion.div
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(event: any, info: { offset: { x: number } }) => {
+              // Swipe left to select a project (existing code)
+              if (
+                info.offset.x < -50 &&
+                chapterData.projects &&
+                chapterData.projects.length > 0
+              ) {
+                handleProjectSelect(chapterData.projects[0]);
+              }
+              // NEW: Swipe right to go back to TOC
+              else if (info.offset.x > 50 && onBackToTOC) {
+                onBackToTOC();
+              }
+            }}
+          >
+            <ProjectDetails
+              chapterTitle={chapterData.title}
+              chapterDescription={chapterData.description}
+              projects={chapterData.projects || []}
+              selectedProject={selectedProject}
+              setSelectedProject={handleProjectSelect}
+              onBackToProjects={handleBackToProjects}
+              isFlipping={isFlipping}
+            />
+          </motion.div>
+        ) : (
           <ProjectDetails
             chapterTitle={chapterData.title}
             chapterDescription={chapterData.description}
@@ -122,18 +141,8 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
             onBackToProjects={handleBackToProjects}
             isFlipping={isFlipping}
           />
-        </motion.div>
-      ) : (
-        <ProjectDetails
-          chapterTitle={chapterData.title}
-          chapterDescription={chapterData.description}
-          projects={chapterData.projects || []}
-          selectedProject={selectedProject}
-          setSelectedProject={handleProjectSelect}
-          onBackToProjects={handleBackToProjects}
-          isFlipping={isFlipping}
-        />
-      )}
-    </div>
-  );
-});
+        )}
+      </div>
+    );
+  }
+);
