@@ -70,7 +70,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   };
 
   // Drag constraints for swipe gestures
-  const swipeThreshold = 50; // Minimum distance to trigger a swipe
+  const swipeThreshold = 50;
 
   return (
     <motion.div
