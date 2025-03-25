@@ -71,7 +71,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className="antialiased bg-white dark:bg-gray-900 overflow-x-hidden max-w-full">
+      <body className="antialiased bg-white dark:bg-gray-900 overflow-hidden ">
         {" "}
         {/* Accessibility skip link for keyboard navigation */}
         <a

@@ -95,7 +95,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
       initial="normal"
       animate={isFlipping ? "flipping" : "normal"}
       variants={contentVariants}
-      className="relative mobile-safe-container"
       style={{
         transformOrigin: "left center",
         perspective: isMobile ? "none" : "1200px",
@@ -103,7 +102,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     >
       {!selectedProject ? (
         <>
-          <div className="w-full mb-6 mobile-safe-container">
+          <div className="w-full mb-6 ">
             <h1
               className="text-center font-bold mb-2 text-book-dark 
 text-2xl
@@ -121,11 +120,11 @@ lg:text-4xl"
               {chapterDescription}
             </h2>
           </div>
-          <div className="flex flex-col space-y-8 mobile-safe-container">
+          <div className="flex flex-col space-y-8 ">
             {projects?.map((proj) => (
               <div
                 key={proj.title}
-                className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2 mobile-safe-container"
+                className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2 "
                 onClick={() => setSelectedProject(proj)}
               >
                 <div className="relative mt-2 sm:mt-4 md:mt-6 lg:mt-8 flex-shrink-0 self-center shadow-md">
@@ -228,8 +227,8 @@ lg:text-4xl"
                 <span
                   key={tech}
                   className="px-2 sm:px-3 md:px-4 py-1 text-xs sm:text-sm lg:text-base italic font-serif
-                  transition-all duration-300 ease-in-out
-                  lg:hover:text-book-accent lg:hover:font-bold"
+    transition-colors duration-300 ease-in-out
+    lg:hover:text-book-accent"
                 >
                   {tech}
                 </span>
