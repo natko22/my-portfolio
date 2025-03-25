@@ -55,16 +55,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${playfair.variable} ${lora.variable} overflow-hidden`}
-    >
+    <html lang="en" className={`${playfair.variable} ${lora.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         {/* Preload critical assets for faster initial load */}
         <link rel="preload" href="/linear-bg.webp" as="image" />
+
+        {/* Mobile-specific meta tags to help with webview rendering */}
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        {/* Force mobile browsers to use their best rendering */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className="antialiased bg-white dark:bg-gray-900">
+      <body className="antialiased bg-white dark:bg-gray-900 overflow-x-hidden max-w-full">
+        {" "}
         {/* Accessibility skip link for keyboard navigation */}
         <a
           href="#main-content"
@@ -72,13 +80,27 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-
         {/* Main content wrapper with proper landmark */}
-        <main id="main-content" className={`min-h-screen`}>
+        <main id="main-content" className="min-h-screen">
           {children}
         </main>
-
-        {/* Optional: Add analytics or other scripts here */}
+        {/* Add a script to help make buttons visible */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Modified script that only focuses on button visibility
+              window.addEventListener('load', function() {
+                setTimeout(function() {
+                  const buttons = document.querySelectorAll('button');
+                  buttons.forEach(btn => {
+                    btn.style.visibility = 'visible';
+                    btn.style.opacity = '1';
+                  });
+                }, 100);
+              });
+            `,
+          }}
+        />
       </body>
     </html>
   );
