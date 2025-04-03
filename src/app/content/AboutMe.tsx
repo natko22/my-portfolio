@@ -37,7 +37,7 @@ lg:text-4xl"
       <p className="italic border-l-4 border-book-accent-light pl-4 py-1">
         Thank you for stepping into my world of code and creativity. I hope
         you'll find inspiration in these pages as I continue to write my story,
-        one keystroke at a time. Let's create something unforgettable together!
+        one keystroke at a time.
       </p>
 
       {/* Signature/call to action */}
