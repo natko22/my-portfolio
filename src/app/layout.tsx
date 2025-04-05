@@ -21,6 +21,10 @@ const lora = Lora({
 // Define comprehensive metadata for better SEO and social sharing
 export const metadata: Metadata = {
   title: "Turning Pages, Writing Code | Portfolio",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   description:
     "Where logic meets creativity, a new world unfolds. Explore my portfolio of web development and creative coding projects.",
   keywords: [
