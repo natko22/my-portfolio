@@ -21,6 +21,10 @@ const lora = Lora({
 // Define comprehensive metadata for better SEO and social sharing
 export const metadata: Metadata = {
   title: "Turning Pages, Writing Code | Portfolio",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   description:
     "Where logic meets creativity, a new world unfolds. Explore my portfolio of web development and creative coding projects.",
   keywords: [
@@ -29,7 +33,7 @@ export const metadata: Metadata = {
     "creative coding",
     "frontend development",
   ],
-  // OpenGraph metadata improves how your site appears when shared on social media
+  // OpenGraph metadata improves how  site appears when shared on social media
   openGraph: {
     title: "Turning Pages, Writing Code",
     description: "Where logic meets creativity, a new world unfolds",
@@ -57,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${lora.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/apple-touch-icon.png" />
         {/* Preload critical assets for faster initial load */}
         <link rel="preload" href="/linear-bg.webp" as="image" />
 
