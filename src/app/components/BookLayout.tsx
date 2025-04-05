@@ -131,11 +131,11 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
 
         <div
           className={`relative w-full max-w-[80rem] 
-  ${bookHeightClass}
-  min-h-[500px] mt-2 xxxs:mt-3 xxs:mt-3 sm:mt-2 md:mt-0
-  filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8 mb-6 ${
-    useSinglePageView && isOpen ? "mb-16" : "mb-8"
-  } transition-all duration-300`}
+            ${bookHeightClass}
+            min-h-[500px] mt-2 xxxs:mt-3 xxs:mt-3 sm:mt-2 md:mt-0
+            filter drop-shadow-2xl px-2 xxxs:px-3 xxs:px-4 sm:px-6 md:px-8 mb-6 ${
+              useSinglePageView && isOpen ? "mb-16" : "mb-8"
+            } transition-all duration-300`}
         >
           <BookCover isOpen={isOpen} onOpen={() => setIsOpen(true)} />
 
@@ -150,13 +150,17 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
             transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
             className={`absolute top-0 left-0 w-full h-full ${
               isOpen ? "pointer-events-auto" : "pointer-events-none"
-            } z-10 max-h-full overflow-hidden perspective-1000`}
+            } z-10 max-h-full overflow-visible perspective-1000`}
+            style={{
+              transform: "translateZ(0)",
+              willChange: "transform",
+            }}
           >
             {useSinglePageView ? (
               // Mobile layout - single page with toggle
               <div className="flex flex-col h-full">
                 <motion.div
-                  className="w-full book-page rounded-lg h-full max-h-full md:max-h-none relative overflow-hidden bg-book-light flex-1 shadow-lg"
+                  className="w-full book-page rounded-lg h-full max-h-full md:max-h-none relative bg-book-light flex-1 shadow-lg overflow-visible"
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: isClosing ? 0 : 1,
@@ -175,60 +179,72 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                   }}
                 >
                   <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-book-bg to-transparent z-10 pointer-events-none" />
-                  {showToc ? (
+
+                  {/*  (TOC + Close) */}
+                  <div className="pointer-events-none">
                     <div
-                      className="p-2 h-full relative overflow-y-auto no-scrollbar"
-                      style={{ zIndex: 10 }}
+                      style={{
+                        position: "fixed",
+                        bottom: "2.5rem",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        WebkitTransform: "translateX(-50%)",
+                        willChange: "transform",
+                        zIndex: 9999,
+                        WebkitBackfaceVisibility: "hidden",
+                        backfaceVisibility: "hidden",
+                        WebkitPerspective: 1000,
+                      }}
+                      className="flex gap-4 pointer-events-auto"
                     >
-                      <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 flex gap-4 z-[200]">
+                      {showToc ? (
                         <button
                           onClick={handleMobileClose}
-                          className="w-12 h-12  flex items-center justify-center  
-        bg-book-accent-light rounded-full shadow-md 
-        active:scale-95 hover:bg-book-accent-dark transition"
+                          className="w-12 h-12 flex items-center justify-center  
+                            bg-book-accent-light rounded-full shadow-md 
+                            active:scale-95 hover:bg-book-accent-dark transition"
                           aria-label="Close Book"
                         >
                           <X size={22} />
                         </button>
-                      </div>
-                      <div className="pb-24">
-                        <TableOfContents
-                          currentChapter={currentChapter}
-                          onChapterSelect={handleChapterSelect}
-                          onClose={handleMobileClose}
-                          isMobile={true}
-                        />
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 h-16 transparent z-40 pointer-events-none" />
+                      ) : (
+                        <>
+                          <button
+                            onClick={toggleView}
+                            className="w-12 h-12 flex items-center justify-center 
+                              bg-book-accent-light rounded-full shadow-md 
+                              active:scale-95 hover:bg-book-accent-dark transition"
+                            aria-label="Table of Contents"
+                          >
+                            <ScrollText size={22} />
+                          </button>
+                          <button
+                            onClick={handleMobileClose}
+                            className="w-12 h-12 flex items-center justify-center 
+                              bg-book-accent-light rounded-full shadow-md 
+                              active:scale-95 hover:bg-book-accent-dark transition"
+                            aria-label="Close Book"
+                          >
+                            <X size={22} />
+                          </button>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  {showToc ? (
+                    <div className="p-2 h-full relative overflow-y-auto no-scrollbar z-[10] pb-24">
+                      <TableOfContents
+                        currentChapter={currentChapter}
+                        onChapterSelect={handleChapterSelect}
+                        onClose={handleMobileClose}
+                        isMobile={true}
+                      />
                     </div>
                   ) : (
                     <div className="absolute inset-0 overflow-hidden">
                       <div className="absolute inset-0 overflow-y-auto no-scrollbar chapter-scroll-container">
-                        <div className="flex justify-between items-center mt-2 px-5 sm:px-6 pt-4 sm:pt-5 pb-2 sm:pb-3 sticky top-0 z-20 bg-book-page">
-                          {" "}
-                          <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 flex gap-4 z-[100]">
-                            <button
-                              onClick={toggleView}
-                              className="w-12 h-12 flex items-center justify-center 
-            bg-book-accent-light rounded-full shadow-md 
-            active:scale-95 hover:bg-book-accent-dark transition"
-                              aria-label="Table of Contents"
-                            >
-                              <ScrollText size={22} />
-                            </button>
-
-                            <button
-                              onClick={handleMobileClose}
-                              className="w-12 h-12 flex items-center justify-center 
-            bg-book-accent-light rounded-full shadow-md 
-            active:scale-95 hover:bg-book-accent-dark transition z-[100]"
-                              aria-label="Close Book"
-                            >
-                              <X size={22} />
-                            </button>
-                          </div>
-                        </div>
-                        <div className="px-4 pt-2 pb-24 min-h-full">
+                        <div className="px-4 pt-2 pb-24 min-h-full mt-12">
                           {currentChapter in chapters ? (
                             <ChapterContent
                               key={`chapter-content-${mountKey}`}
@@ -243,6 +259,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                       </div>
                     </div>
                   )}
+
                   <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-book-bg to-transparent z-50 pointer-events-none" />
                 </motion.div>
               </div>
@@ -266,9 +283,9 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                   </ClosingPage>
                 ) : (
                   <div className="w-[50%] book-page toc p-8 md:p-12 rounded-l-lg h-full relative">
+                    {" "}
                     {/* Top Fade Effect on Left Page */}
                     <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-book-bg to-transparent z-10 pointer-events-none" />
-
                     <TableOfContents
                       currentChapter={currentChapter}
                       onChapterSelect={(chapter) =>
