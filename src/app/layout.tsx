@@ -1,13 +1,13 @@
 import { Playfair_Display, Lora } from "next/font/google";
 import "./styles/globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
-// Configure fonts with optimized loading strategies
+// Configure fonts
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
-  display: "swap", // Prevents layout shift during font loading
-  variable: "--font-playfair", // CSS variable for consistent font usage
+  display: "swap",
+  variable: "--font-playfair",
 });
 
 const lora = Lora({
@@ -18,11 +18,16 @@ const lora = Lora({
   variable: "--font-lora",
 });
 
-// Define comprehensive metadata for better SEO and social sharing
+// ✅ Define metadata separately
 export const metadata: Metadata = {
   title: "Turning Pages, Writing Code | Portfolio",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
     apple: "/apple-touch-icon.png",
   },
   description:
@@ -33,7 +38,6 @@ export const metadata: Metadata = {
     "creative coding",
     "frontend development",
   ],
-  // OpenGraph metadata improves how  site appears when shared on social media
   openGraph: {
     title: "Turning Pages, Writing Code",
     description: "Where logic meets creativity, a new world unfolds",
@@ -41,16 +45,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Your Portfolio",
   },
-  // Robot directives control how search engines interact with your site
   robots: {
-    index: true, // Allow search engines to index this page
-    follow: true, // Allow following links to discover other pages
+    index: true,
+    follow: true,
   },
-  // Ensure proper mobile rendering
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
+};
+
+// ✅ Export viewport separately
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -61,38 +65,45 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${lora.variable}`}>
       <head>
-        <link rel="icon" href="/apple-touch-icon.png" />
-        {/* Preload critical assets for faster initial load */}
-        <link rel="preload" href="/linear-bg.webp" as="image" />
+        {/* Favicons */}
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
 
-        {/* Mobile-specific meta tags to help with webview rendering */}
+        {/* Others */}
+        <link rel="preload" href="/linear-bg.webp" as="image" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-        {/* Force mobile browsers to use their best rendering */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body className="antialiased bg-white dark:bg-gray-900 overflow-hidden ">
-        {" "}
-        {/* Accessibility skip link for keyboard navigation */}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4"
         >
           Skip to main content
         </a>
-        {/* Main content wrapper with proper landmark */}
         <main id="main-content" className="min-h-screen">
           {children}
         </main>
-        {/* Add a script to help make buttons visible */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              // Modified script that only focuses on button visibility
               window.addEventListener('load', function() {
                 setTimeout(function() {
                   const buttons = document.querySelectorAll('button');
