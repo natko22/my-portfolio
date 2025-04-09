@@ -15,6 +15,8 @@ export const ClosingPage = memo(
   ({ isClosing, onAnimationComplete, children }: ClosingPageProps) => {
     return (
       <motion.div
+        role="presentation"
+        aria-hidden="true"
         initial={false} // Prevents Framer Motion from using initial values on mount
         animate={{
           rotateY: isClosing ? -180 : 0, // Rotates the page to simulate a book closing

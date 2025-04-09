@@ -102,16 +102,17 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     >
       {!selectedProject ? (
         <>
-          <div className="w-full mb-6 ">
+          <section className="w-full mb-6" aria-labelledby="chapter-title">
             <h1
+              id="chapter-title"
               className=" text-center font-bold mb-2 text-book-dark 
-text-2xl
-xxxs:text-2xl 
-xxs:text-2xl
-sm:text-3xl 
-small-md:text-3xl 
-md:text-4xl 
-lg:text-4xl lg:px-12"
+    text-2xl
+    xxxs:text-2xl 
+    xxs:text-2xl
+    sm:text-3xl 
+    small-md:text-3xl 
+    md:text-4xl 
+    lg:text-4xl lg:px-12"
             >
               {chapterTitle}
             </h1>
@@ -119,7 +120,8 @@ lg:text-4xl lg:px-12"
             <h4 className="text-center text-xs sm:text-sm md:text-base lg:text-md font-body leading-tight px-4 md:px-12">
               {chapterDescription}
             </h4>
-          </div>
+          </section>
+
           <div className="flex flex-col space-y-8 px-2 sm:px-4 md:px-14  lg:px-12">
             {projects?.map((proj) => (
               <div
@@ -137,7 +139,7 @@ lg:text-4xl lg:px-12"
                     <div className="bg-[#e9e9e9] border-[2px] p-1 border-book-accent-light rounded-sm aspect-square w-16 h-16 sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-26 lg:h-26 flex items-center justify-center">
                       <Image
                         src={proj.image}
-                        alt={proj.title}
+                        alt={`${proj.title} project preview image`}
                         width={80}
                         height={80}
                         className="object-contain w-full h-full"

@@ -26,7 +26,11 @@ export const TableOfContents = memo(
     };
 
     return (
-      <div className="absolute inset-0 overflow-hidden">
+      <div
+        className="absolute inset-0 overflow-hidden"
+        role="navigation"
+        aria-label="Chapters Navigation"
+      >
         <div className="absolute inset-0 overflow-y-auto no-scrollbar">
           <div
             className={`px-4 xxxs:px-5 xxs:px-6 sm:px-8 md:px-10 lg:px-12 ${

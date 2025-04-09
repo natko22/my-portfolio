@@ -116,13 +116,15 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
     }, [setIsClosing, handleClosingComplete]);
 
     return (
-      <div
+      <main
+        role="main"
         className={`flex flex-col items-center justify-start w-full overflow-hidden p-4 pt-8 sm:p-6 md:p-8 lg:p-2 min-h-screen ${className}`}
       >
         <div className="fixed inset-0 -z-10">
           <Image
             src="/linear-bg.webp"
-            alt="Background"
+            alt=""
+            aria-hidden="true"
             fill
             priority
             className="object-cover"
@@ -323,7 +325,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
             )}
           </motion.div>
         </div>
-      </div>
+      </main>
     );
   }
 );

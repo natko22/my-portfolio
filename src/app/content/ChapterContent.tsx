@@ -99,7 +99,8 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
   }
 
   return (
-    <div className="prose max-w-none">
+    <section className="prose max-w-none " aria-labelledby="chapter-title">
+      {" "}
       {!selectedProject ? (
         <motion.div
           drag="x"
@@ -137,6 +138,6 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
           isFlipping={isFlipping}
         />
       )}
-    </div>
+    </section>
   );
 });

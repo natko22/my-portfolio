@@ -6,8 +6,12 @@ import "../styles/globals.css";
 
 const Contact = () => {
   return (
-    <div className="flex flex-col items-center text-center px-4 sm:px-6 md:px-0">
+    <section
+      className="flex flex-col items-center text-center px-4 sm:px-6 md:px-0"
+      aria-labelledby="contact-heading"
+    >
       <h1
+        id="contact-heading"
         className="text-center font-bold mb-2 text-book-dark 
  text-2xl
 xxxs:text-2xl 
@@ -55,6 +59,8 @@ lg:text-4xl"
           no-underline space-x-2
           hover:scale-105 hover:shadow-lg hover:-translate-y-1
           active:bg-opacity-80 active:shadow-inner"
+          aria-label="Visit Natassa's LinkedIn Profile"
+          title="Natassa on LinkedIn"
         >
           <SiLinkedin className="w-4 sm:w-5 h-4 sm:h-5 text-white" />
           <span>LinkedIn</span>
@@ -69,12 +75,14 @@ lg:text-4xl"
           no-underline space-x-2
           hover:scale-105 hover:shadow-lg hover:-translate-y-1
           active:bg-opacity-80 active:shadow-inner"
+          aria-label="Visit Natassa's GitHub Profile"
+          title="Natassa on GitHub"
         >
           <SiGithub className="w-4 sm:w-5 h-4 sm:h-5 text-white" />
           <span>GitHub</span>
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 

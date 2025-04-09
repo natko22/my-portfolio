@@ -2,7 +2,11 @@ import React from "react";
 
 const TechStack: React.FC = () => {
   return (
-    <div className="flex flex-col items-center text-center max-w-3xl mx-auto px-8 sm:px-6">
+    <div
+      className="flex flex-col items-center text-center max-w-3xl mx-auto px-8 sm:px-6"
+      role="region"
+      aria-labelledby="techstack-title"
+    >
       {/* Title */}
       <h1
         className="text-center font-bold mb-2 text-book-dark 
@@ -13,6 +17,7 @@ sm:text-3xl
 small-md:text-3xl 
 md:text-4xl 
 lg:text-4xl"
+        id="techstack-title"
       >
         {" "}
         My Digital Lexicon
@@ -140,21 +145,21 @@ lg:text-4xl"
             </h3>
 
             {/* Tech Stack Items */}
-            <div className="mt-4 space-y-3 sm:space-y-2">
+            <ul className="mt-4 space-y-3 sm:space-y-2">
               {section.stack.map((tech, subIndex) => (
-                <div
+                <li
                   key={subIndex}
                   className="group relative flex flex-col sm:flex-row sm:items-baseline space-y-1 sm:space-y-0 sm:space-x-3 cursor-pointer transition-all duration-500 ease-in-out hover:text-book-accent p-2 sm:p-0"
                 >
                   {/*  Hover Line */}
-                  <span className="absolute inset-0 w-full bg-[var(--color-accent-light)] opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-md"></span>
+                  <span className="absolute inset-0 w-full bg-[var(--color-accent-light)] opacity-0 group-hover:opacity-30 focus-visible:opacity-30  transition-opacity duration-500 rounded-md"></span>
                   <span className="font-bold italic sm:min-w-[140px]">
                     {tech.name}:
                   </span>
                   <span className="text-gray-700">{tech.description}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         ))}
       </div>
