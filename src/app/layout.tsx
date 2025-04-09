@@ -41,10 +41,26 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Turning Pages, Writing Code",
-    description: "Where logic meets creativity, a new world unfolds",
+    description: "Where logic meets creativity, a new world unfolds.",
     type: "website",
     locale: "en_US",
-    siteName: "Your Portfolio",
+    siteName: "Chapters by Anastasia",
+    url: "https://chaptersbyanastasia.dev",
+    images: [
+      {
+        url: "https://chaptersbyanastasia.dev/preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Turning Pages, Writing Code – Portfolio by Anastasia",
+        type: "image/jpg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Turning Pages, Writing Code",
+    description: "Where logic meets creativity, a new world unfolds.",
+    images: ["https://chaptersbyanastasia.dev/preview.jpg"],
   },
   robots: {
     index: true,
@@ -66,7 +82,38 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${lora.variable}`}>
       <head>
-        {/* Others */}
+        {/* OG + Twitter Meta Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://chaptersbyanastasia.dev" />
+        <meta property="og:title" content="Turning Pages, Writing Code" />
+        <meta
+          property="og:description"
+          content="Where logic meets creativity, a new world unfolds."
+        />
+        <meta
+          property="og:image"
+          content="https://chaptersbyanastasia.dev/preview.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Turning Pages, Writing Code – Portfolio by Anastasia"
+        />
+
+        {/*  Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Turning Pages, Writing Code" />
+        <meta
+          name="twitter:description"
+          content="Where logic meets creativity, a new world unfolds."
+        />
+        <meta
+          name="twitter:image"
+          content="https://chaptersbyanastasia.dev/preview.jpg"
+        />
+
+        {/* Extra essentials */}
         <link rel="preload" href="/linear-bg.webp" as="image" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="format-detection" content="telephone=no" />
@@ -75,7 +122,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className="antialiased bg-white dark:bg-gray-900 overflow-hidden ">
+      <body className="antialiased bg-white dark:bg-gray-900 overflow-hidden">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4"
