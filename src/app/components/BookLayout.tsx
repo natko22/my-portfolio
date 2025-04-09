@@ -11,7 +11,7 @@ import { ClosingPage } from "./ClosingPage";
 import { ChapterContent, chapters } from "../content/ChapterContent";
 import { Chapter } from "@/app/types/index";
 import BookCover from "./BookCover";
-import { X, ScrollText } from "lucide-react";
+import { X, ScrollText, ArrowLeft } from "lucide-react";
 
 interface BookLayoutProps {
   children?: React.ReactNode;
@@ -116,13 +116,15 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
     }, [setIsClosing, handleClosingComplete]);
 
     return (
-      <div
+      <main
+        role="main"
         className={`flex flex-col items-center justify-start w-full overflow-hidden p-4 pt-8 sm:p-6 md:p-8 lg:p-2 min-h-screen ${className}`}
       >
         <div className="fixed inset-0 -z-10">
           <Image
             src="/linear-bg.webp"
-            alt="Background"
+            alt=""
+            aria-hidden="true"
             fill
             priority
             className="object-cover"
@@ -216,7 +218,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                               active:scale-95 hover:bg-book-accent-dark transition"
                             aria-label="Table of Contents"
                           >
-                            <ScrollText size={22} />
+                            <ArrowLeft size={22} />
                           </button>
                           <button
                             onClick={handleMobileClose}
@@ -323,7 +325,20 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
             )}
           </motion.div>
         </div>
-      </div>
+        {/* Author Credit */}
+        {!isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.4 }}
+            className="fixed bottom-4 left-0 right-0 text-xs text-center text-black italic font-serif tracking-wide opacity-70 z-[5] pointer-events-none"
+          >
+            <span className="font-semibold text-[15px] tracking-tight text-black/80 italic">
+              ✧ Designed & Developed by Anastasia Tsapanidou Kornilaki ✧
+            </span>
+          </motion.div>
+        )}
+      </main>
     );
   }
 );

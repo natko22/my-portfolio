@@ -15,7 +15,10 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-start pt-4 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-24 h-[calc(90vh-5rem)] min-h-[400px]">
+    <section
+      aria-label="Interactive book cover"
+      className="flex flex-col items-center justify-start pt-4 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-24 h-[calc(90vh-5rem)] min-h-[400px]"
+    >
       <motion.div
         initial={false}
         animate={{
@@ -36,29 +39,37 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
         min-w-[280px] max-w-[420px] overflow-hidden
         aspect-[3/4.2] sm:aspect-[3/4.5]
         mx-auto"
+        role="button"
+        aria-label="Open the book to explore portfolio"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            onOpen();
+          }
+        }}
         onClick={onOpen}
       >
         <div className="relative px-0 xxs:px-0 xs:px-4 sm:px-8 md:px-12 py-2 xxxs:py-2.5 xxs:py-3 xs:py-4 sm:py-6 md:py-8 text-center max-w-md shadow-inner border-4 border-book-accent rounded-lg">
           <div
             className="absolute -top-2 left-1/2 transform -translate-x-1/2 
-                  px-1 sm:px-2 md:px-3 text-[8px] sm:text-xs md:text-sm 
-                  bg-book-dark text-book-accent font-serif italic"
+                  px-1 sm:px-2 md:px-3 
+          text-book-accent-light italic text-[8px] sm:text-xs md:text-sm bg-book-dark "
           >
             From Theology To Technology
           </div>
 
           <h1
-            className="relative z-10 text-xs sm:text-sm md:text-lg lg:text-xl 
-                  tracking-wide text-book-accent-light mt-3 sm:mt-4 md:mt-6 
-                  text-center max-w-[95%] mx-auto"
+            className="relative z-10 text-sm sm:text-base md:text-xl lg:text-2xl 
+  tracking-wide text-book-accent-light mt-3 sm:mt-4 md:mt-6 
+  text-center max-w-[95%] mx-auto font-bold"
           >
             <span className="block">Anastasia Tsapanidou Kornilaki</span>
           </h1>
 
           <h6
-            className="relative z-10 text-[11px] sm:text-sm md:text-base 
-    font-body text-book-accent-light italic mt-1 sm:mt-2 
-    drop-shadow-sm sm:drop-shadow md:drop-shadow-md"
+            className="relative z-10 text-xs sm:text-sm md:text-base 
+  font-body font-medium text-book-accent-light italic mt-1 sm:mt-2 
+  drop-shadow-sm sm:drop-shadow md:drop-shadow-md"
           >
             Full-Stack Developer
           </h6>
@@ -85,7 +96,7 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
         <div className="absolute top-0 right-[4px] h-full w-[2px] bg-white opacity-20 rounded"></div>
         <div className="absolute top-0 right-[5px] h-full w-[1px] bg-white opacity-15 rounded"></div>
       </motion.div>
-    </div>
+    </section>
   );
 });
 

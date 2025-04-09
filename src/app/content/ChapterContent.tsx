@@ -14,26 +14,29 @@ import TechStack from "./TechStack";
 import { motion } from "framer-motion";
 
 const chapterInfo = {
-  "Chapter I: Tales of Creation": {
-    title: "First Steps",
-    description: "The journey begins with small yet meaningful projects.",
-    projects: projects["Chapter I: First Steps"],
+  "Chapter I: The Early Days": {
+    title: "Getting Started with JavaScript & Fullstack",
+    description:
+      "Projects I built during my time at Ironhack — where I explored the fundamentals of frontend and backend development.",
+    projects: projects["Chapter I: The Early Days"],
   },
   "Chapter II: Architecting My Own Path": {
-    title: "Expanding Horizons",
-    description: "Building on experience with more complex projects.",
-    projects: projects["Chapter II: Expanding Horizons"],
+    title: "Independent & Internship Work",
+    description:
+      "From solo side projects to real-world internship experience — a journey of applied learning.",
+    projects: projects["Chapter II: Architecting My Own Path"],
   },
   "Chapter III: The Workshop of Reality": {
-    title: "Real-World Applications",
-    description: "Professional projects and industry experience.",
+    title: "Professional Contributions",
+    description:
+      "Production-ready systems developed during my first professional roles — focused on collaboration, scalability, and user experience.",
     projects: projects["Chapter III: The Workshop Of Reality"],
   },
 } as const;
 
 export const chapters: { [K in Chapter]: React.ReactNode } = {
   Prologue: <Prologue />,
-  "Chapter I: Tales of Creation": null,
+  "Chapter I: The Early Days": null,
   "Chapter II: Architecting My Own Path": null,
   "Chapter III: The Workshop of Reality": null,
   "The Correspondence Chamber": <Contact />,
@@ -96,7 +99,8 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
   }
 
   return (
-    <div className="prose max-w-none">
+    <section className="prose max-w-none " aria-labelledby="chapter-title">
+      {" "}
       {!selectedProject ? (
         <motion.div
           drag="x"
@@ -134,6 +138,6 @@ export const ChapterContent = memo(({ chapter }: ChapterContentProps) => {
           isFlipping={isFlipping}
         />
       )}
-    </div>
+    </section>
   );
 });

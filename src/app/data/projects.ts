@@ -1,5 +1,5 @@
 export const projects = Object.freeze({
-  "Chapter I: First Steps": [
+  "Chapter I: The Early Days": [
     {
       title: "Bouncing Ball",
       shortDescription:
@@ -49,7 +49,7 @@ export const projects = Object.freeze({
     },
   ],
 
-  "Chapter II: Expanding Horizons": [
+  "Chapter II: Architecting My Own Path": [
     {
       title: "Makeup Artist Portfolio",
       shortDescription:
@@ -85,9 +85,10 @@ export const projects = Object.freeze({
   "Chapter III: The Workshop Of Reality": [
     {
       title: "KorrekturKumpel Website",
-      shortDescription: "Revamped the company's primary web presence.",
-      description: `As part of my first professional development role, I contributed to revamping the company's website, built with Astro and React.  
-        My contributions included:Enhancing the landing page with animations for a more engaging experience,developing missing pages, including an "About Us" section,improving overall performance, responsiveness, and design consistency.  `,
+      shortDescription:
+        "Redesigned  the company’s main website to improve performance, consistency, and storytelling.",
+      description: `As a front-end developer, I helped redesign and extend KorrekturKumpel’s primary  website — a platform promoting their AI-powered academic tool. The site is built with Astro and React, focusing on performance and modern design.
+I enhanced the landing experience with smooth CSS animations, built new pages including “About Us,” and optimized layout consistency, responsiveness, and visual hierarchy across devices.  `,
       image: "/kk-website-2.webp",
       techStack: [
         "React",
@@ -103,9 +104,11 @@ export const projects = Object.freeze({
     {
       title: "KorrekturKumpel App",
       shortDescription:
-        "Contributed to the development of the company's core tool.",
-      description: `I was part of the team working on the company's main web application, built with Nuxt.js and Supabase.  
-        My contributions included:Developing new features and refining existing ones,implementing user authentication and session management with Supabase,ensuring a seamless UI/UX experience using Vue 3 and Tailwind CSS. `,
+        "Developed key features for the company’s main AI-based  application.",
+      description: `KorrekturKumpel is an AI-powered platform that helps teachers correct student work faster. It can digitize handwritten answers, suggest grading criteria, and generate personalized feedback, making the correction process more efficient.
+
+I worked on building key parts of the interface using Vue 3 and Nuxt.js — including secure account pages, layout components, and responsive designs. The app uses Supabase for authentication and real-time features.
+ `,
       image: "/kk-app.webp",
       techStack: ["Nuxt.js", "Vue 3", "Supabase", "Tailwind CSS"],
       demo: "https://app.korrekturkumpel.de/login/",

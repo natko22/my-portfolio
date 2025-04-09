@@ -1,6 +1,6 @@
 export type Chapter =
   | "Prologue"
-  | "Chapter I: Tales of Creation"
+  | "Chapter I: The Early Days"
   | "Chapter II: Architecting My Own Path"
   | "Chapter III: The Workshop of Reality"
   | "The Correspondence Chamber"

@@ -31,13 +31,13 @@ const getRepoDisplay = (project: Project) => {
     return {
       isAvailable: true,
       url: project.repo,
-      label: "📖 Open the Codex",
+      label: "📖 Read the Code",
       title: `Explore the source code for ${project.title} on GitHub`,
     };
   } else {
     return {
       isAvailable: false,
-      label: " Private Codex",
+      label: " Private Repository",
       title: "This code is part of a private repository",
     };
   }
@@ -102,42 +102,44 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     >
       {!selectedProject ? (
         <>
-          <div className="w-full mb-6 ">
+          <section className="w-full mb-6" aria-labelledby="chapter-title">
             <h1
-              className="text-center font-bold mb-2 text-book-dark 
-text-2xl
-xxxs:text-2xl 
-xxs:text-2xl
-sm:text-3xl 
-small-md:text-3xl 
-md:text-4xl 
-lg:text-4xl"
+              id="chapter-title"
+              className=" text-center font-bold mb-2 text-book-dark 
+    text-2xl
+    xxxs:text-2xl 
+    xxs:text-2xl
+    sm:text-3xl 
+    small-md:text-3xl 
+    md:text-4xl 
+    lg:text-4xl lg:px-12"
             >
               {chapterTitle}
             </h1>
 
-            <h2 className=" text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body ">
+            <h4 className="text-center text-xs sm:text-sm md:text-base lg:text-md font-body leading-tight px-4 md:px-12">
               {chapterDescription}
-            </h2>
-          </div>
-          <div className="flex flex-col space-y-8 ">
+            </h4>
+          </section>
+
+          <div className="flex flex-col space-y-8 px-2 sm:px-4 md:px-14  lg:px-12">
             {projects?.map((proj) => (
               <div
                 key={proj.title}
                 className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2 "
                 onClick={() => setSelectedProject(proj)}
               >
-                <div className="relative mt-2 sm:mt-4 md:mt-6 lg:mt-8 flex-shrink-0 self-center shadow-md">
+                <div className="relative mt-8 sm:mt-8 md:mt-14 lg:mt-16 flex-shrink-0 self-center shadow-md">
                   {/* Hanging String */}
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-3 border-l-2 border-book-accent-light"></div>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-3 border-l-4 border-book-accent-light"></div>
 
                   {/* Outer Square Frame*/}
-                  <div className="border-[3px] border-book-accent-light rounded-sm aspect-square w-20 h-20 sm:w-22 sm:h-22 md:w-26 md:h-26 lg:w-30 lg:h-30 flex items-center justify-center">
+                  <div className="border-[3px] bg-[#e9e9e9] border-book-accent-light rounded-sm aspect-square w-20 h-20 sm:w-22 sm:h-22 md:w-26 md:h-26 lg:w-30 lg:h-30 flex items-center justify-center">
                     {/* Inner Frame */}
-                    <div className="border-[2px] p-1 border-book-accent-light rounded-sm aspect-square w-16 h-16 sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-26 lg:h-26 flex items-center justify-center">
+                    <div className="bg-[#e9e9e9] border-[2px] p-1 border-book-accent-light rounded-sm aspect-square w-16 h-16 sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-26 lg:h-26 flex items-center justify-center">
                       <Image
                         src={proj.image}
-                        alt={proj.title}
+                        alt={`${proj.title} project preview image`}
                         width={80}
                         height={80}
                         className="object-contain w-full h-full"
@@ -151,9 +153,9 @@ lg:text-4xl"
                   <h3 className="text-sm xs:text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8 ">
                     {proj.title}
                   </h3>
-                  <p className="italic text-gray-600 leading-tight text-sm md:text-base lg:text-lg text-left px-1">
+                  <h6 className=" italic text-gray-600 leading-tight text-sm md:text-base lg:text-md text-left px-1">
                     {proj.shortDescription}
-                  </p>
+                  </h6>
                 </div>
               </div>
             ))}
@@ -198,7 +200,7 @@ lg:text-4xl"
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
               {selectedProject.title}
             </h1>
-            <h6 className="italic mt-2 sm:mt-3 text-xs xs:text-sm sm:text-base lg:text-lg text-center text-grey-400 max-w-full sm:max-w-[90%] md:max-w-[85%] mx-auto leading-relaxed">
+            <h6 className=" italic text-gray-600 mt-2 sm:mt-3 text-xs xs:text-sm sm:text-base lg:text-md text-center  max-w-full sm:max-w-[90%] md:max-w-[85%] mx-auto leading-relaxed">
               {selectedProject.description}
             </h6>
           </div>
@@ -248,8 +250,8 @@ lg:text-4xl"
               lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
               {selectedProject.demo.includes("youtube.com")
-                ? "🎥 Watch the Tome"
-                : "📜 Read the Scroll"}
+                ? "🎥 Watch Demo"
+                : "📜 Explore Project"}
             </a>
             {getRepoDisplay(selectedProject).isAvailable ? (
               <a
