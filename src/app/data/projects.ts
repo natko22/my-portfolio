@@ -1,5 +1,5 @@
 export const projects = Object.freeze({
-  "Chapter I: First Steps": [
+  "Chapter I: The Early Days": [
     {
       title: "Bouncing Ball",
       shortDescription:
@@ -49,7 +49,7 @@ export const projects = Object.freeze({
     },
   ],
 
-  "Chapter II: Expanding Horizons": [
+  "Chapter II: Architecting My Own Path": [
     {
       title: "Makeup Artist Portfolio",
       shortDescription:
