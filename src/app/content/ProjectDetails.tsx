@@ -116,9 +116,9 @@ lg:text-4xl lg:px-12"
               {chapterTitle}
             </h1>
 
-            <h2 className=" text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl md:px-12 lg:text-3xl font-body lg:px-12 leading-tight ">
+            <h4 className="text-center text-xs sm:text-sm md:text-base lg:text-md font-body leading-tight px-4 md:px-12">
               {chapterDescription}
-            </h2>
+            </h4>
           </div>
           <div className="flex flex-col space-y-8 px-2 sm:px-4 md:px-14  lg:px-12">
             {projects?.map((proj) => (
@@ -127,7 +127,7 @@ lg:text-4xl lg:px-12"
                 className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2 "
                 onClick={() => setSelectedProject(proj)}
               >
-                <div className="relative mt-2 sm:mt-4 md:mt-6 lg:mt-8 flex-shrink-0 self-center shadow-md">
+                <div className="relative mt-8 sm:mt-8 md:mt-14 lg:mt-16 flex-shrink-0 self-center shadow-md">
                   {/* Hanging String */}
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-3 border-l-4 border-book-accent-light"></div>
 

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 export default function AboutMe() {
   return (
-    <section className="max-w-3xl mx-auto -mt-8 px-12">
+    <section className="max-w-3xl mx-auto -mt-8 px-4 sm:px-8 md:px-10 lg:px-12">
       <h1
         className="text-center mt-8 font-bold mb-2 text-book-dark 
 text-2xl
