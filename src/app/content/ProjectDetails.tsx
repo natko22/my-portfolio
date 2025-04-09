@@ -31,13 +31,13 @@ const getRepoDisplay = (project: Project) => {
     return {
       isAvailable: true,
       url: project.repo,
-      label: "📖 Open the Codex",
+      label: "📖 Read the Code",
       title: `Explore the source code for ${project.title} on GitHub`,
     };
   } else {
     return {
       isAvailable: false,
-      label: " Private Codex",
+      label: " Private Repository",
       title: "This code is part of a private repository",
     };
   }
@@ -104,23 +104,23 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
         <>
           <div className="w-full mb-6 ">
             <h1
-              className="text-center font-bold mb-2 text-book-dark 
+              className=" text-center font-bold mb-2 text-book-dark 
 text-2xl
 xxxs:text-2xl 
 xxs:text-2xl
 sm:text-3xl 
 small-md:text-3xl 
 md:text-4xl 
-lg:text-4xl"
+lg:text-4xl lg:px-12"
             >
               {chapterTitle}
             </h1>
 
-            <h2 className=" text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body ">
+            <h2 className=" text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl md:px-12 lg:text-3xl font-body lg:px-12 leading-tight ">
               {chapterDescription}
             </h2>
           </div>
-          <div className="flex flex-col space-y-8 ">
+          <div className="flex flex-col space-y-8 px-2 sm:px-4 md:px-14  lg:px-12">
             {projects?.map((proj) => (
               <div
                 key={proj.title}
@@ -151,9 +151,9 @@ lg:text-4xl"
                   <h3 className="text-sm xs:text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8 ">
                     {proj.title}
                   </h3>
-                  <p className="italic text-gray-600 leading-tight text-sm md:text-base lg:text-lg text-left px-1">
+                  <h6 className=" italic text-gray-600 leading-tight text-sm md:text-base lg:text-md text-left px-1">
                     {proj.shortDescription}
-                  </p>
+                  </h6>
                 </div>
               </div>
             ))}
@@ -198,7 +198,7 @@ lg:text-4xl"
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
               {selectedProject.title}
             </h1>
-            <h6 className="italic mt-2 sm:mt-3 text-xs xs:text-sm sm:text-base lg:text-lg text-center text-grey-400 max-w-full sm:max-w-[90%] md:max-w-[85%] mx-auto leading-relaxed">
+            <h6 className=" italic text-gray-600 mt-2 sm:mt-3 text-xs xs:text-sm sm:text-base lg:text-md text-center  max-w-full sm:max-w-[90%] md:max-w-[85%] mx-auto leading-relaxed">
               {selectedProject.description}
             </h6>
           </div>
@@ -248,8 +248,8 @@ lg:text-4xl"
               lg:hover:text-book-accent lg:hover:shadow-[0_0_15px_var(--color-accent)] no-underline"
             >
               {selectedProject.demo.includes("youtube.com")
-                ? "🎥 Watch the Tome"
-                : "📜 Read the Scroll"}
+                ? "🎥 Watch Demo"
+                : "📜 Explore Project"}
             </a>
             {getRepoDisplay(selectedProject).isAvailable ? (
               <a

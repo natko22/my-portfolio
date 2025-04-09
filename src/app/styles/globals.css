@@ -28,6 +28,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Merriweather";
+  src: url("/public/fonts/Merriweather-VariableFont_opsz,wdth,wght.ttf")
+    format("truetype");
+  font-style: normal;
+}
+
 .font-handwritten {
   font-family: "HomemadeApple", cursive;
 }
@@ -72,6 +79,9 @@
   h4,
   h5 {
     font-family: "LibreBaskerville";
+  }
+  h6 {
+    font-family: "Merriweather";
   }
 
   /* ====== Paragraph Styles ====== */

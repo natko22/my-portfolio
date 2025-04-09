@@ -2,7 +2,7 @@ import React from "react";
 
 const TechStack: React.FC = () => {
   return (
-    <div className="flex flex-col items-center text-center max-w-3xl mx-auto px-4 sm:px-6">
+    <div className="flex flex-col items-center text-center max-w-3xl mx-auto px-8 sm:px-6">
       {/* Title */}
       <h1
         className="text-center font-bold mb-2 text-book-dark 
