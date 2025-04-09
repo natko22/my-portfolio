@@ -30,7 +30,7 @@
 
 @font-face {
   font-family: "Merriweather";
-  src: url("/public/fonts/Merriweather-VariableFont_opsz,wdth,wght.ttf")
+  src: url("/fonts/Merriweather-VariableFont_opsz,wdth,wght.ttf")
     format("truetype");
   font-style: normal;
 }
