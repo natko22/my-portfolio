@@ -56,8 +56,9 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
           </h1>
 
           <h6
-            className="relative z-10 text-[10px] sm:text-xs md:text-sm 
-                font-body text-book-accent-light italic mt-1 sm:mt-2"
+            className="relative z-10 text-[11px] sm:text-sm md:text-base 
+    font-body text-book-accent-light italic mt-1 sm:mt-2 
+    drop-shadow-sm sm:drop-shadow md:drop-shadow-md"
           >
             Full-Stack Developer
           </h6>
