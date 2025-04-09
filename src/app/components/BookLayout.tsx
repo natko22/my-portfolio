@@ -325,6 +325,19 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
             )}
           </motion.div>
         </div>
+        {/* Author Credit */}
+        {!isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.4 }}
+            className="fixed bottom-4 left-0 right-0 text-xs text-center text-black italic font-serif tracking-wide opacity-70 z-[5] pointer-events-none"
+          >
+            <span className="font-semibold text-[15px] tracking-tight text-black/80 italic">
+              ✧ Designed & Developed by Anastasia Tsapanidou Kornilaki ✧
+            </span>
+          </motion.div>
+        )}
       </main>
     );
   }
