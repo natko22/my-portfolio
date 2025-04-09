@@ -129,12 +129,12 @@ lg:text-4xl lg:px-12"
               >
                 <div className="relative mt-2 sm:mt-4 md:mt-6 lg:mt-8 flex-shrink-0 self-center shadow-md">
                   {/* Hanging String */}
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-3 border-l-2 border-book-accent-light"></div>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-3 border-l-4 border-book-accent-light"></div>
 
                   {/* Outer Square Frame*/}
-                  <div className="border-[3px] border-book-accent-light rounded-sm aspect-square w-20 h-20 sm:w-22 sm:h-22 md:w-26 md:h-26 lg:w-30 lg:h-30 flex items-center justify-center">
+                  <div className="border-[3px] bg-[#e9e9e9] border-book-accent-light rounded-sm aspect-square w-20 h-20 sm:w-22 sm:h-22 md:w-26 md:h-26 lg:w-30 lg:h-30 flex items-center justify-center">
                     {/* Inner Frame */}
-                    <div className="border-[2px] p-1 border-book-accent-light rounded-sm aspect-square w-16 h-16 sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-26 lg:h-26 flex items-center justify-center">
+                    <div className="bg-[#e9e9e9] border-[2px] p-1 border-book-accent-light rounded-sm aspect-square w-16 h-16 sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-26 lg:h-26 flex items-center justify-center">
                       <Image
                         src={proj.image}
                         alt={proj.title}
