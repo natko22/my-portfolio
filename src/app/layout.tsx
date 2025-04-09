@@ -41,10 +41,26 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Turning Pages, Writing Code",
-    description: "Where logic meets creativity, a new world unfolds",
+    description: "Where logic meets creativity, a new world unfolds.",
     type: "website",
     locale: "en_US",
-    siteName: "Your Portfolio",
+    siteName: "Chapters by Anastasia",
+    url: "https://chaptersbyanastasia.dev",
+    images: [
+      {
+        url: "https://chaptersbyanastasia.dev/preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Turning Pages, Writing Code – Portfolio by Anastasia",
+        type: "image/jpg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Turning Pages, Writing Code",
+    description: "Where logic meets creativity, a new world unfolds.",
+    images: ["https://chaptersbyanastasia.dev/preview.jpg"],
   },
   robots: {
     index: true,
