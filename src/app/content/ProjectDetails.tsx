@@ -158,9 +158,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                     <h6 className="mobile:text-left text-center italic text-gray-600 text-xs sm:text-sm md:text-base leading-tight max-w-[85%]">
                       {proj.shortDescription}
                     </h6>
-
-                    {/* Arrow visible only on < 900px */}
-                    <span className="hidden belowTablet:inline-flex items-center justify-center bg-book-accent-light text-book-dark p-[5px] rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner ml-2">
+                    <span className="hidden belowTablet:inline-flex items-center justify-center bg-book-accent-light text-book-dark p-[5px] rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner ml-2 -mt-4">
                       <ArrowBigRight size={18} strokeWidth={2} />
                     </span>
                   </div>
