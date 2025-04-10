@@ -42,6 +42,7 @@ export const ClosingPage = memo(
           position: "absolute", // Keeps it properly aligned within the book layout
           width: "50%",
           height: "100%",
+          x: isClosing ? "43%" : "0%",
           transformOrigin: "left", // Ensures rotation happens from the left side
           backgroundColor: "var(--book-bg)",
           borderRadius: "0 8px 8px 0",

@@ -27,13 +27,15 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
         animate={{
           rotateY: hydrated && isOpen ? -80 : 0,
           opacity: hydrated && isOpen ? 0 : 1,
-          width: "50%",
+          width: "60%",
         }}
         transition={{
           duration: 0.7,
           ease: [0.16, 1, 0.3, 1],
         }}
-        style={{ willChange: "transform, opacity, width" }}
+        style={{
+          willChange: "transform, opacity, width",
+        }}
         className="relative bg-book-dark text-book-light p-3 sm:p-6 md:p-8 
         rounded-lg shadow-2xl flex flex-col items-center justify-center 
         cursor-pointer
