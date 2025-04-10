@@ -152,7 +152,8 @@ lg:text-3xl"
                   className="group relative flex flex-col sm:flex-row sm:items-baseline space-y-1 sm:space-y-0 sm:space-x-3 cursor-pointer transition-all duration-500 ease-in-out hover:text-book-accent p-2 sm:p-0"
                 >
                   {/*  Hover Line */}
-                  <span className="absolute inset-0 w-full bg-[var(--color-accent-light)] opacity-0 group-hover:opacity-30 focus-visible:opacity-30  transition-opacity duration-500 rounded-md"></span>
+                  <span className="absolute inset-0 w-full bg-[var(--color-accent-light)] opacity-0 sm:group-hover:opacity-30 group-focus-visible:opacity-30 transition-opacity duration-500 rounded-md"></span>
+
                   <span className="font-bold italic sm:min-w-[140px]">
                     {tech.name}:
                   </span>
