@@ -17,7 +17,10 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
   return (
     <section
       aria-label="Interactive book cover"
-      className="flex flex-col items-center justify-start pt-4 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-24 h-[calc(90vh-5rem)] min-h-[400px]"
+      className="flex flex-col items-center justify-start 
+      -mt-4 sm:mt-0 
+      pt-4 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-24 
+      h-[calc(90vh-5rem)] min-h-[400px]"
     >
       <motion.div
         initial={false}
@@ -35,8 +38,8 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
         rounded-lg shadow-2xl flex flex-col items-center justify-center 
         cursor-pointer
         h-[350px] xxs:h-[400px] sm:h-[500px] md:h-[550px] lg:h-[600px] xl:h-[580px]
-        w-[80%] xxs:w-[70%] sm:w-[60%] md:w-[40%] tablet:w-[45%] lg:w-[30%] xl:w-[25%] 
-        min-w-[280px] max-w-[420px] overflow-hidden
+w-[80%] xxs:w-[70%] sm:w-[60%] md:w-[40%] tablet:w-[45%] lg:w-[38%] xl:w-[30%]
+        min-w-[280px] max-w-[460px] overflow-hidden
         aspect-[3/4.2] sm:aspect-[3/4.5]
         mx-auto"
         role="button"

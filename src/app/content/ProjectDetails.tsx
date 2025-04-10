@@ -142,7 +142,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                         alt={`${proj.title} project preview image`}
                         width={80}
                         height={80}
-                        className="object-contain w-full h-full"
+                        className=" object-contain w-full h-full"
                         loading="lazy"
                       />
                     </div>
@@ -207,13 +207,16 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 
           {selectedProject.image && (
             <div className="flex justify-center mt-4 sm:mt-6">
-              <div className="w-24 h-24 md:w-28 md:h-28 lg:w-40 lg:h-40 border flex items-center justify-center p-2">
+              <div
+                className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48  flex items-center justify-center p-2 transition-transform duration-500 ease-in-out 
+            lg:hover:-translate-y-1 lg:hover:rotate-[0.3deg]"
+              >
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  width={120}
-                  height={120}
-                  className="object-contain w-16 h-16 md:w-20 md:h-20 lg:w-32 lg:h-32"
+                  width={500}
+                  height={500}
+                  className="object-contain w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-48 lg:h-48 transition-all duration-300"
                   loading="lazy"
                 />
               </div>
