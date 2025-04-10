@@ -57,7 +57,7 @@ lg:text-3xl"
           className="flex items-center justify-center w-28 sm:w-auto px-3 py-2 sm:px-8 sm:py-2 
       text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
       no-underline space-x-2 text-sm sm:text-base
-      hover:scale-105 hover:shadow-lg hover:-translate-y-1
+sm:hover:scale-105 sm:hover:shadow-lg sm:hover:-translate-y-1
       active:bg-opacity-80 active:shadow-inner"
           aria-label="Visit Natassa's LinkedIn Profile"
           title="Natassa on LinkedIn"
@@ -73,7 +73,7 @@ lg:text-3xl"
           className="flex items-center justify-center w-28 sm:w-auto px-3 py-2 sm:px-8 sm:py-2 
       text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
       no-underline space-x-2 text-sm sm:text-base
-      hover:scale-105 hover:shadow-lg hover:-translate-y-1
+sm:hover:scale-105 sm:hover:shadow-lg sm:hover:-translate-y-1
       active:bg-opacity-80 active:shadow-inner"
           aria-label="Visit Natassa's GitHub Profile"
           title="Natassa on GitHub"
