@@ -149,16 +149,18 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   </div>
                 </div>
 
-                <div className="flex-1 text-center w-full mx-auto justify-center ">
-                  <h3 className="text-sm xs:text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8 ">
+                <div className="w-full flex flex-col max-[899px]:items-start items-center max-[899px]:text-left text-center">
+                  <h3 className="text-sm xs:text-base sm:text-lg lg:text-xl font-semibold max-w-full">
                     {proj.title}
                   </h3>
-                  <div className="flex items-center justify-between ">
-                    <h6 className="max-[899px]:text-left italic text-gray-600 text-xs sm:text-sm md:text-base mr-2 leading-tight">
+
+                  <div className="w-full flex items-center justify-between mt-1">
+                    <h6 className="mobile:text-left text-center italic text-gray-600 text-xs sm:text-sm md:text-base leading-tight max-w-[85%]">
                       {proj.shortDescription}
                     </h6>
 
-                    <span className="mobile:inline-flex hidden items-center justify-center bg-book-accent-light text-book-dark p-1 rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner ml-4">
+                    {/* Arrow visible only on < 900px */}
+                    <span className="hidden belowTablet:inline-flex items-center justify-center bg-book-accent-light text-book-dark p-[5px] rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner ml-2">
                       <ArrowBigRight size={18} strokeWidth={2} />
                     </span>
                   </div>
