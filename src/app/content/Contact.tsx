@@ -54,32 +54,32 @@ lg:text-3xl"
           href="https://www.linkedin.com/in/anastasia-natassa-tsapanidou-kornilaki-a2b052191/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center px-3 py-2 sm:px-8 sm:py-2 
-    text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
-    no-underline space-x-2
-    hover:scale-105 hover:shadow-lg hover:-translate-y-1
-    active:bg-opacity-80 active:shadow-inner"
+          className="flex items-center justify-center w-28 sm:w-auto px-3 py-2 sm:px-8 sm:py-2 
+      text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
+      no-underline space-x-2 text-sm sm:text-base
+      hover:scale-105 hover:shadow-lg hover:-translate-y-1
+      active:bg-opacity-80 active:shadow-inner"
           aria-label="Visit Natassa's LinkedIn Profile"
           title="Natassa on LinkedIn"
         >
           <SiLinkedin className="w-5 h-5 text-white" />
-          <span className="">LinkedIn</span>
+          <span>LinkedIn</span>
         </a>
 
         <a
           href="https://github.com/natko22"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center px-3 py-2 sm:px-8 sm:py-2 
-    text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
-    no-underline space-x-2
-    hover:scale-105 hover:shadow-lg hover:-translate-y-1
-    active:bg-opacity-80 active:shadow-inner"
+          className="flex items-center justify-center w-28 sm:w-auto px-3 py-2 sm:px-8 sm:py-2 
+      text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
+      no-underline space-x-2 text-sm sm:text-base
+      hover:scale-105 hover:shadow-lg hover:-translate-y-1
+      active:bg-opacity-80 active:shadow-inner"
           aria-label="Visit Natassa's GitHub Profile"
           title="Natassa on GitHub"
         >
           <SiGithub className="w-5 h-5 text-white" />
-          <span className="">GitHub</span>
+          <span>GitHub</span>
         </a>
       </div>
     </section>
