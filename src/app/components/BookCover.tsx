@@ -27,7 +27,7 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
         animate={{
           rotateY: hydrated && isOpen ? -80 : 0,
           opacity: hydrated && isOpen ? 0 : 1,
-          width: isOpen ? "0%" : "50%",
+          width: "50%",
         }}
         transition={{
           duration: 0.7,
