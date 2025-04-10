@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Lock, ChevronLeft } from "lucide-react";
+import { Lock, ChevronLeft, ArrowBigRight } from "lucide-react";
 
 interface Project {
   title: string;
@@ -153,12 +153,12 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   <h3 className="text-sm xs:text-base sm:text-lg lg:text-xl font-semibold mx-auto max-w-full text-center mr-8 ">
                     {proj.title}
                   </h3>
-                  <h6 className=" italic text-gray-600 leading-tight text-sm md:text-base lg:text-md text-left px-1">
-                    {proj.shortDescription}
-                  </h6>
-                  <div className="text-right mt-1">
-                    <span className="inline-block bg-book-accent-light text-book-dark text-sm px-2 py-0.5 rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner lg:hidden">
-                      See Details
+                  <div className="flex items-center justify-between mt-1">
+                    <h6 className="italic text-gray-600 text-sm md:text-base mr-2">
+                      {proj.shortDescription}
+                    </h6>
+                    <span className="mobile:inline-flex hidden items-center justify-center bg-book-accent-light text-book-dark p-1 rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner">
+                      <ArrowBigRight size={18} strokeWidth={2} />
                     </span>
                   </div>
                 </div>
