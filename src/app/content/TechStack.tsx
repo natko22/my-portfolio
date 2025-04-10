@@ -16,13 +16,13 @@ xxs:text-2xl
 sm:text-3xl 
 small-md:text-3xl 
 md:text-4xl 
-lg:text-4xl"
+lg:text-3xl"
         id="techstack-title"
       >
         {" "}
         My Digital Lexicon
       </h1>
-      <h2 className=" text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body ">
+      <h2 className=" text-book-accent text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body ">
         {" "}
         A collection of tools that bring my stories to life.
       </h2>

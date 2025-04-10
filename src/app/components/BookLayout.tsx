@@ -11,7 +11,20 @@ import { ClosingPage } from "./ClosingPage";
 import { ChapterContent, chapters } from "../content/ChapterContent";
 import { Chapter } from "@/app/types/index";
 import BookCover from "./BookCover";
-import { X, ScrollText, ArrowLeft } from "lucide-react";
+import {
+  X,
+  ScrollText,
+  ArrowLeft,
+  LayoutGrid,
+  List,
+  BookOpen,
+  BookOpenCheck,
+  BookOpenText,
+  ListTree,
+  NotebookTabs,
+  NotebookIcon,
+  NotebookTextIcon,
+} from "lucide-react";
 
 interface BookLayoutProps {
   children?: React.ReactNode;
@@ -218,7 +231,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                               active:scale-95 hover:bg-book-accent-dark transition"
                             aria-label="Table of Contents"
                           >
-                            <ArrowLeft size={22} />
+                            <List size={22} />
                           </button>
                           <button
                             onClick={handleMobileClose}

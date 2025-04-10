@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, Lock, ChevronLeft } from "lucide-react";
+import { Lock, ChevronLeft } from "lucide-react";
 
 interface Project {
   title: string;
@@ -111,13 +111,13 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     xxs:text-2xl
     sm:text-3xl 
     small-md:text-3xl 
-    md:text-4xl 
-    lg:text-4xl lg:px-12"
+    md:text-3xl 
+    lg:text-3xl lg:px-12"
             >
               {chapterTitle}
             </h1>
 
-            <h4 className="text-center text-xs sm:text-sm md:text-base lg:text-md font-body leading-tight px-4 md:px-12">
+            <h4 className="text-center text-book-accent text-xs sm:text-sm md:text-base lg:text-sm font-body leading-tight px-4 md:px-12">
               {chapterDescription}
             </h4>
           </section>
@@ -129,7 +129,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                 className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2 "
                 onClick={() => setSelectedProject(proj)}
               >
-                <div className="relative mt-8 sm:mt-8 md:mt-14 lg:mt-16 flex-shrink-0 self-center shadow-md">
+                <div className=" relative mt-8 sm:mt-8 md:mt-14 lg:mt-16 flex-shrink-0 self-center shadow-md">
                   {/* Hanging String */}
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-3 border-l-4 border-book-accent-light"></div>
 
@@ -156,6 +156,11 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   <h6 className=" italic text-gray-600 leading-tight text-sm md:text-base lg:text-md text-left px-1">
                     {proj.shortDescription}
                   </h6>
+                  <div className="text-right mt-1">
+                    <span className="inline-block bg-book-accent-light text-book-dark text-sm px-2 py-0.5 rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner lg:hidden">
+                      See Details
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -176,11 +181,17 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
           {/* Desktop back button */}
           <button
             onClick={onBackToProjects}
-            className="hidden md:flex mt-8 md:w-auto text-center md:text-left italic text-xs md:text-base text-book-muted mb-4 md:absolute md:-top-2 md:right-4 hover:no-underline focus:outline-none relative z-30"
+            className="hidden md:flex items-center gap-1 
+  text-xs md:text-sm text-book-dark 
+  bg-book-accent-light px-2.5 py-1 rounded shadow-md 
+  hover:bg-book-accent hover:text-book-light 
+  active:translate-y-[1px] active:shadow-inner
+  transition-all duration-200
+  absolute top-0 right-2 md:right-3 lg:right-4 z-30 focus:outline-none focus:ring-0
+"
+            aria-label="Back to Project List"
           >
-            <span className="flex items-center justify-center md:justify-start gap-1 md:gap-2">
-              <ArrowLeft size={16} className="md:w-5 md:h-5" /> Back to Projects
-            </span>
+            <span className="font-medium">Back to Projects</span>
           </button>
 
           {/* Mobile floating action button */}
@@ -196,27 +207,38 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             </button>
           </div>
 
-          <div className="text-center mt-2 sm:mt-4">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
+          <div className="text-center mt-1 sm:mt-2">
+            <h1 className="text-lg sm:text-xl lg:text-3xl font-bold">
               {selectedProject.title}
             </h1>
-            <h6 className=" italic text-gray-600 mt-2 sm:mt-3 text-xs xs:text-sm sm:text-base lg:text-md text-center  max-w-full sm:max-w-[90%] md:max-w-[85%] mx-auto leading-relaxed">
+
+            <h6
+              className="italic text-gray-600 mt-1 sm:mt-2 
+    text-xs sm:text-sm lg:text-base 
+    leading-snug sm:leading-normal 
+    max-w-[92%] sm:max-w-[85%] mx-auto text-center"
+            >
               {selectedProject.description}
             </h6>
           </div>
 
           {selectedProject.image && (
-            <div className="flex justify-center mt-4 sm:mt-6">
+            <div className="flex justify-center mt-8 sm:mt-6">
               <div
-                className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48  flex items-center justify-center p-2 transition-transform duration-500 ease-in-out 
-            lg:hover:-translate-y-1 lg:hover:rotate-[0.3deg]"
+                className="w-28 h-28 
+    sm:w-32 sm:h-32 
+    md:w-36 md:h-36 
+    lg:w-52 lg:h-52 
+    flex items-center justify-center p-1 
+    transition-transform duration-300 ease-in-out 
+    lg:hover:-translate-y-[2px] lg:hover:rotate-[0.3deg]"
               >
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.title}
                   width={500}
                   height={500}
-                  className="object-contain w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-48 lg:h-48 transition-all duration-300"
+                  className="object-contain w-full h-full transition-all duration-300"
                   loading="lazy"
                 />
               </div>
@@ -231,7 +253,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               {selectedProject.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 sm:px-3 md:px-4 py-1 text-xs sm:text-sm lg:text-base italic font-serif
+                  className="px-1 sm:px-3 md:px-2 py-1 text-xs sm:text-sm lg:text-base italic font-serif
     transition-colors duration-300 ease-in-out
     lg:hover:text-book-accent"
                 >
