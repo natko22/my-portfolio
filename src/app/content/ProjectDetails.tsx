@@ -154,10 +154,11 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                     {proj.title}
                   </h3>
                   <div className="flex items-center justify-between ">
-                    <h6 className="italic text-gray-600 text-xs sm:text-sm md:text-base mr-2 leading-tight">
+                    <h6 className="max-[899px]:text-left italic text-gray-600 text-xs sm:text-sm md:text-base mr-2 leading-tight">
                       {proj.shortDescription}
                     </h6>
-                    <span className="mobile:inline-flex hidden items-center justify-center bg-book-accent-light text-book-dark p-1 rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner">
+
+                    <span className="mobile:inline-flex hidden items-center justify-center bg-book-accent-light text-book-dark p-1 rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner ml-4">
                       <ArrowBigRight size={18} strokeWidth={2} />
                     </span>
                   </div>
