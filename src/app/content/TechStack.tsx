@@ -140,7 +140,7 @@ lg:text-4xl"
         ].map((section, index) => (
           <div key={index} className="relative z-10 w-full text-left mt-8">
             {/* Section Title*/}
-            <h3 className="text-lg sm:text-xl font-bold text-center border-b-2 pb-2 border-[var(--color-accent-light)]">
+            <h3 className="text-lg sm:text-xl font-bold text-center border-b-2 pb-2 border-[var(--color-accent-light)] -mt-8 sm:mt-0">
               {section.category}
             </h3>
 
