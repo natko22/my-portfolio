@@ -1,7 +1,7 @@
 export default function Intro() {
   return (
     <section
-      className="intro flex flex-col justify-center items-center text-center px-8  md:px-12 space-y-4 md:space-y-2 mt-10 sm:mt-6 md:mt-4  h-[14vh] "
+      className="intro flex flex-col justify-center items-center text-center px-8  md:px-12 space-y-4 md:space-y-2 mt-8 sm:mt-6 md:mt-4  h-[14vh] "
       aria-label="Intro section"
     >
       {/* Title */}
