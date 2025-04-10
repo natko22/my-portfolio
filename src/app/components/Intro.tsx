@@ -1,11 +1,11 @@
 export default function Intro() {
   return (
     <section
-      className="intro flex flex-col justify-center items-center text-center px-8  md:px-12 space-y-4 md:space-y-2 mt-8 sm:mt-6 md:mt-4  h-[14vh] "
+      className="intro flex flex-col justify-center items-center text-center px-8  md:px-12 space-y-4 md:space-y-2 mt-6 sm:mt-6 md:mt-4  h-[14vh] "
       aria-label="Intro section"
     >
       {/* Title */}
-      <h1 className="text-book-accent-dark text-2xl sm:text-3xl md:text-5xl lg:text-6xl mt-8 whitespace-nowrap">
+      <h1 className="text-book-accent-dark text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-8 whitespace-nowrap">
         Turning Pages, Writing Code
         {/* Lines of Code, Chapters of Creativity */}
       </h1>
