@@ -49,13 +49,13 @@ lg:text-3xl"
       </a>
 
       {/* Social Links */}
-      <div className="mt-6 sm:mt-16 md:mt-14 flex flex-row justify-center space-x-4 sm:space-x-6">
+      <div className="mt-2 sm:mt-16 md:mt-14 flex flex-row justify-center space-x-4 sm:space-x-6">
         <a
           href="https://www.linkedin.com/in/anastasia-natassa-tsapanidou-kornilaki-a2b052191/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-10 h-10 sm:w-auto sm:h-auto px-2 py-2 sm:px-8 sm:py-2 
-    text-white bg-book-accent rounded-full sm:rounded-md shadow-md transition-all duration-200 
+          className="flex items-center justify-center px-3 py-2 sm:px-8 sm:py-2 
+    text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
     no-underline space-x-2
     hover:scale-105 hover:shadow-lg hover:-translate-y-1
     active:bg-opacity-80 active:shadow-inner"
@@ -63,15 +63,15 @@ lg:text-3xl"
           title="Natassa on LinkedIn"
         >
           <SiLinkedin className="w-5 h-5 text-white" />
-          <span className="hidden sm:inline">LinkedIn</span>
+          <span className="">LinkedIn</span>
         </a>
 
         <a
           href="https://github.com/natko22"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-10 h-10 sm:w-auto sm:h-auto px-2 py-2 sm:px-8 sm:py-2 
-    text-white bg-book-accent rounded-full sm:rounded-md shadow-md transition-all duration-200 
+          className="flex items-center justify-center px-3 py-2 sm:px-8 sm:py-2 
+    text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
     no-underline space-x-2
     hover:scale-105 hover:shadow-lg hover:-translate-y-1
     active:bg-opacity-80 active:shadow-inner"
@@ -79,7 +79,7 @@ lg:text-3xl"
           title="Natassa on GitHub"
         >
           <SiGithub className="w-5 h-5 text-white" />
-          <span className="hidden sm:inline">GitHub</span>
+          <span className="">GitHub</span>
         </a>
       </div>
     </section>
