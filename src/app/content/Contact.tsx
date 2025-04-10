@@ -49,20 +49,20 @@ lg:text-3xl"
       </a>
 
       {/* Social Links */}
-      <div className="mt-12 sm:mt-16 md:mt-14 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+      <div className="mt-2 sm:mt-16 md:mt-14 flex flex-row justify-center space-x-4 sm:space-x-6">
         <a
           href="https://www.linkedin.com/in/anastasia-natassa-tsapanidou-kornilaki-a2b052191/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center px-6 sm:px-8 md:px-12 py-2 
-          text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
-          no-underline space-x-2
-          hover:scale-105 hover:shadow-lg hover:-translate-y-1
-          active:bg-opacity-80 active:shadow-inner"
+          className="flex items-center justify-center w-28 sm:w-auto px-3 py-2 sm:px-8 sm:py-2 
+      text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
+      no-underline space-x-2 text-sm sm:text-base
+sm:hover:scale-105 sm:hover:shadow-lg sm:hover:-translate-y-1
+      active:bg-opacity-80 active:shadow-inner"
           aria-label="Visit Natassa's LinkedIn Profile"
           title="Natassa on LinkedIn"
         >
-          <SiLinkedin className="w-4 sm:w-5 h-4 sm:h-5 text-white" />
+          <SiLinkedin className="w-5 h-5 text-white" />
           <span>LinkedIn</span>
         </a>
 
@@ -70,15 +70,15 @@ lg:text-3xl"
           href="https://github.com/natko22"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center px-6 sm:px-8 md:px-12 py-2 
-          text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
-          no-underline space-x-2
-          hover:scale-105 hover:shadow-lg hover:-translate-y-1
-          active:bg-opacity-80 active:shadow-inner"
+          className="flex items-center justify-center w-28 sm:w-auto px-3 py-2 sm:px-8 sm:py-2 
+      text-white bg-book-accent rounded-md shadow-md transition-all duration-200 
+      no-underline space-x-2 text-sm sm:text-base
+sm:hover:scale-105 sm:hover:shadow-lg sm:hover:-translate-y-1
+      active:bg-opacity-80 active:shadow-inner"
           aria-label="Visit Natassa's GitHub Profile"
           title="Natassa on GitHub"
         >
-          <SiGithub className="w-4 sm:w-5 h-4 sm:h-5 text-white" />
+          <SiGithub className="w-5 h-5 text-white" />
           <span>GitHub</span>
         </a>
       </div>
