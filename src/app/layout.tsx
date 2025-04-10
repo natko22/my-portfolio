@@ -20,28 +20,34 @@ const lora = Lora({
 
 // ✅ Define metadata separately
 export const metadata: Metadata = {
-  title: "Turning Pages, Writing Code | Portfolio",
+  title: "Chapters by Anastasia | Creative Web Developer Portfolio",
+  description:
+    "Anastasia Tsapanidou Kornilaki is a creative web developer blending code and design. Explore chapters of real-world work, solo projects, internships, and creative builds.",
+  keywords: [
+    "Chapters by Anastasia",
+    "Anastasia Tsapanidou Kornilaki",
+    "creative developer portfolio",
+    "frontend developer",
+    "web developer portfolio",
+    "bootcamp projects",
+    "internship work",
+    "solo web projects",
+    "creative coding",
+    "Next.js portfolio",
+    "fullstack developer",
+  ],
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
-      // { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      // { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      // { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
-  description:
-    "Where logic meets creativity, a new world unfolds. Explore my portfolio of web development and creative coding projects.",
-  keywords: [
-    "web development",
-    "portfolio",
-    "creative coding",
-    "frontend development",
-  ],
   openGraph: {
-    title: "Turning Pages, Writing Code",
-    description: "Where logic meets creativity, a new world unfolds.",
+    title: "Chapters by Anastasia | Creative Web Developer Portfolio",
+    description:
+      "Anastasia Tsapanidou Kornilaki is a full-stack web developer with a passion for creative coding and user-focused design. This portfolio showcases solo projects, internships, and real-world development experience.",
     type: "website",
     locale: "en_US",
     siteName: "Chapters by Anastasia",
@@ -51,15 +57,16 @@ export const metadata: Metadata = {
         url: "https://chaptersbyanastasia.dev/preview.jpg",
         width: 1200,
         height: 630,
-        alt: "Turning Pages, Writing Code – Portfolio by Anastasia",
+        alt: "Anastasia Tsapanidou Kornilaki – Full-Stack Web Developer Portfolio Preview",
         type: "image/jpg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Turning Pages, Writing Code",
-    description: "Where logic meets creativity, a new world unfolds.",
+    title: "Chapters by Anastasia | Creative Web Developer Portfolio",
+    description:
+      "A portfolio by Anastasia Tsapanidou Kornilaki — full-stack web developer with experience in real-world projects, internships, and creative coding .",
     images: ["https://chaptersbyanastasia.dev/preview.jpg"],
   },
   robots: {
