@@ -162,7 +162,7 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
               // Mobile layout - single page with toggle
               <div className="flex flex-col h-full">
                 <motion.div
-                  className="w-full book-page rounded-lg h-full max-h-full md:max-h-none relative bg-book-light flex-1 shadow-lg overflow-visible"
+                  className="w-full book-page rounded-lg h-full max-h-full md:max-h-none relative bg-book-light flex-1 shadow-lg overflow-hidden"
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: isClosing ? 0 : 1,
