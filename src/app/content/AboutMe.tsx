@@ -13,7 +13,7 @@ xxs:text-2xl
 sm:text-3xl 
 small-md:text-3xl 
 md:text-4xl 
-lg:text-4xl"
+lg:text-3xl"
       >
         The Author Behind the Code
       </h1>

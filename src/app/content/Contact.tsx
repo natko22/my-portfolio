@@ -19,13 +19,13 @@ xxs:text-2xl
 sm:text-3xl 
 small-md:text-3xl 
 md:text-4xl 
-lg:text-4xl"
+lg:text-3xl"
       >
         {" "}
         Connect & Collaborate
       </h1>
 
-      <h2 className=" text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body ">
+      <h2 className="text-book-accent font-semibold text-center text-sm xxxs:text-base xxs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-body ">
         A brief pause to say hello or spark a new collaboration.
       </h2>
 
