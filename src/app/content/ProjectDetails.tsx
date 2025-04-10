@@ -149,13 +149,13 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   </div>
                 </div>
 
-                <div className="w-full flex flex-col max-[899px]:items-start items-center max-[899px]:text-left text-center">
+                <div className="w-full flex flex-col belowTablet:items-start items-center belowTablet:text-left text-center">
                   <h3 className="text-sm xs:text-base sm:text-lg lg:text-xl font-semibold max-w-full">
                     {proj.title}
                   </h3>
 
                   <div className="w-full flex items-center justify-between mt-1">
-                    <h6 className="mobile:text-left text-center italic text-gray-600 text-xs sm:text-sm md:text-base leading-tight max-w-[85%]">
+                    <h6 className="italic text-gray-600 text-xs sm:text-sm md:text-base leading-tight max-w-[85%]">
                       {proj.shortDescription}
                     </h6>
                     <span className="hidden belowTablet:inline-flex items-center justify-center bg-book-accent-light text-book-dark p-[5px] rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner ml-2 -mt-4">
