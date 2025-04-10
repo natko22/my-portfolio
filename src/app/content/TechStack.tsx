@@ -3,7 +3,7 @@ import React from "react";
 const TechStack: React.FC = () => {
   return (
     <div
-      className="flex flex-col items-center text-center max-w-3xl mx-auto px-8 sm:px-6"
+      className="flex flex-col items-center text-center max-w-3xl mx-auto px-8 "
       role="region"
       aria-labelledby="techstack-title"
     >
@@ -145,9 +145,9 @@ lg:text-4xl"
             </h3>
 
             {/* Tech Stack Items */}
-            <ul className="mt-4 space-y-3 sm:space-y-2">
+            <div className="mt-4 space-y-3 sm:space-y-2">
               {section.stack.map((tech, subIndex) => (
-                <li
+                <div
                   key={subIndex}
                   className="group relative flex flex-col sm:flex-row sm:items-baseline space-y-1 sm:space-y-0 sm:space-x-3 cursor-pointer transition-all duration-500 ease-in-out hover:text-book-accent p-2 sm:p-0"
                 >
@@ -157,9 +157,9 @@ lg:text-4xl"
                     {tech.name}:
                   </span>
                   <span className="text-gray-700">{tech.description}</span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>
