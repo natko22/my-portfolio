@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, Lock, ChevronLeft } from "lucide-react";
+import { Lock, ChevronLeft } from "lucide-react";
 
 interface Project {
   title: string;
@@ -129,7 +129,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                 className="flex items-center space-y-0 space-x-4 cursor-pointer transition-transform transform lg:hover:scale-105 p-2 "
                 onClick={() => setSelectedProject(proj)}
               >
-                <div className="relative mt-8 sm:mt-8 md:mt-14 lg:mt-16 flex-shrink-0 self-center shadow-md">
+                <div className=" relative mt-8 sm:mt-8 md:mt-14 lg:mt-16 flex-shrink-0 self-center shadow-md">
                   {/* Hanging String */}
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-3 border-l-4 border-book-accent-light"></div>
 
@@ -156,6 +156,11 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   <h6 className=" italic text-gray-600 leading-tight text-sm md:text-base lg:text-md text-left px-1">
                     {proj.shortDescription}
                   </h6>
+                  <div className="text-right mt-1">
+                    <span className="inline-block bg-book-accent-light text-book-dark text-sm px-2 py-0.5 rounded-sm shadow-sm active:translate-y-[1px] active:shadow-inner lg:hidden">
+                      See Details
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -176,11 +181,16 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
           {/* Desktop back button */}
           <button
             onClick={onBackToProjects}
-            className="hidden md:flex mt-8 md:w-auto text-center md:text-left italic text-xs md:text-base text-book-muted mb-4 md:absolute md:-top-2 md:right-4 hover:no-underline focus:outline-none relative z-30"
+            className="hidden md:flex items-center gap-1 
+  text-xs md:text-sm text-book-dark 
+  bg-book-accent-light px-2.5 py-1 rounded shadow-md 
+  hover:bg-book-accent hover:text-book-light 
+  active:translate-y-[1px] active:shadow-inner
+  transition-all duration-200
+  absolute top-0 right-2 md:right-3 lg:right-4 z-30"
+            aria-label="Back to Project List"
           >
-            <span className="flex items-center justify-center md:justify-start gap-1 md:gap-2">
-              <ArrowLeft size={16} className="md:w-5 md:h-5" /> Back to Projects
-            </span>
+            <span className="font-medium">Back to Projects</span>
           </button>
 
           {/* Mobile floating action button */}
