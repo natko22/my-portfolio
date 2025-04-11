@@ -10,7 +10,7 @@ export default function Intro() {
       </h1>
 
       <p className="w-full text-center max-w-2xl italic text-book-accent-dark text-base sm:text-lg md:text-xl mx-auto mt-2">
-        Where logic meets creativity, a new world unfolds
+        Explore My Web Development Journey
       </p>
     </section>
   );
