@@ -5,7 +5,7 @@ export default function Intro() {
       aria-label="Intro section"
     >
       {/* Title */}
-      <h1 className="text-book-accent-dark text-3xl sm:text-3xl md:text-4xl lg:text-5xl mt-8 whitespace-nowrap">
+      <h1 className="text-book-accent-dark text-3xl sm:text-3xl md:text-4xl lg:text-5xl mt-8 whitespace-nowrap py-2">
         {/* Turning Pages, Writing Code */}
         Lines of Code, Chapters of Creativity
       </h1>
