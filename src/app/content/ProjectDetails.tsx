@@ -227,21 +227,26 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             <div className="flex justify-center mt-8 sm:mt-6">
               <div
                 className="w-28 h-28 
-    sm:w-32 sm:h-32 
-    md:w-36 md:h-36 
-    lg:w-52 lg:h-52 
-    flex items-center justify-center p-1 
-    transition-transform duration-300 ease-in-out 
-    lg:hover:-translate-y-[2px] lg:hover:rotate-[0.3deg]"
+      sm:w-32 sm:h-32 
+      md:w-36 md:h-36 
+      lg:w-40 lg:h-40 
+      xl:w-44 xl:h-44 
+      flex items-center justify-center 
+      border-4 border-transparent
+      bg-gray-50/10 rounded-md overflow-hidden
+      transition-transform duration-300 ease-in-out 
+      lg:hover:-translate-y-[2px] lg:hover:rotate-[0.3deg]"
               >
-                <Image
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  width={500}
-                  height={500}
-                  className="object-contain w-full h-full transition-all duration-300"
-                  loading="lazy"
-                />
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    width={500}
+                    height={500}
+                    className="object-contain max-w-full max-h-full p-2"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           )}
