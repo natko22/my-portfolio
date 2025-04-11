@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useBookState } from "../hooks/useBookState";
 
 // Define text constants
-const text = `Every journey begins with a single step—or in this case, a single line of code. This book tells the story of my adventures in the world of web development, where each chapter represents a milestone in my growth as a developer.`;
+const text = `Welcome to my story. Like every developer, my path has been shaped by each line of code I’ve written and every challenge I’ve faced. This is a glimpse into my journey — where every project is a new chapter and every experience adds a page to the book of my growth as a web developer.`;
 const authorText = "— The Author";
 
 // Animation variants for the text
@@ -308,7 +308,7 @@ lg:text-3xl"
 
       <div
         ref={containerRef}
-        className="relative mt-12 text-xl xxxs:text-md xxs:text-lg sm:text-xl md:text-1xl lg:text-2xl font-handwritten leading-relaxed"
+        className="relative mt-12 text-xl xxxs:text-md xxs:text-lg sm:text-xl md:text-1xl lg:text-1xl font-handwritten leading-relaxed lg:px-4"
       >
         {text.split("").map((char, index) => (
           <motion.span

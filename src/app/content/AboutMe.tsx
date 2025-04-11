@@ -18,24 +18,25 @@ lg:text-3xl"
         The Author Behind the Code
       </h1>
       <p className="first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:mr-1 first-letter:float-left first-letter:text-book-accent">
-        Welcome to my story in code , where every project is a new chapter and
-        every line of code weaves a narrative of creativity and problem-solving.
-        My name is Natassa, and I am a developer who finds inspiration in
-        storytelling—both in books and in the digital experiences I create.
+        Welcome! I’m Anastasia Tsapanidou Kornilaki, a web developer with a
+        passion for both technology and design. My journey started in a
+        completely different field — Theology. Though my studies were
+        theoretical,i was always drawn to problem-solving. Long before I knew
+        anything about web development, I found myself inspecting web pages,
+        fascinated by how they were built and how they worked.
       </p>
       <p>
-        With a background in Theology, my journey into tech was an unexpected
-        plot twist—a leap into a world of logic, design, and endless discovery.
-        What started as a simple curiosity became a passion for building
-        meaningful, intuitive experiences on the web.
+        That curiosity ultimately led me to web development. It wasn’t an
+        immediate transition, but over time, I realized that web development
+        gave me the perfect outlet to build and create — a way to turn my ideas
+        into something real and impactful.
       </p>
       <p>
-        As an avid book lover, I approach development the same way I approach a
-        great novel—with curiosity, patience, and a love for the details. Every
-        problem is a puzzle to be unraveled, every project a story waiting to be
-        told. Whether it is designing seamless interfaces, weaving together
-        APIs, or collaborating with others, my goal is to craft solutions that
-        are as engaging as a well-written page.
+        Web development is ever-changing, and I’m committed to continuous
+        learning. This portfolio reflects that journey — each project has taught
+        me valuable lessons and has contributed to my growth as a developer.
+        Every chapter brings new challenges, and with each one, I continue to
+        learn, adapt, and evolve.
       </p>
       <p className="italic border-l-4 border-book-accent-light pl-4 py-1">
         Thank you for stepping into my world of code and creativity. I hope you
@@ -45,7 +46,7 @@ lg:text-3xl"
 
       {/* Signature/call to action */}
       <footer className="mt-10 text-right mr-8 font-serif italic text-book-accent-dark">
-        ~ Natassa
+        ~ Anastasia
       </footer>
     </section>
   );

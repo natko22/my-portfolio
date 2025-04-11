@@ -209,7 +209,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
           </div>
 
           <div className="text-center mt-1 sm:mt-2">
-            <h1 className="text-lg sm:text-xl lg:text-3xl font-bold">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
               {selectedProject.title}
             </h1>
 

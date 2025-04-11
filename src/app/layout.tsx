@@ -18,14 +18,14 @@ const lora = Lora({
   variable: "--font-lora",
 });
 
-// ✅ Define metadata separately
+// ✅ Define metadata
 export const metadata: Metadata = {
-  title: "Chapters by Anastasia | Creative Web Developer Portfolio",
+  title: "Chapters by Anastasia | Lines of Code, Chapters of Creativity",
   description:
-    "Anastasia Tsapanidou Kornilaki is a creative web developer blending code and design. Explore chapters of real-world work, solo projects, internships, and creative builds.",
+    " Anastasia Tsapanidou Kornilaki is a creative web developer showcasing real-world projects, solo builds, and internship experiences.",
   keywords: [
-    "Chapters by Anastasia",
     "Anastasia Tsapanidou Kornilaki",
+    "Chapters by Anastasia",
     "creative developer portfolio",
     "frontend developer",
     "web developer portfolio",
@@ -35,6 +35,8 @@ export const metadata: Metadata = {
     "creative coding",
     "Next.js portfolio",
     "fullstack developer",
+    "lines of code",
+    "chapters of creativity",
   ],
   icons: {
     icon: [
@@ -45,9 +47,9 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "Chapters by Anastasia | Creative Web Developer Portfolio",
+    title: "Chapters by Anastasia | Lines of Code, Chapters of Creativity",
     description:
-      "Anastasia Tsapanidou Kornilaki is a full-stack web developer with a passion for creative coding and user-focused design. This portfolio showcases solo projects, internships, and real-world development experience.",
+      "Anastasia Tsapanidou Kornilaki, a creative web developer showcasing real-world projects, solo builds, and internship experiences.",
     type: "website",
     locale: "en_US",
     siteName: "Chapters by Anastasia",
@@ -64,9 +66,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chapters by Anastasia | Creative Web Developer Portfolio",
+    title: "Chapters by Anastasia | Lines of Code, Chapters of Creativity",
     description:
-      "A portfolio by Anastasia Tsapanidou Kornilaki — full-stack web developer with experience in real-world projects, internships, and creative coding .",
+      "Anastasia Tsapanidou Kornilaki,a creative web developer showcasing real-world projects, solo builds, and internship experiences.",
     images: ["https://chaptersbyanastasia.dev/preview.jpg"],
   },
   robots: {
@@ -75,7 +77,6 @@ export const metadata: Metadata = {
   },
 };
 
-// ✅ Export viewport separately
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -89,38 +90,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${lora.variable}`}>
       <head>
-        {/* OG + Twitter Meta Tags */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://chaptersbyanastasia.dev" />
-        <meta property="og:title" content="Turning Pages, Writing Code" />
-        <meta
-          property="og:description"
-          content="Where logic meets creativity, a new world unfolds."
-        />
-        <meta
-          property="og:image"
-          content="https://chaptersbyanastasia.dev/preview.jpg"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="Turning Pages, Writing Code – Portfolio by Anastasia"
-        />
-
-        {/*  Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Turning Pages, Writing Code" />
-        <meta
-          name="twitter:description"
-          content="Where logic meets creativity, a new world unfolds."
-        />
-        <meta
-          name="twitter:image"
-          content="https://chaptersbyanastasia.dev/preview.jpg"
-        />
-
-        {/* Extra essentials */}
         <link rel="preload" href="/linear-bg.webp" as="image" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="format-detection" content="telephone=no" />
