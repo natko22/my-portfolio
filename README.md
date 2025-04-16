@@ -92,9 +92,10 @@ The layout gracefully adapts to all devices, ensuring a seamless and elegant exp
 
 Want to connect, collaborate, or simply say hi?
 
-- ✉️ Email: [natassakorn@gmail.com](mailto:your.email@example.com)
-- 🌐 LinkedIn: [https://www.linkedin.com/in/anastasia-natassa-tsapanidou-kornilaki-a2b052191/](https://linkedin.com/in/yourprofile)
-- 💻 GitHub: [https://github.com/natko22](https://github.com/yourusername)
+- ✉️ [Email](mailto:natassakorn@gmail.com)  
+- 🌐 [LinkedIn](https://www.linkedin.com/in/anastasia-natassa-tsapanidou-kornilaki-a2b052191/)  
+- 💻 [GitHub](https://github.com/natko22)
+
 
 ---
 
