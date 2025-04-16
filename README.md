@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <img src="public/screenshot.png" alt="portfolio preview" />
+</p>
 
-## Getting Started
+<h1 align="center">📚 Developer's Storybook</h1>
 
-First, run the development server:
+<p align="center">
+  <i>A developer’s journey told like a novel — one chapter, one commit at a time.</i>
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<p align="center">
+  <!-- 🍃 Earthy badge stack -->
+  <img src="https://img.shields.io/badge/Next.js-1A1A1A?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind-1E4034?style=for-the-badge&logo=tailwind-css&logoColor=38B2AC" />
+  <img src="https://img.shields.io/badge/TypeScript-2F4F4F?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Framer_Motion-364135?style=for-the-badge&logo=framer&logoColor=white" />
+  <img src="https://img.shields.io/badge/Lucide_Icons-2E2E2E?style=for-the-badge&logo=lucide&logoColor=white" />
+  <br/>
+  <img src="https://img.shields.io/badge/Bookworm_Approved-📖-415D43?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Storytelling_UI-🪶-A49B87?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Built_in-2025-8A7967?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Coffee_Powered-5C4033?style=for-the-badge&logo=buymeacoffee&logoColor=white" />
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📖 About the Project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Welcome! I’m **Anastasia Tsapanidou Kornilaki**, a web developer with a passion for both **technology and design**.  
+This portfolio is my way of telling a story — not just of the work I’ve done, but the path I’ve taken.
 
-## Learn More
+My journey didn’t begin in tech — it began in **Theology**, where I learned to think deeply and observe curiously.  
+Over time, my fascination with how websites were built led me to discover web development — a space where **problem-solving, creativity, and logic** come together in perfect harmony.
 
-To learn more about Next.js, take a look at the following resources:
+This portfolio is structured like a book: each chapter represents a part of my evolution — from bootcamp projects to internship experience, and on to my current role in the field.  
+With every line of code, I continue learning, adapting, and writing new chapters in my story.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> _“Thank you for stepping into my world of code and creativity. I hope you find inspiration in these pages as I continue to write my story, one keystroke at a time.”_
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧠 Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js** – React framework
+- **Tailwind CSS** – Utility-first styling with responsive design
+- **TypeScript** – Type-safe, scalable JavaScript
+- **Framer Motion** – Smooth, accessible animations and transitions
+- **Lucide Icons** – Elegant icon system
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🗂️ Layout & Chapters
+
+> _"Every chapter is a milestone — here's how the story unfolds:"_
+
+- **📘 Cover Page** – Project title, tagline, and author
+- **✍️ Prologue** – Live handwriting animation as an author’s personal note
+- **📖 Table of Contents** – Quick navigation between sections
+- **Chapter I: The Bootcamp** – My early projects and JavaScript foundations
+- **Chapter II: The Internships and solo projects** – Hands-on experience and teamwork
+- **Chapter III: Professional Work** – My work as a full-stack developer
+- **🧾 Digital Lexicon** – A glossary of tools & technologies used
+- **💌 Correspondence Chamber** – Contact form + links
+- **🖋️ Author’s Note** – The about-me story in final form
+
+Each chapter includes:
+
+- ✏️ Personal story or insight
+- 🛠️ Technologies used
+- 🔗 Links to code & live demos
+- 📸 Screenshots or project visuals
+
+---
+
+## 🌍 Responsiveness
+
+The layout gracefully adapts to all devices, ensuring a seamless and elegant experience whether viewed on a wide monitor or a mobile screen. Every detail has been considered — typography, spacing, and visibility.
+
+---
+
+## 🎨 Design Philosophy
+
+- 📖 Inspired by physical books — from chapter layout to textured pages
+- ✨ Subtle animations, smooth transitions, and a live handwriting Prologue
+- 🧩 Modular component structure for clean expansion
+- 🎯 User-first focus on clarity, tone, and aesthetic performance
+- ⚖️ Balanced design system that blends code and creativity
+
+---
+
+## 📬 Contact
+
+Want to connect, collaborate, or simply say hi?
+
+- ✉️ Email: [natassakorn@gmail.com](mailto:your.email@example.com)
+- 🌐 LinkedIn: [https://www.linkedin.com/in/anastasia-natassa-tsapanidou-kornilaki-a2b052191/](https://linkedin.com/in/yourprofile)
+- 💻 GitHub: [https://github.com/natko22](https://github.com/yourusername)
+
+---
+
+## 🖋️ Author
+
+Crafted with love, caffeine, and React  
+by **Anastasia Tsapanidou Kornilaki**
+
+---
+
+## 🔒 License
+
+This project is licensed under the **Creative Commons** — feel free to explore, learn from, or share it with credit.
+
+---
+
+> _“Not just code — a chronicle.”_
