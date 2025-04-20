@@ -55,14 +55,37 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
       }
     }, [isOpen, onBookStateChange]);
 
-    useEffect(() => {
-      const handleResize = () => setWindowWidth(window.innerWidth);
-      setWindowWidth(window.innerWidth);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
+    const useSinglePageView = windowWidth !== null && windowWidth < 900;
+
+    //  detects if the user is viewing from LinkedIn's browser
+    const isLinkedInBrowser = useCallback(() => {
+      if (typeof window === "undefined") return false;
+
+      // This is an approximation - LinkedIn may use different indicators
+      const userAgent = navigator.userAgent.toLowerCase();
+      return (
+        userAgent.includes("linkedin") ||
+        // Also check for referrer
+        (document.referrer &&
+          document.referrer.toLowerCase().includes("linkedin"))
+      );
     }, []);
 
-    const useSinglePageView = windowWidth !== null && windowWidth < 900;
+    useEffect(() => {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+
+        if (isLinkedInBrowser()) {
+          document.documentElement.classList.add("linkedin-view");
+        } else {
+          document.documentElement.classList.remove("linkedin-view");
+        }
+      };
+
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, [isLinkedInBrowser]);
 
     const bookHeightClass =
       isOpen && windowWidth !== null
