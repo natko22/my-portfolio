@@ -18,7 +18,7 @@ export const BookCover = memo(({ isOpen, onOpen }: BookCoverProps) => {
     <section
       aria-label="Interactive book cover"
       className="flex flex-col items-center justify-center pt-2 
-h-[calc(68vh-5rem)] sm:h-[calc(80vh-5rem)] md:h-[calc(84vh-5rem)] lg:h-[calc(88vh-5rem)]"
+h-[calc(65vh-5rem)] sm:h-[calc(80vh-5rem)] md:h-[calc(84vh-5rem)] lg:h-[calc(88vh-5rem)]"
     >
       <motion.div
         initial={false}
