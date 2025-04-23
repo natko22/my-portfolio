@@ -96,7 +96,6 @@ I enhanced the landing experience with smooth CSS animations, built new pages in
         "Tailwind CSS",
         "Astro",
         "CSS Animations",
-        "Responsive Design",
       ],
       demo: "https://korrekturkumpel.de/",
       repo: "",
