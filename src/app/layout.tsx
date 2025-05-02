@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     " Anastasia Tsapanidou Kornilaki is a creative web developer showcasing real-world projects, solo builds, and internship experiences.",
   keywords: [
     "Anastasia Tsapanidou Kornilaki",
+    "Natassa Kornilaki",
+    "Berlin web developer",
+    "fullstack developer",
     "Chapters by Anastasia",
     "creative developer portfolio",
     "frontend developer",
