@@ -285,7 +285,9 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                         <div className="px-4 pt-2 pb-24 min-h-full mt-12">
                           {currentChapter in chapters ? (
                             <ChapterContent
-                              key={`chapter-content-${mountKey}`}
+                              key={`chapter-content-${mountKey}-${
+                                isOpen ? "open" : "closed"
+                              }`}
                               chapter={currentChapter as Chapter}
                             />
                           ) : (
@@ -344,7 +346,9 @@ const BookLayout: React.FC<BookLayoutProps> = memo(
                       <div className="px-4 pt-16 pb-16 min-h-full">
                         {currentChapter in chapters ? (
                           <ChapterContent
-                            key={`chapter-content-${mountKey}`}
+                            key={`chapter-content-${mountKey}-${
+                              isOpen ? "open" : "closed"
+                            }`}
                             chapter={currentChapter as Chapter}
                           />
                         ) : (
