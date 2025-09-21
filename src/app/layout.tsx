@@ -22,10 +22,12 @@ const lora = Lora({
 export const metadata: Metadata = {
   title: "Chapters by Anastasia | Lines of Code, Chapters of Creativity",
   description:
-    " Anastasia Tsapanidou Kornilaki is a creative web developer showcasing real-world projects, solo builds, and internship experiences.",
+    "Anastasia Tsapanidou Kornilaki (Αναστασία Τσαπανίδου Κορνηλάκη) is a creative web developer showcasing real-world projects, solo builds, and internship experiences.",
   keywords: [
     "Anastasia Tsapanidou Kornilaki",
+    "Αναστασία Τσαπανίδου Κορνηλάκη",
     "Natassa Kornilaki",
+    "Νατάσσα Κορνηλάκη",
     "Berlin web developer",
     "fullstack developer",
     "Chapters by Anastasia",
@@ -40,7 +42,17 @@ export const metadata: Metadata = {
     "fullstack developer",
     "lines of code",
     "chapters of creativity",
+    "Greek web developer Berlin",
+    "Ελληνίδα προγραμματίστρια Βερολίνο",
   ],
+  authors: [
+    {
+      name: "Anastasia Tsapanidou Kornilaki (Αναστασία Τσαπανίδου Κορνηλάκη)",
+      url: "https://chaptersbyanastasia.dev",
+    },
+  ],
+  creator: "Anastasia Tsapanidou Kornilaki (Αναστασία Τσαπανίδου Κορνηλάκη)",
+  publisher: "Anastasia Tsapanidou Kornilaki",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -63,7 +75,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Anastasia Tsapanidou Kornilaki – Full-Stack Web Developer Portfolio Preview",
-        type: "image/jpg",
+        type: "image/jpeg",
       },
     ],
   },
@@ -71,7 +83,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Chapters by Anastasia | Lines of Code, Chapters of Creativity",
     description:
-      "Anastasia Tsapanidou Kornilaki,a creative web developer showcasing real-world projects, solo builds, and internship experiences.",
+      "Anastasia Tsapanidou Kornilaki (Αναστασία Τσαπανίδου Κορνηλάκη), a creative web developer showcasing real-world projects, solo builds, and internship experiences.",
     images: ["https://chaptersbyanastasia.dev/preview.jpg"],
   },
   robots: {
@@ -79,7 +91,6 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
-
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -100,6 +111,11 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#ffffff" />
+        {/* Additional meta tag for name in both languages */}
+        <meta
+          name="author"
+          content="Anastasia Tsapanidou Kornilaki (Αναστασία Τσαπανίδου Κορνηλάκη)"
+        />
       </head>
       <body className="antialiased bg-white dark:bg-gray-900 overflow-hidden">
         <a
