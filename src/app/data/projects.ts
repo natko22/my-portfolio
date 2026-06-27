@@ -113,5 +113,22 @@ I worked on building key parts of the interface using Vue 3 and Nuxt.js — incl
       demo: "https://app.korrekturkumpel.de/login/",
       repo: "",
     },
+    {
+      title: "Pythagoras",
+      shortDescription:
+        "A modern, responsive website for a Greek language teacher and published author.",
+      description: `A modern, responsive website built for a professional Greek language teacher and published author. The goal was to create a warm, welcoming, and trustworthy online presence that reflects both academic expertise and an engaging teaching style — featuring smooth scrolling, hover animations, and a fully accessible, mobile-first design. The site includes sections for the teacher's background, lesson offerings, testimonials, and contact, all built on a data-driven, component-based architecture.`,
+      image: "/pythagoras.webp",
+      techStack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Motion",
+        "Lucide React",
+      ],
+      demo: "https://greekwithpythagoras.com/",
+      repo: "https://github.com/natko22/pythagoras-project",
+    },
   ],
 });
