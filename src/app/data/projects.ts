@@ -67,7 +67,7 @@ export const projects = Object.freeze({
       description: `During my internship at MPC, I contributed to the development of VREP, an all-in-one school management platform. I worked on multiple pages, leveraging TypeScript, React, and Ant Design to build clean, efficient, and user-friendly interfaces. My work focused on enhancing the platform’s usability and performance, ensuring a seamless experience for students, teachers, and administrators.`,
       image: "/vrep.webp",
       techStack: ["TypeScript", "React", "Ant Design"],
-      demo: "https://www.vrepeducation.com/",
+      demo: "https://www.youtube.com/watch?v=1grhmBoC52A",
       repo: "",
     },
     {
@@ -129,6 +129,16 @@ I worked on building key parts of the interface using Vue 3 and Nuxt.js — incl
       ],
       demo: "https://greekwithpythagoras.com/",
       repo: "https://github.com/natko22/pythagoras-project",
+    },
+    {
+      title: "Greek Art Map",
+      shortDescription:
+        "A bilingual mobile app for discovering locations in Athens tied to notable Greek artists and writers.",
+      description: `A bilingual (English/Greek) mobile app for discovering locations in Athens where notable Greek artists and writers lived or worked, featuring an interactive map, curated walking routes, and artist biographies.Not yet published to the App Store, so documented here via a promo video.`,
+      image: "/greek-art-map.jpg",
+      techStack: ["React Native", "Expo", "TypeScript"],
+      demo: "https://youtube.com/shorts/V2piOLJYb0E",
+      repo: "",
     },
   ],
 });
